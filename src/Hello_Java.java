@@ -8,5 +8,7 @@ public class Hello_Java {
         System.out.print('1');
         System.out.println(" ");
         //System.out.print();    // Error
+        System.out.print("Hello, Java!");
     }
 }
+
