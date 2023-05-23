@@ -6,6 +6,8 @@ public class Lesson_3 {
     public static void main(String[] args) {
         info = new Scanner(System.in);
         getPersonInfo();
+
+        // Why have I to repeat calling this Scanner again? Without this Scanner calling code doesn't work
         info = new Scanner(System.in);
         getSymbol();
         getBodyMassIndex();
