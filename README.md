@@ -1,2 +1,2 @@
-# HelloJava
-It is repository of HelloJava project
+# TeachMeSkills C22-onl
+
