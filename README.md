@@ -1,2 +1,1 @@
-# TeachMeSkills C22-onl
-
+# Hello Java project
