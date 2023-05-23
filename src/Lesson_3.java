@@ -10,7 +10,7 @@ public class Lesson_3 {
         // Why have I to repeat calling this Scanner again? Without this Scanner calling code doesn't work
 //        info = new Scanner(System.in);
         getSymbol();
-        getBodyMassIndex();
+         getBodyMassIndex();
         info.close();
     }
 
