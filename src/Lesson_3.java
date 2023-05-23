@@ -1,16 +1,20 @@
 import java.util.Scanner;
 
 public class Lesson_3 {
+    public static Scanner info;
+
     public static void main(String[] args) {
+        info = new Scanner(System.in);
         getPersonInfo();
+        info = new Scanner(System.in);
         getSymbol();
-//        getBodyMassIndex();
+        getBodyMassIndex();
+        info.close();
     }
 
     /*Method for reading from the console and output person's info*/
 
     public static void getPersonInfo() {
-        Scanner info = new Scanner(System.in);
         System.out.print("Input person name: ");
         String name = info.nextLine();
         System.out.print("Input person surname: ");
@@ -21,7 +25,6 @@ public class Lesson_3 {
         double height = info.nextDouble();
         System.out.print("Input person weight: ");
         double weight = info.nextDouble();
-        info.close();
 
 //Output of person info
         System.out.println("Name: " + name);
@@ -35,16 +38,32 @@ public class Lesson_3 {
     //Method for reading of symbol and convert it in a number
 
     public static void getSymbol() {
-        Scanner symbol = new Scanner(System.in);
 
         //Read symbol from Scanner;
         System.out.print("Input one char: ");
-        char ch = symbol.next().charAt(0);
+        char ch = info.nextLine().charAt(0);
 
         //Output of symbol ch in letter and digit format
         System.out.println(ch + " - " + (int) ch);
 
-        symbol.close();
+    }
+
+    //Method for calculation of body mass index(BMI)
+
+    public static void getBodyMassIndex() {
+
+        //Reading from Scanner
+        System.out.print("Input person weight: ");
+        double weight = info.nextDouble();
+        System.out.print("Input person height: ");
+        double height = info.nextDouble();
+
+        //BMI calculation
+        double bmi = weight / (height * height);
+
+        //BMI output
+        System.out.println("BMI = " + bmi);
+
     }
 }
 
