@@ -10,6 +10,7 @@ class Lesson_4 {        //Why word public give error?
         getYearTimeIf();
         checkEvenNumb();
         getTempComment();
+        getRainbowColor();
 
     }
 
@@ -107,6 +108,42 @@ class Lesson_4 {        //Why word public give error?
         } else if (temp <= -20) {
             System.out.println("Холодно");
         }
+    }
+
+
+    //5) Method for output rainbow colors
+    public static void getRainbowColor() {
+        Scanner scan = new Scanner(System.in);
+        int colorNumb = scan.nextInt();
+        System.out.print("Enter number from 1 to 7: ");
+
+        switch (colorNumb) {
+            case (1):
+                System.out.println("1 - red");
+                break;
+            case (2):
+                System.out.println("2 - orange");
+                break;
+            case (3):
+                System.out.println("3 - yellow");
+                break;
+            case (4):
+                System.out.println("4 - green");
+                break;
+            case (5):
+                System.out.println("5 - light blue");
+                break;
+            case (6):
+                System.out.println("6 - blue");
+                break;
+            case (7):
+                System.out.println("7 - purple");
+                break;
+            default:
+                System.out.println("Your input wrong number");
+
+        }
+
     }
 
 }
