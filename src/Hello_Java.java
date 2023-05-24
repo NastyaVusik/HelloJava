@@ -9,14 +9,15 @@ class Lesson_4 {        //Why word public give error?
         getYearTimeSwitch();
         getYearTimeIf();
         checkEvenNumb();
+        getTempComment();
 
     }
 
-    //Method for output time of the year according to the number. Loop Switch-Case was used
+    //1) Method for output time of the year according to the number. Loop Switch-Case was used
     public static void getYearTimeSwitch() {
 
         Scanner scan = new Scanner(System.in);
-        System.out.println("Enter the number from 1 to 12: ");
+        System.out.print("Enter the number from 1 to 12: ");
         int monthNum = scan.nextInt();
 
 
@@ -51,7 +52,7 @@ class Lesson_4 {        //Why word public give error?
         }
     }
 
-    // Method for output time of the year according to the number. Loop if-else was used
+    //2) Method for output time of the year according to the number. Loop if-else was used
     public static void getYearTimeIf() {
 
         Scanner scan = new Scanner(System.in);
@@ -77,7 +78,7 @@ class Lesson_4 {        //Why word public give error?
     }
 
 
-    //Method for checking of even numbers
+    //3) Method for checking of even numbers
     public static void checkEvenNumb() {
 
         Scanner scan = new Scanner(System.in);
@@ -91,6 +92,22 @@ class Lesson_4 {        //Why word public give error?
         }
     }
 
+
+    //4) Method for comment about temperature on the street
+    public static void getTempComment() {
+
+        Scanner scan = new Scanner(System.in);
+        int temp = scan.nextInt();
+        System.out.print("Enter any temperature: ");
+
+        if (temp > -5) {
+            System.out.println("Тепло");
+        } else if ((-20 < temp) & (temp <= -5)) {
+            System.out.println("Нормально");
+        } else if (temp <= -20) {
+            System.out.println("Холодно");
+        }
+    }
 
 }
 
