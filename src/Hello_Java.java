@@ -3,10 +3,12 @@
 
 
 import java.util.Scanner;
+
 class Lesson_4 {        //Why word public give error?
     public static void main(String[] args) {
         getYearTimeSwitch();
         getYearTimeIf();
+        checkEvenNumb();
 
     }
 
@@ -44,39 +46,50 @@ class Lesson_4 {        //Why word public give error?
                 break;
 
             default:
-                System.out.println("The number doesn't correspond with time of the year");
+                System.out.print("The number doesn't correspond with time of the year");
                 break;
         }
     }
 
-// Method for output time of the year according to the number. Loop if-else was used
-    public static void getYearTimeIf(){
+    // Method for output time of the year according to the number. Loop if-else was used
+    public static void getYearTimeIf() {
 
-    Scanner scan = new Scanner(System.in);
-    System.out.println("Enter the number from 1 to 12: ");
-    int monthNum = scan.nextInt();
+        Scanner scan = new Scanner(System.in);
+        System.out.print("Enter the number from 1 to 12: ");
+        int monthNum = scan.nextInt();
 
-if(monthNum==1 || monthNum==2 || monthNum==12){
-    System.out.println("This is winter");
+        if (monthNum == 1 || monthNum == 2 || monthNum == 12) {
+            System.out.println("This is winter");
 //    break;                             //Why in this case I can't use break?
-}
-       else if(3<=monthNum & monthNum<=5){
+        } else if (3 <= monthNum & monthNum <= 5) {
             System.out.println("This is spring");
 //            break;
-        }
-        else if(6<=monthNum & monthNum<=8){
+        } else if (6 <= monthNum & monthNum <= 8) {
             System.out.println("This is summer");
 //            break;
+        } else if (9 <= monthNum & monthNum <= 11) {
+            System.out.println("This is autumn");
+//    break;
+        } else {
+            System.out.println("The number doesn't correspond with time of the year");
+//    break;
         }
-else if(9<=monthNum & monthNum<=11){
-    System.out.println("This is autumn");
-//    break;
-}
-else{
-    System.out.println("The number doesn't correspond with time of the year");
-//    break;
-}
-}
+    }
+
+
+    //Method for checking of even numbers
+    public static void checkEvenNumb() {
+
+        Scanner scan = new Scanner(System.in);
+        int numb = scan.nextInt();
+        System.out.print("Enter any integer number: ");
+
+        if ((numb % 2) == 0) {
+            System.out.println("Number" + numb + "is even");
+        } else {
+            System.out.println("Number" + numb + "is uneven");
+        }
+    }
 
 
 }
