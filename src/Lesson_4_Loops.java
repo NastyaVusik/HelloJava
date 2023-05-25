@@ -7,8 +7,10 @@ class Lesson_4_Loops {
         getDigits5To1();
         sumDigits();
         getSequence();
+        getNegativeSequence();
 
     }
+
 
     //1. Method for output only uneven numbers from 1 to 99
     public static void getDigits1To99() {
@@ -52,6 +54,17 @@ class Lesson_4_Loops {
         while (numb <= 98) {
             System.out.print((numb == 98) ? (numb + ".") : (numb + " "));
             numb += 7;
+        }
+        System.out.println("****************//****************");
+    }
+
+
+    //    5. Method for output 10 first digits of such sequence  0, -5,-10,-15...
+    public static void getNegativeSequence() {
+        int numb = 0;
+        for (int i = 1; i <= 10; i++) {
+            System.out.print((i == 10) ? (numb -= 5) : ((numb -= 5) + ", "));
+            numb -= 5;
         }
         System.out.println("****************//****************");
     }
