@@ -16,6 +16,7 @@ public class Lesson_4 {
 
     //1) Method for output time of the year according to the number. Loop Switch-Case was used
     public static void getYearTimeSwitch() {
+        System.out.println("\n" + 1 + ") " + "********************************" + "\n");
 
         Scanner scan = new Scanner(System.in);
         System.out.print("Enter the number from 1 to 12: ");
@@ -55,6 +56,7 @@ public class Lesson_4 {
 
     //2) Method for output time of the year according to the number. Loop if-else was used
     public static void getYearTimeIf() {
+        System.out.println("\n" + 2 + ") " + "********************************" + "\n");
 
         Scanner scan = new Scanner(System.in);
         System.out.print("Enter the number from 1 to 12: ");
@@ -81,6 +83,7 @@ public class Lesson_4 {
 
     //3) Method for checking of even numbers
     public static void checkEvenNumb() {
+        System.out.println("\n" + 3 + ") " + "********************************" + "\n");
 
         Scanner scan = new Scanner(System.in);
         System.out.print("Enter any integer number: ");
@@ -96,6 +99,7 @@ public class Lesson_4 {
 
     //4) Method for comment about temperature on the street
     public static void getTempComment() {
+        System.out.println("\n" + 4 + ") " + "********************************" + "\n");
 
         Scanner scan = new Scanner(System.in);
         System.out.print("Enter any temperature: ");
@@ -113,6 +117,7 @@ public class Lesson_4 {
 
     //5) Method for output rainbow colors
     public static void getRainbowColor() {
+        System.out.println("\n" + 5 + ") " + "********************************" + "\n");
         Scanner scan = new Scanner(System.in);
         System.out.print("Enter number from 1 to 7: ");
         int colorNumb = scan.nextInt();
