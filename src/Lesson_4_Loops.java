@@ -8,6 +8,10 @@ class Lesson_4_Loops {
         sumDigits();
         getSequence();
         getNegativeSequence();
+        getSequenceInPow2();
+
+        //Numbering of tasks
+        System.out.println("\n" + 1 + ") " + "********************************" + "\n");
 
     }
 
@@ -19,7 +23,7 @@ class Lesson_4_Loops {
                 System.out.println(i);
             }
         }
-        System.out.println("****************//****************");
+        System.out.println("\n" + 2 + ") " + "********************************" + "\n");
     }
 
 
@@ -28,7 +32,7 @@ class Lesson_4_Loops {
         for (int i = 5; i > 1; i--) {
             System.out.println(i);
         }
-        System.out.println("****************//****************");
+        System.out.println("\n" + 3 + ") " + "********************************" + "\n");
     }
 
 
@@ -44,7 +48,8 @@ class Lesson_4_Loops {
             sum += i;
         }
         System.out.println("sum = " + sum);
-        System.out.println("****************//****************");
+        System.out.println("\n" + 4 + ") " + "********************************" + "\n");
+        scan.close();
     }
 
 
@@ -55,7 +60,7 @@ class Lesson_4_Loops {
             System.out.print((numb == 98) ? (numb + ".") : (numb + " "));
             numb += 7;
         }
-        System.out.println("****************//****************");
+        System.out.println("\n" + 5 + ") " + "********************************" + "\n");
     }
 
 
@@ -66,7 +71,16 @@ class Lesson_4_Loops {
             System.out.print((i == 10) ? (numb -= 5) : ((numb -= 5) + ", "));
             numb -= 5;
         }
-        System.out.println("****************//****************");
+        System.out.println("\n" + 6 + ") " + "********************************" + "\n");
+    }
+
+
+    //    6. Method for output exponent of two for digits from 10 to 20 inclusive
+    public static void getSequenceInPow2() {
+        int numb = 10;
+        for (int i = 0; i <= 10; i++) {
+            System.out.println(Math.pow((numb++), 2));
+        }
     }
 
 
