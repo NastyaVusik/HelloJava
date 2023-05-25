@@ -4,7 +4,7 @@ public class Lesson_4_AdditionTask {
     public static void main(String[] args) {
         getFibonacci();
         calcBankDeposit();
-
+        getmultTable();
     }
 
 
@@ -52,6 +52,20 @@ public class Lesson_4_AdditionTask {
             sum += 0.07 * sum;
         }
         System.out.println("Total deposit sum: " + sum);
+        scan.close();
+    }
+
+
+    //3) Method for output of multiplication table
+    public static void getmultTable() {
+        System.out.println("\n" + 3 + ") " + "********************************" + "\n");
+        for (int i = 1; i <= 9; i++) {
+            for (int j = 1; j <= 9; j++) {
+                System.out.println(i + " x " + j + " = " + (i * j));
+            }
+            System.out.println();
+        }
+
     }
 
 
