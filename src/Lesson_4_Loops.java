@@ -6,6 +6,7 @@ class Lesson_4_Loops {
         getDigits1To99();
         getDigits5To1();
         sumDigits();
+        getSequence();
 
     }
 
@@ -28,6 +29,7 @@ class Lesson_4_Loops {
         System.out.println("****************//****************");
     }
 
+
     //3. Method for calculation summarize digits from 1 to specified digit.
     public static void sumDigits() {
 
@@ -40,6 +42,17 @@ class Lesson_4_Loops {
             sum += i;
         }
         System.out.println("sum = " + sum);
+        System.out.println("****************//****************");
+    }
+
+
+    //    4. Method for output sequence 7 14 21 28 35 42 49 56 63 70 77 84 91 98.
+    public static void getSequence() {
+        int numb = 7;
+        while (numb <= 98) {
+            System.out.print((numb == 98) ? (numb + ".") : (numb + " "));
+            numb += 7;
+        }
         System.out.println("****************//****************");
     }
 

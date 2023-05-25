@@ -143,6 +143,7 @@ class Lesson_4 {        //Why word public give error?
                 System.out.println("Your input wrong number");
 
         }
+        scan.close();
 
     }
 
