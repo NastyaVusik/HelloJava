@@ -4,7 +4,7 @@
 
 import java.util.Scanner;
 
-class Lesson_4 {        //Why word public give error?
+public class Lesson_4 {
     public static void main(String[] args) {
         getYearTimeSwitch();
         getYearTimeIf();
@@ -62,19 +62,19 @@ class Lesson_4 {        //Why word public give error?
 
         if (monthNum == 1 || monthNum == 2 || monthNum == 12) {
             System.out.println("This is winter");
-//    break;                             //Why in this case I can't use break?
+
         } else if (3 <= monthNum & monthNum <= 5) {
             System.out.println("This is spring");
-//            break;
+
         } else if (6 <= monthNum & monthNum <= 8) {
             System.out.println("This is summer");
-//            break;
+
         } else if (9 <= monthNum & monthNum <= 11) {
             System.out.println("This is autumn");
-//    break;
+
         } else {
             System.out.println("The number doesn't correspond with time of the year");
-//    break;
+
         }
     }
 
@@ -83,13 +83,13 @@ class Lesson_4 {        //Why word public give error?
     public static void checkEvenNumb() {
 
         Scanner scan = new Scanner(System.in);
-        int numb = scan.nextInt();
         System.out.print("Enter any integer number: ");
+        int numb = scan.nextInt();
 
         if ((numb % 2) == 0) {
-            System.out.println("Number" + numb + "is even");
+            System.out.println("Number " + numb + " is even");
         } else {
-            System.out.println("Number" + numb + "is uneven");
+            System.out.println("Number " + numb + " is uneven");
         }
     }
 
@@ -98,14 +98,14 @@ class Lesson_4 {        //Why word public give error?
     public static void getTempComment() {
 
         Scanner scan = new Scanner(System.in);
-        int temp = scan.nextInt();
         System.out.print("Enter any temperature: ");
+        int temp = scan.nextInt();
 
         if (temp > -5) {
             System.out.println("Тепло");
-        } else if ((-20 < temp) & (temp <= -5)) {
+        } else if ((temp > -20) & (temp <= -5)) {
             System.out.println("Нормально");
-        } else if (temp <= -20) {
+        } else {
             System.out.println("Холодно");
         }
     }
@@ -114,8 +114,8 @@ class Lesson_4 {        //Why word public give error?
     //5) Method for output rainbow colors
     public static void getRainbowColor() {
         Scanner scan = new Scanner(System.in);
-        int colorNumb = scan.nextInt();
         System.out.print("Enter number from 1 to 7: ");
+        int colorNumb = scan.nextInt();
 
         switch (colorNumb) {
             case (1):
