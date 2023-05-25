@@ -1,9 +1,11 @@
-//import java.util.Scanner;
+import java.util.Scanner;
+
 
 class Lesson_4_Loops {
     public static void main(String[] args) {
         getDigits1To99();
         getDigits5To1();
+        sumDigits();
 
     }
 
@@ -14,7 +16,7 @@ class Lesson_4_Loops {
                 System.out.println(i);
             }
         }
-        System.out.println("****************");
+        System.out.println("****************//****************");
     }
 
 
@@ -23,6 +25,22 @@ class Lesson_4_Loops {
         for (int i = 5; i > 1; i--) {
             System.out.println(i);
         }
+        System.out.println("****************//****************");
+    }
+
+    //3. Method for calculation summarize digits from 1 to specified digit.
+    public static void sumDigits() {
+
+        Scanner scan = new Scanner(System.in);
+        int numb = scan.nextInt();
+        int sum = 0;
+        System.out.print("Enter any positive integer number: ");
+
+        for (int i = 1; i < numb; i++) {
+            sum += i;
+        }
+        System.out.println("sum = " + sum);
+        System.out.println("****************//****************");
     }
 
 
