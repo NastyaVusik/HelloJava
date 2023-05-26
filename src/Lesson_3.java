@@ -6,11 +6,9 @@ public class Lesson_3 {
     public static void main(String[] args) {
         info = new Scanner(System.in);
         getPersonInfo();
-
-        // Why have I to repeat calling this Scanner again? Without this Scanner calling code doesn't work
-//        info = new Scanner(System.in);
         getSymbol();
-         getBodyMassIndex();
+        getSymbol_2();
+        getBodyMassIndex();
         info.close();
     }
 
@@ -43,25 +41,39 @@ public class Lesson_3 {
 
         //Read symbol from Scanner;
         System.out.print("Input one char: ");
-        char ch = info.nextLine().charAt(0);
+        char ch = info.next().charAt(0);
 
         //Output of symbol ch in letter and digit format
         System.out.println(ch + " - " + (int) ch);
 
     }
 
+    // The second version of method for conversion char to int
+
+    public static void getSymbol_2() {
+
+        //Read symbol from Scanner;
+        System.out.print("Input one char for second version of method: ");
+        char ch = (char) info.nextInt();
+
+        //Output of symbol ch in letter and digit format
+        System.out.println(ch + " - " + (int) ch);
+
+    }
+
+
     //Method for calculation of body mass index(BMI)
 
     public static void getBodyMassIndex() {
 
         //Reading from Scanner
-        System.out.print("Input person weight: ");
+        System.out.print("Input person weight, kg: ");
         double weight = info.nextDouble();
-        System.out.print("Input person height: ");
+        System.out.print("Input person height, sm: ");
         double height = info.nextDouble();
 
         //BMI calculation
-        double bmi = weight / (height * height);
+        double bmi = weight / (0.01 * height * 0.01 * height);
 
         //BMI output
         System.out.println("BMI = " + bmi);
