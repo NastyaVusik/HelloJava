@@ -3,10 +3,10 @@
 
 import java.util.Scanner;
 
-public class Lesson_5_Basic {
+class Lesson_5_Basic {
     public static void main(String[] args) {
         checkPresenceOfNumb();
-
+        deleteNumb();
 
     }
 
@@ -14,21 +14,53 @@ public class Lesson_5_Basic {
     //Method for determination of presence of the number in array
     public static void checkPresenceOfNumb() {
 
-        //Initialization of the array
-        int[] arr = new int[]{5, -12, 34, 126, 256, -25, 17};
+        //Initialization of the array and filling it via the loop for
+        int[] arr = new int[10];
+
+        System.out.println("Output of new array arr:");
+        for (int i = 0; i < arr.length; i++) {
+            arr[i] = i + 5;
+            System.out.print(arr[i] + "\t");
+        }
+        System.out.println();
 
         //Getting the number from keyboard
         Scanner scan = new Scanner(System.in);
         System.out.print("Enter any integer number: ");
         int numb = scan.nextInt();
 
-        for (int i = 0; i < arr.length; i++) {
-            if (numb == arr[i]) {
-                System.out.println("This array contains the number.");
-            } else {
-                System.out.println("This array doesn't contain the number.");
+        //Searching of the number
+        for (int j = 0; j < arr.length; j++) {
+            if (arr[j] == numb) {
+                System.out.println("This array contains the number " + numb);
+                break;
+            }
+            if (j == arr.length - 1) {
+                System.out.println("This array doesn't contain the number " + numb);
             }
         }
+
+    }
+
+
+    //Method for delete all certain numbers from array
+    public static void deleteNumb() {
+
+        //Initialization of the array
+        int[] arr = new int[]{5, -12, 34, 126, 256, -25, 17, 34, 56, 34};
+
+        //Input number for deduct from array
+        System.out.print("Enter any number: ");
+        Scanner scan = new Scanner(System.in);
+        int numb = scan.nextInt();
+
+        for (int i = 0; i < arr.length; i++) {
+            if (arr[i] == numb) {
+
+            }
+            System.out.print(arr[i] + "\t");
+        }
+
 
     }
 
