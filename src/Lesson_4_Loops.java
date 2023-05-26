@@ -12,29 +12,31 @@ class Lesson_4_Loops {
     }
 
 
-    //1) Method for output only uneven numbers from 1 to 99
+    //1) Method for output only uneven numbers from 1 till 99
     public static void getDigits1To99() {
         System.out.println("\n" + 1 + ") " + "********************************" + "\n");
 
         for (int i = 1; i < 99; i++) {
             if (i % 2 != 0) {
-                System.out.println(i);
+                System.out.print(i + "\t");
             }
         }
+        System.out.println();
     }
 
 
-    //2) Method for output numbers from 5 to 1
+    //2) Method for output numbers from 5 till 1
     public static void getDigits5To1() {
         System.out.println("\n" + 2 + ") " + "********************************" + "\n");
 
         for (int i = 5; i > 1; i--) {
-            System.out.println(i);
+            System.out.print(i + "\t");
         }
+        System.out.println();
     }
 
 
-    //3) Method for calculation summarize digits from 1 to specified digit.
+    //3) Method for calculation summarize digits from 1 till specified digit.
     public static void sumDigits() {
         System.out.println("\n" + 3 + ") " + "********************************" + "\n");
 
@@ -80,7 +82,7 @@ class Lesson_4_Loops {
         System.out.println("\n" + 6 + ") " + "********************************" + "\n");
         int numb = 10;
         for (int i = 0; i <= 10; i++) {
-            System.out.println((int) Math.pow((numb++), 2));
+            System.out.print((int) Math.pow((numb++), 2) + "\t");
         }
     }
 

@@ -19,7 +19,7 @@ public class Lesson_4_AdditionTask {
         int tempNumb;
         for (int i = 1; i <= 11; i++) {
 
-//Variable nextNumb go to the place of numb
+            //Variable nextNumb go to the place of numb
             tempNumb = numb;
             numb = nextNumb;
             nextNumb = tempNumb;
@@ -67,6 +67,5 @@ public class Lesson_4_AdditionTask {
         }
 
     }
-
 
 }
