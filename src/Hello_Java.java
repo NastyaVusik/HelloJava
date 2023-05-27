@@ -7,12 +7,14 @@ class Lesson_5_Basic {
     public static void main(String[] args) {
         checkPresenceOfNumb();
         deleteNumb();
+        getMinMidMaxValue();
 
     }
 
 
-    //Method for determination presence of the number in array
+    //1) Method for determination presence of the number in array
     public static void checkPresenceOfNumb() {
+        System.out.println("\n" + 1 + ") " + "********************************" + "\n");
 
         //Initialization of the array and filling it via the loop for
         int[] arr = new int[10];
@@ -32,19 +34,20 @@ class Lesson_5_Basic {
         //Searching of the number
         for (int j = 0; j < arr.length; j++) {
             if (arr[j] == numb) {
-                System.out.println("This array contains the number " + numb);
+                System.out.println("This array contains a number " + numb);
                 break;
             }
             if (j == arr.length - 1) {
-                System.out.println("This array doesn't contain the number " + numb);
+                System.out.println("This array doesn't contain a number " + numb);
             }
         }
 
     }
 
 
-    //Method for delete all certain numbers from array
+    //2) Method for delete all certain numbers from array
     public static void deleteNumb() {
+        System.out.println("\n" + 2 + ") " + "********************************" + "\n");
 
         //Initialization of the array
         int[] arr = new int[]{5, -12, 34, 126, 256, -25, 17, 34, 56, 34};
@@ -63,7 +66,7 @@ class Lesson_5_Basic {
             }
         }
         if (count == 0) {
-            System.out.println("Array arr doesn't contain the number " + numb);
+            System.out.println("Array arr doesn't contain a number " + numb);
         }
 
         //Create new array from old array arr. Specified number isn't included in new array
@@ -80,10 +83,59 @@ class Lesson_5_Basic {
                 newArr[newArrIndex] = arr[i];
                 System.out.print(newArr[newArrIndex] + "\t");
                 newArrIndex++;
+            }
+        }
+        System.out.println();
+    }
 
+
+    //3) Method for output min, middle and max value in array
+
+    public static void getMinMidMaxValue() {
+        System.out.println("\n" + 3 + ") " + "********************************" + "\n");
+
+        //Getting array length from keyboard
+        Scanner scan = new Scanner(System.in);
+        System.out.println("Enter length of array arr:");
+        int arrLength = scan.nextInt();
+
+
+        //Initialization of the array and filling it via the loop with random numbers
+        int[] arr = new int[arrLength];
+
+        System.out.println("Output of new array arr:");
+        for (int i = 0; i < arrLength; i++) {
+            arr[i] = 1 + (int) (Math.random() * 100);
+            System.out.print(arr[i] + "\t");
+        }
+        System.out.println();
+
+        //Determination of min, middle, max value in array arr
+        int minArr = arr[0];
+        int maxArr = arr[0];
+        int midArr = arr[0];
+
+        //Initialization of sum of all elements in array
+        int sum = 0;
+
+        for (int i = 0; i < arrLength; i++) {
+            if (minArr > arr[i]) {
+                minArr = arr[i];
             }
 
+            if (maxArr < arr[i]) {
+                maxArr = arr[i];
+            }
+
+            sum += arr[i];
         }
+
+        System.out.println("Min value in array arr: " + minArr);
+        System.out.println("Max value in array arr: " + maxArr);
+
+        midArr = sum / arrLength;
+        System.out.println("Middle value in array arr: " + midArr);
+
     }
 
 
