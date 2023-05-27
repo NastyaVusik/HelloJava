@@ -1,6 +1,7 @@
 // Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
 // then press Enter. You can now see whitespace characters in your code.
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 class Lesson_5_Basic {
@@ -8,6 +9,7 @@ class Lesson_5_Basic {
         checkPresenceOfNumb();
         deleteNumb();
         getMinMidMaxValue();
+        get2Arrays();
 
     }
 
@@ -113,7 +115,7 @@ class Lesson_5_Basic {
         //Determination of min, middle, max value in array arr
         int minArr = arr[0];
         int maxArr = arr[0];
-        int midArr = arr[0];
+        double midArr;
 
         //Initialization of sum of all elements in array
         int sum = 0;
@@ -138,6 +140,48 @@ class Lesson_5_Basic {
 
     }
 
+
+    //4) Method for output min, middle and max value in array
+
+    public static void get2Arrays() {
+        System.out.println("\n" + 4 + ") " + "********************************" + "\n");
+
+        //Initialization of two arrays and filling it via the loop for
+        int[] arr1 = new int[5];
+        int[] arr2 = new int[5];
+
+        for (int i = 0; i < 5; i++) {
+            arr1[i] = 1 + (int) (Math.random() * 100);
+            arr2[i] = 2 + (int) (Math.random() * 50);
+        }
+
+        //Output of arrays arr1 and arr2
+        System.out.println(Arrays.toString(arr1));
+        System.out.println(Arrays.toString(arr2));
+
+
+        //Initialization of sum of all elements in arrays and their middle value
+        int sum1 = 0;
+        int sum2 = 0;
+        double midArr1;
+        double midArr2;
+
+        for (int i = 0; i < 5; i++) {
+            sum1 += arr1[i];
+            sum2 += arr2[i];
+        }
+        midArr1 = sum1 / 5;
+        midArr2 = sum2 / 5;
+
+
+        if (midArr1 > midArr2) {
+            System.out.println("Middle value array of arr1 " + midArr1 + " > Middle value array of arr2 " + midArr2);
+        } else if (midArr2 > midArr1) {
+            System.out.println("Middle value array of arr2 " + midArr2 + " > Middle value array of arr1 " + midArr1);
+        } else {
+            System.out.println("Middle values of arrays are equal: " + midArr1);
+        }
+    }
 
 }
 
