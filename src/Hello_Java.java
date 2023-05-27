@@ -11,7 +11,7 @@ class Lesson_5_Basic {
     }
 
 
-    //Method for determination of presence of the number in array
+    //Method for determination presence of the number in array
     public static void checkPresenceOfNumb() {
 
         //Initialization of the array and filling it via the loop for
@@ -49,6 +49,9 @@ class Lesson_5_Basic {
         //Initialization of the array
         int[] arr = new int[]{5, -12, 34, 126, 256, -25, 17, 34, 56, 34};
 
+        //Counter of quantity required numbers
+        int count = 0;
+
         //Input number for deduct from array
         System.out.print("Enter any number: ");
         Scanner scan = new Scanner(System.in);
@@ -56,12 +59,31 @@ class Lesson_5_Basic {
 
         for (int i = 0; i < arr.length; i++) {
             if (arr[i] == numb) {
-
+                count++;
             }
-            System.out.print(arr[i] + "\t");
+        }
+        if (count == 0) {
+            System.out.println("Array arr doesn't contain the number " + numb);
         }
 
+        //Create new array from old array arr. Specified number isn't included in new array
+        int[] newArr = new int[arr.length - count];
 
+
+//  Declare index for array newArr
+        int newArrIndex = 0;
+
+        // Fill newArr with numbers from arr
+        for (int i = 0; i < arr.length; i++) {
+
+            if (arr[i] != numb) {
+                newArr[newArrIndex] = arr[i];
+                System.out.print(newArr[newArrIndex] + "\t");
+                newArrIndex++;
+
+            }
+
+        }
     }
 
 
