@@ -26,7 +26,7 @@ public class Lesson_5_Addition {
         while ((arr1Length <= 5) | (arr1Length > 10)) {
             arr1Length = scan.nextInt();
 
-            if ((arr1Length <= 5) || (arr1Length > 10)) {
+            if ((arr1Length <= 5) | (arr1Length > 10)) {
                 System.out.println("You input wrong length of array. Please, try again: ");
             } else {
                 break;
