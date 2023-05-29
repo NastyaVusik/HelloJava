@@ -5,6 +5,7 @@ public class Lesson_5_Addition {
     public static void main(String[] args) {
         //getEvenArray();
         getArrWithNulls();
+        getArrayRandomNames();
 
 
     }
@@ -94,11 +95,36 @@ public class Lesson_5_Addition {
                 arrNew[i] = 0;
             }
         }
-        System.out.println("Array arrNew: " + "\n" + Arrays.toString(arrNew) + "\n");
-
+        System.out.println("Array arrNew: " + "\n" + Arrays.toString(arrNew));
     }
 
 
+    //7) Method for filling array with random names
+    public static void getArrayRandomNames() {
+        System.out.println("\n" + 7 + ") " + "********************************" + "\n");
+
+        //Initialization String array with names
+        String[] arr1 = new String[]{"Tom", "Masha", "Vitalik", "Misha", "Lesha", "Andrei", "Petr", "Sveta"};
+        Arrays.sort(arr1);
+        System.out.print(Arrays.toString(arr1));
+        System.out.println("\n");
+    }
+
+
+/////////////////////////////////////
+
 }
+
+
+
+
+
+
+
+
+
+
+
+
 
 
