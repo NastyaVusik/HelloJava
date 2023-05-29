@@ -6,6 +6,7 @@ public class Lesson_5_Addition {
         //getEvenArray();
         getArrWithNulls();
         getArrayRandomNames();
+        sortBubbleMethod();
 
 
     }
@@ -107,7 +108,42 @@ public class Lesson_5_Addition {
         String[] arr1 = new String[]{"Tom", "Masha", "Vitalik", "Misha", "Lesha", "Andrei", "Petr", "Sveta"};
         Arrays.sort(arr1);
         System.out.print(Arrays.toString(arr1));
-        System.out.println("\n");
+        System.out.println();
+    }
+
+
+    //8) Bubble method
+    public static void sortBubbleMethod() {
+        System.out.println("\n" + 8 + ") " + "********************************" + "\n");
+
+        //Temporary variable
+        int temp;
+
+        //Get length of array from keyboard
+        Scanner scan = new Scanner(System.in);
+        System.out.print("Enter length of array. It can be any integer positive number: ");
+        int arr1Length = scan.nextInt();
+
+        //initialization of array arr1
+        int[] arr1 = new int[arr1Length];
+
+        //Fill array with random numbers
+        for (int i = 0; i < arr1Length; i++) {
+            arr1[i] = 1 + (int) (Math.random() * 100);
+        }
+        System.out.print("Array arr1: " + "\n" + Arrays.toString(arr1) + "\n");
+
+        // Realisation of bubble sort
+        for (int i = 1; i < arr1Length; i++) {
+            for (int j = (arr1Length - 1); j >= i; j--) {
+                if (arr1[j - 1] > arr1[j]) {
+                    temp = arr1[j];
+                    arr1[j] = arr1[j - 1];
+                    arr1[j - 1] = temp;
+                }
+            }
+        }
+        System.out.print("Array arr1 after bubble sort: " + "\n" + Arrays.toString(arr1));
     }
 
 
