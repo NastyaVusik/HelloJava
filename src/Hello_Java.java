@@ -8,12 +8,15 @@ import java.util.Arrays;
 
 class Lesson_6 {
     public static void main(String[] args) {
-        getThreeDimArray();
+//        getThreeDimArray();
+        paintChessBoard();
     }
 
 
-    //Method for increasing three-dimensional array by number. Output new array to the console
+    //1) Method for increasing three-dimensional array by number. Output new array to the console
     public static void getThreeDimArray() {
+        System.out.println("\n" + 1 + ") " + "********************************" + "\n");
+
         Scanner scan = new Scanner(System.in);
 
         //Initialisation of array arr
@@ -98,9 +101,32 @@ class Lesson_6 {
             }
             System.out.println();
         }
+    }
 
 
-//        System.out.println("Array arr: " + Arrays.deepToString(arr));
+    //2) Method for painting a chess board
+    public static void paintChessBoard() {
+        System.out.println(2 + ") " + "********************************" + "\n");
+
+        //Initialisation of array chessBoard
+        char[][] chessBoard = new char[8][8];
+        char black = 'B';
+        char white = 'W';
+
+        //Fill array with 'B' and 'W' in chess order
+        for (int i = 0; i < chessBoard.length; i++) {
+            for (int j = 0; j < chessBoard[i].length; j++) {
+                if (((i % 2 == 0) && (j % 2 == 0)) || ((i % 2 != 0) && (j % 2 != 0))) {
+                    chessBoard[i][j] = white;
+//                    chessBoard[i + 1][j] = black;
+                } else {
+                    chessBoard[i][j] = black;
+                    // chessBoard[i + 1][j] = white;
+                }
+                System.out.print(chessBoard[i][j] + "\t");
+            }
+            System.out.println("\n");
+        }
 
     }
 
