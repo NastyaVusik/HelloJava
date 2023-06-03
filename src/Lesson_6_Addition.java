@@ -1,8 +1,11 @@
 import java.util.Arrays;
+import java.util.Random;
+import java.util.Scanner;
 
 public class Lesson_6_Addition {
     public static void main(String[] args) {
-        multipleMatrix();
+//        multipleMatrix();
+        getSumNumbers();
 
     }
 
@@ -39,5 +42,35 @@ public class Lesson_6_Addition {
     }
 
 
+    //4) Method for calculation sum of all elements of array
+    public static void getSumNumbers() {
+        System.out.println("\n" + 4 + ") " + "********************************" + "\n");
+
+        //Initialisation of array
+        Scanner scan = new Scanner(System.in);
+        System.out.print("Enter quantity of rows of the array: ");
+        int rows = scan.nextInt();
+        System.out.print("Enter quantity of columns of the array: ");
+        int col = scan.nextInt();
+
+        int[][] arr1 = new int[rows][col];
+        Random random = new Random();
+
+
+        int sum = 0;    //counter
+
+        //Fill the array with random numbers
+        for (int i = 0; i < arr1.length; i++) {
+            for (int j = 0; j < arr1[0].length; j++) {
+                arr1[i][j] = random.nextInt(-20, 20);
+                sum += arr1[i][j];
+            }
+        }
+        System.out.println("Array arr1: " + Arrays.deepToString(arr1));
+        System.out.println("Sum of all elements of array arr1 sum: " + sum);
+
+
+    }
     /////////////////////////////
 }
+

@@ -4,11 +4,10 @@
 
 import java.util.Random;
 import java.util.Scanner;
-import java.util.Arrays;
 
 class Lesson_6 {
     public static void main(String[] args) {
-//        getThreeDimArray();
+        getThreeDimArray();
         paintChessBoard();
     }
 
@@ -118,10 +117,8 @@ class Lesson_6 {
             for (int j = 0; j < chessBoard[i].length; j++) {
                 if (((i % 2 == 0) && (j % 2 == 0)) || ((i % 2 != 0) && (j % 2 != 0))) {
                     chessBoard[i][j] = white;
-//                    chessBoard[i + 1][j] = black;
                 } else {
                     chessBoard[i][j] = black;
-                    // chessBoard[i + 1][j] = white;
                 }
                 System.out.print(chessBoard[i][j] + "\t");
             }
@@ -130,7 +127,5 @@ class Lesson_6 {
 
     }
 
-
-    /////////////////////////////////
 }
 
