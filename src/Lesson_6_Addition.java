@@ -7,6 +7,7 @@ public class Lesson_6_Addition {
 //        multipleMatrix();
 //        getSumNumbers();
         getDiagonal();
+        getAscendingOrder();
 
     }
 
@@ -92,7 +93,6 @@ public class Lesson_6_Addition {
         for (int i = 0; i < arr1.length; i++) {
             for (int j = 0; j < arr1[0].length; j++) {
                 arr1[i][j] = random.nextInt(-10, 20);
-//                System.out.print((i == j) ? ("[" + arr1[i][j] + "]" + "\t") : (arr1[i][j] + "\t"));
                 System.out.print(arr1[i][j] + "\t");
             }
             System.out.println();
@@ -102,9 +102,10 @@ public class Lesson_6_Addition {
         System.out.println("\n" + "Main diagonal of the array arr1:");
         for (int i = 0; i < arr1.length; i++) {
             for (int j = 0; j < arr1[0].length; j++) {
-                System.out.print((i == j) ? ("[" + arr1[i][j] + "]") : "_");
+                if (i == j) {
+                    System.out.print(("[" + arr1[i][j] + "]") + " ");
+                }
             }
-
         }
         //Output of the second diagonal of the array arr1
         System.out.println("\n" + "Main diagonal of the array arr1:");
@@ -114,13 +115,59 @@ public class Lesson_6_Addition {
         int j = (arr1[0].length - 1);
 
         do {
-            System.out.print(("[" + arr1[i][j] + "]") + "_");
+            System.out.print(("[" + arr1[i][j] + "]") + " ");
             i++;
             j--;
         }
         while (i <= (arr1.length - 1) && j >= 0);
+        System.out.println();
     }
 
+
+    //6) Method for sorting elements on rows in ascending order
+    public static void getAscendingOrder() {
+        System.out.println("\n" + 6 + ") " + "********************************" + "\n");
+
+        //Initialisation of array
+        Scanner scan = new Scanner(System.in);
+        System.out.print("Enter quantity of rows of the array: ");
+        int rows = scan.nextInt();
+        System.out.print("Enter quantity of columns of the array: ");
+        int col = scan.nextInt();
+
+        int[][] arr1 = new int[rows][col];
+
+        //Filling the array with random numbers and output in console
+        Random random = new Random();
+
+        System.out.println("Array arr1:");
+        for (int i = 0; i < arr1.length; i++) {
+            for (int j = 0; j < arr1[0].length; j++) {
+                arr1[i][j] = random.nextInt(-10, 20);
+                System.out.print(arr1[i][j] + "\t");
+            }
+            System.out.println();
+        }
+
+        //Initialize variable min and temporary variable temp
+        int min = arr1[0][0];
+        int temp;
+
+        //Sorting of elements
+        System.out.println("\n" + "Sorted array arr1:");
+        for (int i = 0; i < arr1.length; i++) {
+            for (int j = 0; j < arr1[0].length; j++) {
+                if (arr1[i][j] < min) {
+                    temp = arr1[i][j];
+                    arr1[i][j] = min;
+                    min = temp;
+                }
+            }
+        }
+        System.out.print(Arrays.deepToString(arr1));
+
+
+    }
 
     /////////////////////////////
 }
