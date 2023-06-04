@@ -150,22 +150,39 @@ public class Lesson_6_Addition {
         }
 
         //Initialize variable min and temporary variable temp
-        int min = arr1[0][0];
+//        int min = arr1[0][0];
+        boolean sorted = false;
         int temp;
 
         //Sorting of elements
         System.out.println("\n" + "Sorted array arr1:");
-        for (int i = 0; i < arr1.length; i++) {
-            for (int j = 0; j < arr1[0].length; j++) {
-                if (arr1[i][j] < min) {
-                    temp = arr1[i][j];
-                    arr1[i][j] = min;
-                    min = temp;
+//        for (int i = 0; i < arr1.length; i++) {
+//            for (int j = 0; j < arr1[0].length; j++) {
+//                if (arr1[i][j] < min) {
+//                    temp = arr1[i][j];
+//                    arr1[i][j] = min;
+//                    min = temp;
+//                }
+//            }
+//        }
+
+        while (!sorted) {
+            sorted = true;
+            for (int i = 0; i < arr1.length; i++) {
+                for (int j = 0; j < arr1[0].length; j++) {
+                    for (int k = j; k < arr1[0].length; k++)
+
+                        if (arr1[i][j] > arr1[i][k]) {
+                            temp = arr1[i][j];
+                            arr1[i][j] = arr1[i][k];
+                            arr1[i][k] = temp;
+                            sorted = false;
+                        }
+
                 }
             }
         }
         System.out.print(Arrays.deepToString(arr1));
-
 
     }
 
