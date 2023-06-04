@@ -5,7 +5,8 @@ import java.util.Scanner;
 public class Lesson_6_Addition {
     public static void main(String[] args) {
 //        multipleMatrix();
-        getSumNumbers();
+//        getSumNumbers();
+        getDiagonal();
 
     }
 
@@ -68,9 +69,59 @@ public class Lesson_6_Addition {
         }
         System.out.println("Array arr1: " + Arrays.deepToString(arr1));
         System.out.println("Sum of all elements of array arr1 sum: " + sum);
-
-
     }
+
+
+    //5) Method for output diagonals of array
+    public static void getDiagonal() {
+        System.out.println("\n" + 5 + ") " + "********************************" + "\n");
+
+        //Initialisation of array
+        Scanner scan = new Scanner(System.in);
+        System.out.print("Enter quantity of rows of the array: ");
+        int rows = scan.nextInt();
+        System.out.print("Enter quantity of columns of the array: ");
+        int col = scan.nextInt();
+
+        int[][] arr1 = new int[rows][col];
+
+        //Filling the array with random numbers and output in console
+        Random random = new Random();
+
+        System.out.println("Array arr1:");
+        for (int i = 0; i < arr1.length; i++) {
+            for (int j = 0; j < arr1[0].length; j++) {
+                arr1[i][j] = random.nextInt(-10, 20);
+//                System.out.print((i == j) ? ("[" + arr1[i][j] + "]" + "\t") : (arr1[i][j] + "\t"));
+                System.out.print(arr1[i][j] + "\t");
+            }
+            System.out.println();
+        }
+
+        //Output of the main diagonal of the array arr1
+        System.out.println("\n" + "Main diagonal of the array arr1:");
+        for (int i = 0; i < arr1.length; i++) {
+            for (int j = 0; j < arr1[0].length; j++) {
+                System.out.print((i == j) ? ("[" + arr1[i][j] + "]") : "_");
+            }
+
+        }
+        //Output of the second diagonal of the array arr1
+        System.out.println("\n" + "Main diagonal of the array arr1:");
+
+//       Declare the first element of the second diagonal
+        int i = 0;
+        int j = (arr1[0].length - 1);
+
+        do {
+            System.out.print(("[" + arr1[i][j] + "]") + "_");
+            i++;
+            j--;
+        }
+        while (i <= (arr1.length - 1) && j >= 0);
+    }
+
+
     /////////////////////////////
 }
 
