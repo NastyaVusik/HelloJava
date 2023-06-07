@@ -4,11 +4,11 @@
 
 public class MyMain {
     public static void main(String[] args) {
-        System.out.println("Hello, Java!");
-        System.out.print('1');
-        System.out.println(" ");
-        //System.out.print();    // Error
-        System.out.print("Hello, Java!");
+        CreditCard MasterCard1 = new CreditCard("BY1234567890", 5000.1);
+        MasterCard1.chargeAmount();
+        System.out.println("\n*****************************************\n");
+        MasterCard1.withdrawAmount();
+        System.out.println("\n*****************************************\n");
     }
 }
 
