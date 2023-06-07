@@ -44,8 +44,6 @@ public class CreditCard {
         while (currentAmount < sum) {
             System.out.print("This amount isn't available. Please, try again: ");
             sum = scan.nextDouble();
-//            if (currentAmount < sum) {
-//                System.out.print("This amount isn't available. Please, try again: "); }
 
             if (currentAmount >= sum) {
                 currentAmount = currentAmount - sum;
