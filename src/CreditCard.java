@@ -18,40 +18,43 @@ public class CreditCard {
     }
 
     //Method for charging some amount to the card
-    double chargeAmount() {
+    public void chargeAmount() {
         System.out.print("Enter the amount to charge to the card " + cardName + ", $: ");
         Scanner scan = new Scanner(System.in);
         double sum = scan.nextDouble();
 
         //New amount in the account after charging money
-//        double newSum = currentAmount + sum;
         currentAmount = currentAmount + sum;
 
         System.out.println("Congratulations! You charged: " + sum + " $!");
         System.out.printf("The actual sum in the account " + cardName + " is: " + String.format("%.2f", currentAmount) + " $\n");
 
-        return currentAmount;
+//        return currentAmount;
     }
 
 
     // Method for withdraw amount from the card
-    double withdrawAmount() {
-        System.out.print("Enter the amount to withdraw from your card " + cardName + ", $: ");
+    public void withdrawAmount() {
         Scanner scan = new Scanner(System.in);
+        System.out.print("Enter the amount to withdraw from your card " + cardName + ", $: ");
         double sum = scan.nextDouble();
 
         // The rest in the account after withdrawing money
-        while (scan.hasNextDouble()) {
-            if (currentAmount < sum) {
-                System.out.println("This amount isn't available. Please, try again... ");
-                sum = scan.nextDouble();
-            } else {
+
+        while (currentAmount < sum) {
+            System.out.print("This amount isn't available. Please, try again: ");
+            sum = scan.nextDouble();
+//            if (currentAmount < sum) {
+//                System.out.print("This amount isn't available. Please, try again: "); }
+
+            if (currentAmount >= sum) {
                 currentAmount = currentAmount - sum;
                 System.out.println("Congratulations! You got: " + sum + " $!");
                 System.out.printf("The rest in the account " + cardName + " is: " + String.format("%.2f", currentAmount) + " $\n");
+                break;
             }
         }
-        return currentAmount;
+//        return currentAmount;
     }
 
 
