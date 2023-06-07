@@ -2,7 +2,7 @@
 // then press Enter. You can now see whitespace characters in your code.
 
 
-public class MyMain {
+public class MainCard {
     public static void main(String[] args) {
         CreditCard MasterCard1 = new CreditCard("MasterCard1", "BY1234567890", 5000.1, "Vova Ivanov");
         CreditCard MasterCard2 = new CreditCard("MasterCard2", "BY1234567891", 1500, "Katya Ivanova");
