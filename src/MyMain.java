@@ -4,11 +4,14 @@
 
 public class MyMain {
     public static void main(String[] args) {
-        CreditCard MasterCard1 = new CreditCard("BY1234567890", 5000.1);
+        CreditCard MasterCard1 = new CreditCard("BY1234567890", 5000.1, "Vova Ivanov");
         MasterCard1.chargeAmount();
         System.out.println("\n*****************************************\n");
         MasterCard1.withdrawAmount();
         System.out.println("\n*****************************************\n");
+        MasterCard1.getCardInfo();
+        System.out.println("\n*****************************************\n");
+
     }
 }
 
