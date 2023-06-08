@@ -4,13 +4,16 @@ public class MainComputer {
     public static void main(String[] args) {
 
         //This object uses fields ComputerRam and ComputerHdd with default constructor
-        Computer сomputer1 = new Computer(600, "Asus F515EA-BQ1993W", null, null);
+        Computer computer1 = new Computer(600, "Asus F515EA-BQ1993W");
 
-        //This object uses fields ComputerRam and ComputerHdd with default constructor
-        Computer сomputer2 = new Computer(1000, "Ноутбук HP ProBook 455 G8", ComputerRam ram, ComputerHdd hdd);
+        //This object uses fields ComputerRam and ComputerHdd with constructor with four parameters
+        Computer computer2 = new Computer(1000, "Ноутбук HP ProBook 455 G8",
+                new ComputerRam("6189V-1GDDR2 ALLEN-BRADLEY", 1024), new ComputerHdd("Toshiba MQ01ABF 500GB", 500, "internal"));
 
 
-        System.out.println("Computer information: " + "\n"
-          + computer1.getPrice());
+        System.out.println(computer1.getComputerInfo());
+        System.out.println("\n*****************************************\n");
+        System.out.println(computer2.getComputerInfo());
+
     }
 }

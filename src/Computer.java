@@ -11,6 +11,7 @@ public class Computer {
     public Computer(double price, String model) {
         this.price = price;
         this.model = model;
+
         System.out.println("Object " + model + " was created with TWO parameters." + "\n");
     }
 
@@ -27,11 +28,11 @@ public class Computer {
     public String getComputerInfo() {
         String str = "1. price, $: " + this.price + "\n" +
                 "2. model: " + this.model + "\n" +
-                "3. RAM name: " + ram.getRamName() + "\n" +
-                "4. RAM size: " + ram.getRamSize() + "\n" +
-                "5. HDD name: " + hdd.getHddName() + "\n" +
-                "6. HDD size: " + hdd.getHddSize() + "\n" +
-                "7. HDD type: " + hdd.getHddSize() + "\n";
+                "3. RAM name: " + ram.ramName + "\n" +
+                "4. RAM size: " + ram.ramSize + "\n" +
+                "5. HDD name: " + hdd.hddName + "\n" +
+                "6. HDD size: " + hdd.hddSize + "\n" +
+                "7. HDD type: " + hdd.hddType + "\n";
 
         return str;
     }

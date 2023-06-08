@@ -1,8 +1,8 @@
 
 // Task 1. Addition homework
 public class ComputerRam {
-    private String ramName;
-    private double ramSize;
+    public String ramName;
+    public double ramSize;
 
     //Default constructor
     public ComputerRam() {
@@ -15,19 +15,12 @@ public class ComputerRam {
         System.out.println("Object " + ramName + " was created with TWO parameters." + "\n");
     }
 
-    public double getRamSize() {
-        return ramSize;
-    }
+//    public double getRamSize() {
+//        return ramSize;
+//    }
+//
+//    public String getRamName() {
+//        return ramName;
+//    }
 
-    public void setRamSize(double ramSize) {
-        this.ramSize = ramSize;
-    }
-
-    public String getRamName() {
-        return ramName;
-    }
-
-    public void setRamName(String ramName) {
-        this.ramName = ramName;
-    }
 }
