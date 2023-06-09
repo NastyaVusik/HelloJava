@@ -1,5 +1,7 @@
 package Part1_Phone;
 
+import java.util.Scanner;
+
 public class Phone {
     private String number;
     private String model;
@@ -16,17 +18,53 @@ public class Phone {
 
     //A constructor with two parameters
     public Phone(String number, String model, double weight) {
-        this(number, model, weight 0);
+        this(number, model, 0);
         System.out.println("Phone" + model + "was created with TWO parameters.");
     }
 
+    //A constructor without parameters
+    public Phone() {
+        this("Unknown", "Unknown", 0);
+        System.out.println("Phone" + model + "was created WITHOUT parameters.");
+    }
+
+
+    //Method for receive call
     public String receiveCall(String callerName) {
+        callerName = scan().nextLine();
         String str = "There is call" + callerName;
         return str;
     }
 
+
+    //Method for return a phone number
     public String getNumber() {
         return number;
+    }
+
+
+    //Method for receive call was overrided
+    @Override
+    public String receiveCall(String callerName, String number) {
+        callerName = scan().nextLine();
+        String str = "There is call" + callerName + "\n" +
+                "number: " + number;
+        return str;
+    }
+
+
+    public String sendMessage(String... numbers) {
+        Scanner scan = new Scanner(System.in);
+        System.out.println("Enter phone number: ");
+        for (String number : numbers) {
+            number = scan.nextLine();
+            System.out.println(number + "\n");
+        }
+        return number;
+    }
+
+    public Scanner scan() {
+        return new Scanner(System.in);
     }
 
 
