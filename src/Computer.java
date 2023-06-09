@@ -28,11 +28,18 @@ public class Computer {
     public String getComputerInfo() {
         String str = "1. price, $: " + this.price + "\n" +
                 "2. model: " + this.model + "\n" +
-                "3. RAM name: " + ram.ramName + "\n" +
-                "4. RAM size: " + ram.ramSize + "\n" +
-                "5. HDD name: " + hdd.hddName + "\n" +
-                "6. HDD size: " + hdd.hddSize + "\n" +
-                "7. HDD type: " + hdd.hddType + "\n";
+                "3. RAM name: " + this.ram.getRamName() + "\n" +
+                "4. RAM size: " + this.ram.getRamSize() + "\n" +
+                "5. HDD name: " + this.hdd.getHddName() + "\n" +
+                "6. HDD size: " + this.hdd.getHddSize() + "\n" +
+                "7. HDD type: " + this.hdd.getHddType() + "\n";
+
+        return str;
+    }
+
+    public String getComputerInfo1() {
+        String str = "1. price, $: " + this.price + "\n" +
+                "2. model: " + this.model + "\n";
 
         return str;
     }

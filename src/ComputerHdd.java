@@ -1,11 +1,12 @@
 
 // Task 1. Addition homework
 public class ComputerHdd {
-    public String hddName;
-    public double hddSize;
-    public String hddType;
+    private String hddName;
+    private double hddSize;
+    private String hddType;
 
     public ComputerHdd() {
+        this("Unknown", 0, "Unknown");
         System.out.println("Object " + hddName + " was created with ZERO parameters." + "\n");
 
     }
@@ -17,17 +18,17 @@ public class ComputerHdd {
         System.out.println("Object " + hddName + " was created with THREE parameters." + "\n");
     }
 
-//    public String getHddName() {
-//        return hddName;
-//    }
-//
-//    public double getHddSize() {
-//        return hddSize;
-//    }
-//
-//    public String getHddType() {
-//        return hddType;
-//    }
+    public String getHddName() {
+        return hddName;
+    }
+
+    public double getHddSize() {
+        return hddSize;
+    }
+
+    public String getHddType() {
+        return hddType;
+    }
 
 }
 
