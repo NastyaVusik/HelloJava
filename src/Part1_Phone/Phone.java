@@ -17,7 +17,7 @@ public class Phone {
     }
 
     //A constructor with two parameters
-    public Phone(String number, String model, double weight) {
+    public Phone(String number, String model) {
         this(number, model, 0);
         System.out.println("Phone" + model + "was created with TWO parameters.");
     }
@@ -30,8 +30,8 @@ public class Phone {
 
 
     //Method for receive call
-    public String receiveCall(String callerName) {
-        callerName = scan().nextLine();
+    public String receiveCall(/*String callerName*/) {
+        String callerName = scan().nextLine();
         String str = "There is call" + callerName;
         return str;
     }
@@ -43,10 +43,10 @@ public class Phone {
     }
 
 
-    //Method for receive call was overrided
+    //Method for receive call was overrided. Create a new class for this method?????????
     @Override
-    public String receiveCall(String callerName, String number) {
-        callerName = scan().nextLine();
+    public String receiveCall(/*String callerName, String number*/) {
+        String callerName = scan().nextLine();
         String str = "There is call" + callerName + "\n" +
                 "number: " + number;
         return str;

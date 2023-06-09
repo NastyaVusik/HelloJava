@@ -25,9 +25,9 @@ public class MainPhone {
         System.out.println("\n*********************************************************\n");
 
         //Call @Override method - ?????????????????????????
-        System.out.println(phone1.receiveCall(Phone callerName, Phone number);
+        System.out.println(phone1.receiveCall();
 
-        sendMessage();
+        phone1.sendMessage();
 
 
     }
