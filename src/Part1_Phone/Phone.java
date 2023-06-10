@@ -22,6 +22,7 @@ public class Phone {
         System.out.println("Phone" + model + "was created with TWO parameters.");
     }
 
+
     //A constructor without parameters
     public Phone() {
         this("Unknown", "Unknown", 0);
@@ -29,43 +30,53 @@ public class Phone {
     }
 
 
+    //Method for output phone info
+    public String getPhoneInfo() {
+        String str = "Phone information:" + "\n" +
+                "1. Phone model: " + model + "\n" +
+                "2. Phone number: " + number + "\n" +
+                "3. Phone weight: " + weight + "\n";
+
+        return str;
+    }
+
+
     //Method for receive call
-    public String receiveCall(/*String callerName*/) {
-        String callerName = scan().nextLine();
-        String str = "There is call" + callerName;
+    public String receiveCall(String callerName) {
+        System.out.print("Enter names of the callers: ");
+
+        callerName = scan().nextLine();
+        String str = callerName + " is calling";
         return str;
     }
 
 
     //Method for return a phone number
     public String getNumber() {
-        return number;
+        return "Phone " + model + " has number " + number;
     }
 
 
-    //Method for receive call was overrided. Create a new class for this method?????????
-    @Override
-    public String receiveCall(/*String callerName, String number*/) {
-        String callerName = scan().nextLine();
-        String str = "There is call" + callerName + "\n" +
+    //Method for receive call was overloaded. Create a new class for this method?????????
+    public String receiveCall(String callerName, String number) {
+        callerName = scan().nextLine();
+        String str = "There is call: " + callerName + "\n" +
                 "number: " + number;
         return str;
     }
 
 
-    public String sendMessage(String... numbers) {
-        Scanner scan = new Scanner(System.in);
+    public void sendMessage(String... numbers) {
+
         System.out.println("Enter phone number: ");
-        for (String number : numbers) {
-            number = scan.nextLine();
-            System.out.println(number + "\n");
+        for (String numberMessage : numbers) {
+            numberMessage = scan().nextLine();
+            System.out.println(numberMessage + "\n");
         }
-        return number;
     }
 
     public Scanner scan() {
         return new Scanner(System.in);
     }
-
 
 }
