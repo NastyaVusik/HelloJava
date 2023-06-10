@@ -1,4 +1,13 @@
 package Clinic;
 
-public class ClinicStaff {
+public abstract class ClinicStaff {
+    public String treatment;
+
+    public ClinicStaff(String treatment) {
+        this.treatment = treatment;
+    }
+
+    abstract String healPeople();
+
+
 }
