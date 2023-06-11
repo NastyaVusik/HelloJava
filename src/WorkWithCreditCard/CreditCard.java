@@ -1,4 +1,4 @@
-
+package WorkWithCreditCard;
 // Task 1. Basic homework
 
 import java.util.Scanner;

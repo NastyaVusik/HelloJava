@@ -1,3 +1,4 @@
+package ComputerAssembling;
 
 // Task 1. Addition homework
 public class ComputerHdd {
