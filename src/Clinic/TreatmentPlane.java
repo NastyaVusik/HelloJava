@@ -4,13 +4,18 @@ import java.util.Scanner;
 
 public class TreatmentPlane {
     private int a_treatmentPlane;
+    public Surgeon a_surgeon;
+    public Therapist a_therapist;
+    public Dentist a_dentist;
 
-//    public TreatmentPlane(int a_treatmentPlane) {
-//        this.a_treatmentPlane = a_treatmentPlane;
-//    }
 
     public TreatmentPlane(int a_treatmentPlane) {
         this.a_treatmentPlane = a_treatmentPlane;
+        a_surgeon = new Surgeon("");
+
+        a_therapist = new Therapist("");
+        
+        a_dentist = new Dentist("");
     }
 
     //Method for addition for patient treatment plane
@@ -21,11 +26,14 @@ public class TreatmentPlane {
         int a_treatmentPlane = scan.nextInt();
 
         if (a_treatmentPlane == 1) {
-            return "This patient is very sick. He need in a surgeon";
+            String str = this.a_surgeon.healPeople();
+            return str + "This patient  is very sick. He need in a surgeon";
         } else if (a_treatmentPlane == 2) {
-            return "This patient is very sick. He need in a dentist";
+            String str = this.a_dentist.healPeople();
+            return str + "This patient is very sick. He need in a dentist";
         } else {
-            return "This patient is very sick. He need in a therapist";
+            String str = this.a_therapist.healPeople();
+            return str + "This patient is very sick. He need in a therapist";
         }
     }
 }

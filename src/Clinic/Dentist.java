@@ -12,7 +12,11 @@ public class Dentist extends ClinicStaff {
     //Overridden method of treatment
     @Override
     public String healPeople() {
-        String str = "I like heal people. I heal teeth. Also I can pull out them.";
-        return str;
+        String treatment = "\nHi!. I'm a dentist. I like heal people. I heal teeth. Also I can pull out them.";
+        return treatment;
+    }
+
+    public String getA_dentist() {
+        return a_dentist;
     }
 }
