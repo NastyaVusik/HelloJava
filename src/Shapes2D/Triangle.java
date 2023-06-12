@@ -6,7 +6,7 @@ public class Triangle extends Shape {
 
 
     public Triangle(double height, double width) {
-        super(height, width);                      //Constructor from super class
+        super(height, width);                      //Constructor from super class Shape
         this.square = square;
         this.perimeter = perimeter;
     }
