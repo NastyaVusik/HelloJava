@@ -3,25 +3,58 @@ package Shapes2D;
 public class Triangle extends Shape {
     private double square;
     private double perimeter;
+    protected double height;
+    protected double width;
+    protected String name;
 
 
-    public Triangle(double height, double width) {
-        super(height, width);                      //Constructor from super class Shape
+    public Triangle(String name, double height, double width) {
+        this.height = height;
+        this.width = width;
+        this.name = name;
         this.square = square;
         this.perimeter = perimeter;
     }
 
 
+    public String getName() {
+        return name;
+    }
+
+    public double getHeight() {
+        return height;
+    }
+
+    public double getWidth() {
+        return width;
+    }
+
+
     //Overrided methods
     @Override
-    public String countSquare() {
+    public double getSquare() {
         square = 0.5 * height * width;
-        return "Square of the triangle is " + String.format("%.2f", square) + " sm2";
+        return square;
+    }
+
+
+    //Method for calculation of perimeter of isosceles triangle
+    @Override
+    public double getPerimeter() {
+        perimeter = 0.5 * width + Math.sqrt(0.25 * width * width + height * height);
+        return perimeter;
     }
 
     @Override
-    public String countPerimeter() {
-        perimeter = 0.5 * width + Math.sqrt(0.25 * width * width + height * height);
-        return "Perimeter of the triangle is " + String.format("%.2f", perimeter) + " sm";
+    public String printShapeInfo() {
+
+        String str = "Name of shape is: " + name + "\n" +
+                "Height of triangle is: " + height + " sm" + "\n" +
+                "Width of triangle is: " + width + " sm" + "\n" +
+                "Perimeter of triangle is: " + getPerimeter() + " cm\n" +
+                "Square  of triangle is: " + getSquare() + " cm2";
+        return str;
     }
 }
+
+

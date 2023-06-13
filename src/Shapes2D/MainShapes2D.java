@@ -4,30 +4,36 @@ public class MainShapes2D {
     public static void main(String[] args) {
 
         //Created objects
-        Shape triangle1 = new Triangle(6.5, 8.1);
-        Triangle rectangle1 = new Rectangle(9.12, 12.3);
-        Rectangle circle1 = new Circle(1, 5);     //????????????????????Why variable heigth = 1` doesn't influence on calculation
+        //Array of the shapes
+        Shape[] shapes = new Shape[5];
+        shapes[0] = new Triangle("triangle1", 6.5, 8.1);
+        shapes[1] = new Triangle("triangle2", 11, 9.4);
+        shapes[2] = new Rectangle("rectangle1", 9.12, 12.3);
+        shapes[3] = new Circle("circle1", 5);
+        shapes[4] = new Circle("circle2", 3.6);
 
-        //Output info about the shapes
-        System.out.println("\n*******************************************************\n");
-        System.out.println("Triangle triangle1:");
-        triangle1.printVar();
-        System.out.println(triangle1.countSquare());
-        System.out.println(triangle1.countPerimeter());
-        System.out.println("\n*******************************************************\n");
 
-        System.out.println("Rectangle rectangle1:");
-        rectangle1.printVar();
-        System.out.println(rectangle1.countSquare());
-        System.out.println(rectangle1.countPerimeter());
+        //Output of calculation result of total square of all the shapes
+        System.out.printf("Total square of all figures is " + String.format("%.2f", getFullSquare(shapes)) + " cm2\n");
         System.out.println("\n*******************************************************\n");
-
-        System.out.println("Circle circle1:");
-        rectangle1.printVar();
-        System.out.println(circle1.countSquare());
-        System.out.println(circle1.countPerimeter());
-        System.out.println("\n*******************************************************\n");
-
 
     }
+
+
+    //Method for sum all squares of the shapes
+    static double getFullSquare(Shape[] shapes) {
+        double fullSquare = 0;
+
+        for (Shape shape : shapes) {
+            fullSquare += shape.getSquare();
+
+            System.out.println(shape.printShapeInfo());
+            System.out.println("\n*******************************************************\n");
+        }
+        return fullSquare;
+    }
+
+
 }
+
+
