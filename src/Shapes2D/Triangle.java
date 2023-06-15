@@ -3,7 +3,7 @@ package Shapes2D;
 public class Triangle extends Shape {
     private double square;
     private double perimeter;
-    protected double height;
+    protected double height;            //Why do I receive mistake, when I give PRIVATE modifier??????????????????
     protected double width;
     protected String name;
 
