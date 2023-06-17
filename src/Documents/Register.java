@@ -1,6 +1,6 @@
 package Documents;
 
-public abstract class Register {
+public class Register extends BaseDocuments{
 
 //    private String docType;
 //    private int docNumber;
@@ -33,6 +33,19 @@ public abstract class Register {
 
 //Array, which contains all documents in register
     IFDocument [] documents = new IFDocument[10];
+
+    public void fillDocuments() {
+        for (int i = 0; i < documents.length; i++) {
+documents[i] = documents.setDocNumber();
+        }
+    }
+
+
+    //Overrided method from class BaseDocument
+    @Override
+    public String printInfo(){
+      return documents.printInfo();
+    }
 
     //Method for saving a document in register
     public void saveDocument(IFDocument documents) {
