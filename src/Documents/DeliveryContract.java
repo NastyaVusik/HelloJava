@@ -1,12 +1,12 @@
 package Documents;
 
-public class DeliveryContract extends Register {
+import java.util.Date;
 
-    //    private String docType;
-//    private int docNumber;
+public class DeliveryContract extends BaseDocuments {
+
     private String goodsType;
     private int goodsQuantity;
-//    private Date docDate;
+
 
     //Constructor without parameters
     public DeliveryContract() {
@@ -18,14 +18,6 @@ public class DeliveryContract extends Register {
 
 
     //Constructor with parameters
-//    public DeliveryContract(String docType, int docNumber, String goodsType, int goodsQuantity, Date docDate) {
-//        this.docType = docType;
-//        this.docNumber = docNumber;
-//        this.goodsType = goodsType;
-//        this.goodsQuantity = goodsQuantity;
-//        this.docDate = docDate;
-//    }
-
     public DeliveryContract(String docType, int docNumber, Date docDate, String goodsType, int goodsQuantity) {
         super(docType, docNumber, docDate);
 
@@ -34,14 +26,7 @@ public class DeliveryContract extends Register {
     }
 
 
-    //Getters
-    public String getDocType() {
-        return docType;
-    }
-
-    public int getDocNumber() {
-        return docNumber;
-    }
+    //Getters and Setters
 
     public String getGoodsType() {
         return goodsType;
@@ -51,12 +36,10 @@ public class DeliveryContract extends Register {
         return goodsQuantity;
     }
 
-    public Date getDocDate() {
-        return docDate;
-    }
 
     @Override
-    public String giveDocInfo() {
+    public String printInfo() {
+
         return "Type of document: " + getDocType() + "\n" +
                 "1. A number of the document: " + getDocNumber() + "\n" +
                 "2. Goods type: " + getGoodsType() + "\n" +
