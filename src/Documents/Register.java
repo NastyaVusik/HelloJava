@@ -1,56 +1,33 @@
 package Documents;
 
-public class Register extends BaseDocuments{
+public class Register extends BaseDocuments {
 
-//    private String docType;
-//    private int docNumber;
-//    private Date docDate;
+    BaseDocuments[] documents;
 
-//
-//    //Constructor by default
-//    public Register() {
-//        docType = "Unknown";
-//        docNumber = 0;
-//        docDate = null;
+    //Constructor with array, which contains all documents in register
+    public Register() {
+        documents = new BaseDocuments[10];             //I changed to BaseDocuments instead IFDocuments??????????????
 
-//
-//    //Constructor with parameters
-//    public Register(String docType, int docNumber, Date docDate) {
-//        this.docType = docType;
-//        this.docNumber = docNumber;
-//        this.docDate = docDate;
-//
-//
-//        //Getters
-//           public String getdocType(){
-//               return docType;
-//            }
-
-
-            //What about getters ?????????????????????????????????????????
-
-
-
-//Array, which contains all documents in register
-    IFDocument [] documents = new IFDocument[10];
-
-    public void fillDocuments() {
-        for (int i = 0; i < documents.length; i++) {
-documents[i] = documents.setDocNumber();
-        }
     }
 
 
     //Overrided method from class BaseDocument
+    //Method for giving info about document
     @Override
-    public String printInfo(){
-      return documents.printInfo();
+    public String printInfo() {
+        for (int i = 0; i < documents.length; i++) {
+            documents[i] = super.getDocNumber();
+        }
+        System.out.println(documents.printInfo());          //???????????????????????????
+        return documents.printInfo();
     }
 
+
     //Method for saving a document in register
-    public void saveDocument(IFDocument documents) {
-
-
+    public void saveDocument(BaseDocuments documents[]) {          //???????????????????????????
+        for (int i = 0; i < documents.length; i++) {
+            documents[i] = super.setDocNumber(int docNumber);
+        }
     }
 
 
@@ -59,6 +36,3 @@ documents[i] = documents.setDocNumber();
 
 
 }
-
-    private void getdocType() {
-    }
