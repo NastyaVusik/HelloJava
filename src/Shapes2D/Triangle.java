@@ -41,7 +41,7 @@ public class Triangle extends Shape {
     //Method for calculation of perimeter of isosceles triangle
     @Override
     public double getPerimeter() {
-        perimeter = 0.5 * width + Math.sqrt(0.25 * width * width + height * height);
+        perimeter = width + 2 * Math.sqrt(0.25 * width * width + height * height);
         return perimeter;
     }
 

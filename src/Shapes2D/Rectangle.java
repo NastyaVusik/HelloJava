@@ -13,21 +13,21 @@ public class Rectangle extends Triangle {
     }
 
 
-    @Override
-    public double getHeight() {
-        return super.getHeight();
-    }
-
-    @Override
-    public double getWidth() {
-        return super.getWidth();
-    }
-
-
-    @Override
-    public String getName() {
-        return super.name;
-    }
+//    @Override
+//    public double getHeight() {
+//        return super.getHeight();
+//    }
+//
+//    @Override
+//    public double getWidth() {
+//        return super.getWidth();
+//    }
+//
+//
+//    @Override
+//    public String getName() {
+//        return super.name;
+//    }
 
     @Override
     public double getSquare() {

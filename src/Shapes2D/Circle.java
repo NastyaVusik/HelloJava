@@ -14,10 +14,10 @@ public class Circle extends Rectangle {
     }
 
 
-    @Override
-    public String getName() {
-        return super.getName();
-    }
+//    @Override
+//    public String getName() {
+//        return super.getName();
+//    }
 
     public double getRadius() {
         return radius;
