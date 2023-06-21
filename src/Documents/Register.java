@@ -16,7 +16,8 @@ public class Register extends BaseDocuments {
     @Override
     public String printInfo() {
         for (int i = 0; i < documents.length; i++) {
-            documents[i] = super.getDocNumber();
+            BaseDocuments documents[i] = new Register();
+            documents[i] = documents[i].getDocInfo();
         }
         System.out.println(documents.printInfo());          //???????????????????????????
         return documents.printInfo();

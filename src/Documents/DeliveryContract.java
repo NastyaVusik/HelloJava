@@ -49,4 +49,14 @@ public class DeliveryContract extends BaseDocuments {
                 "**********************************************************\n";
     }
 
+
+    //?????????????????????????????????????
+    @Override
+    public String getDocInfo(String str) {
+        return str = "Type of document: " + getDocType() + "\n" +
+                "1. A number of the document: " + getDocNumber() + "\n" +
+                "2. Goods type: " + getGoodsType() + "\n" +
+                "3. Quantity of goods: " + getGoodsQuantity() + "\n" +
+                "4. A date of the document: " + getDocDate() + "\n";
+    }
 }
