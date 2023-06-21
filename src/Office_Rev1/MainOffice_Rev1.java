@@ -3,6 +3,12 @@ package Office_Rev1;
 public class MainOffice_Rev1 {
     public static void main(String[] args) {
 
+
+//        Создать классы "Директор", "Рабочий", "Бухгалтер".
+//                Реализовать интерфейс с методом, который печатает название
+//        должности и имплементировать этот метод в созданные классы.
+
+
         //Creating objects of the employees
         Employee_Rev1 employee1 = new Accountant_Rev1("accountant", "Winnie the Pooh");
         Employee_Rev1 employee2 = new Director_Rev1("director", "Peppa pig");
