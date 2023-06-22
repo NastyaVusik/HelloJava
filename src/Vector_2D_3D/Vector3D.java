@@ -1,3 +1,5 @@
+package Vector_2D_3D;
+
 public class Vector3D extends ??? {
 
     //Declare vector coordinates
