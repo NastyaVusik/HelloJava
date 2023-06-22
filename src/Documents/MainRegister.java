@@ -67,17 +67,17 @@ public class MainRegister {
 
 
         //Output info about required documents
-        System.out.println("\n\n");
+        System.out.println("\n*********************************************************\n");
         System.out.println(deliveryContract1.printInfo());
-        System.out.println("\n\n");
+        System.out.println("\n*********************************************************\n");
         System.out.println(employeeContract1.printInfo());
-        System.out.println("\n\n");
+        System.out.println("\n*********************************************************\n");
         System.out.println(financialInvoice1.printInfo());
-        System.out.println("\n\n");
+        System.out.println("\n*********************************************************\n");
 
 
         //Get document's info by using document's number
-        deliveryContract1.getDocInfo(deliveryContract1.getDocNumber());
+        System.out.println(deliveryContract1.getDocInfo(deliveryContract1.getDocNumber()));
 
         //Save document in the register
         deliveryContract1.saveDocument(deliveryContract1);

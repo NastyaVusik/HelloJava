@@ -55,7 +55,6 @@ public class EmployeeContract extends BaseDocuments {
                 "1. A number of the document: " + getDocNumber() + "\n" +
                 "2. A contract expire date of the employee: " + getContractExpireDate() + "\n" +
                 "3. A name of the employee: " + getEmployeeName() + "\n" +
-                "4. A date of the document: " + getDocDate() + "\n" +
-                "**********************************************************\n";
+                "4. A date of the document: " + getDocDate();
     }
 }

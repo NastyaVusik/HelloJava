@@ -4,7 +4,7 @@ public interface IFRegister {
 
     //Methods by default for class Register
     default public String getDocInfo(int docNumber) {
-        return null;
+        return "0";
     }
 
     default public void saveDocument(BaseDocuments document) {

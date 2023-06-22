@@ -51,8 +51,7 @@ public class FinancialInvoice extends BaseDocuments {
                 "1. A number of the document: " + getDocNumber() + "\n" +
                 "2. Final month sum: " + getTotalMonthSum() + "\n" +
                 "3. Department code: " + getDepartCode() + "\n" +
-                "4. A date of the document: " + getDocDate() + "\n" +
-                "**********************************************************\n";
+                "4. A date of the document: " + getDocDate();
     }
 
 }
