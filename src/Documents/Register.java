@@ -1,17 +1,19 @@
 package Documents;
 
-public class Register {
+public class Register implements IFRegister {
 
     BaseDocuments[] documents;
 
     //Constructor with array, which contains all documents in register
     public Register() {
-        documents = new BaseDocuments[10];             //I changed to BaseDocuments instead IFDocuments??????????????
+        documents = new BaseDocuments[10];
 
     }
 
 
     //Method for getting info about document by using docNumber
+
+    @Override
     public String getDocInfo(int docNumber) {
         for (BaseDocuments doc : documents) {
             if (doc == null) {
@@ -26,8 +28,9 @@ public class Register {
     }
 
 
+    @Override
     //Method for saving a document in register
-    public void saveDocument(BaseDocuments document) {          //???????????????????????????
+    public void saveDocument(BaseDocuments document) {
         for (int i = 0; i < documents.length; i++) {
             if (documents[i] == null) {
                 documents[i] = document;

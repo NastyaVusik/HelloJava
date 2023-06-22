@@ -1,6 +1,8 @@
 package Documents;
 
-import java.util.Date;
+//import java.util.Date;
+
+import java.time.LocalDate;
 
 public class EmployeeContract extends BaseDocuments {
 
@@ -16,7 +18,7 @@ public class EmployeeContract extends BaseDocuments {
     }
 
     //Constructor without parameters
-    public EmployeeContract(String docType, int docNumber, Date docDate, String contractExpireDate, String employeeName) {
+    public EmployeeContract(String docType, int docNumber, LocalDate docDate, String contractExpireDate, String employeeName) {
         super(docType, docNumber, docDate);
         this.contractExpireDate = contractExpireDate;
         this.employeeName = employeeName;

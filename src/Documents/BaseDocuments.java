@@ -1,12 +1,14 @@
 package Documents;
 
-import java.util.Date;
+//import java.util.Date;
 
-public abstract class BaseDocuments implements IFDocuments {
-    protected String docType;                  //?????????????????????????????????????
+import java.time.LocalDate;
+
+public abstract class BaseDocuments implements IFDocuments, IFRegister {
+    protected String docType;
     protected int docNumber;
-    protected Date docDate;
-    protected String str;
+    //    protected Date docDate;
+    protected LocalDate docDate;
 
 
     //Constructor by default
@@ -18,7 +20,7 @@ public abstract class BaseDocuments implements IFDocuments {
 
 
     //Constructor with parameters
-    public BaseDocuments(String docType, int docNumber, Date docDate) {
+    public BaseDocuments(String docType, int docNumber, LocalDate docDate) {
         this.docType = docType;
         this.docNumber = docNumber;
         this.docDate = docDate;
@@ -44,11 +46,11 @@ public abstract class BaseDocuments implements IFDocuments {
     }
 
 
-    public Date getDocDate() {
+    public LocalDate getDocDate() {
         return docDate;
     }
 
-    public void setDocDate(Date date) {
+    public void setDocDate(LocalDate date) {
         this.docDate = docDate;
     }
 

@@ -1,6 +1,8 @@
 package Documents;
 
-import java.util.Date;
+//import java.util.Date;
+
+import java.time.LocalDate;
 
 public class DeliveryContract extends BaseDocuments {
 
@@ -18,7 +20,7 @@ public class DeliveryContract extends BaseDocuments {
 
 
     //Constructor with parameters
-    public DeliveryContract(String docType, int docNumber, Date docDate, String goodsType, int goodsQuantity) {
+    public DeliveryContract(String docType, int docNumber, LocalDate docDate, String goodsType, int goodsQuantity) {
         super(docType, docNumber, docDate);
 
         this.goodsType = goodsType;
@@ -49,14 +51,14 @@ public class DeliveryContract extends BaseDocuments {
                 "**********************************************************\n";
     }
 
-
-    //?????????????????????????????????????
-    @Override
-    public String getDocInfo(String str) {
-        return str = "Type of document: " + getDocType() + "\n" +
-                "1. A number of the document: " + getDocNumber() + "\n" +
-                "2. Goods type: " + getGoodsType() + "\n" +
-                "3. Quantity of goods: " + getGoodsQuantity() + "\n" +
-                "4. A date of the document: " + getDocDate() + "\n";
-    }
+//
+//    //?????????????????????????????????????
+//    @Override
+//    public String getDocInfo(String str) {
+//        return str = "Type of document: " + getDocType() + "\n" +
+//                "1. A number of the document: " + getDocNumber() + "\n" +
+//                "2. Goods type: " + getGoodsType() + "\n" +
+//                "3. Quantity of goods: " + getGoodsQuantity() + "\n" +
+//                "4. A date of the document: " + getDocDate() + "\n";
+//    }
 }

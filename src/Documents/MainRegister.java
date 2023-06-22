@@ -1,5 +1,11 @@
 package Documents;
 
+import java.text.DateFormat;
+import java.time.Month;
+//import java.util.Date;
+//import java.text.SimpleDateFormat;
+import java.time.LocalDate;
+
 public class MainRegister {
 
 
@@ -48,10 +54,33 @@ public class MainRegister {
 
     public static void main(String[] args) {
 
+//        //Create date object of class Date
+//        Date date = new Date(1212 / 12 / 2);
+//        SimpleDateFormat simpleDateFormat = new SimpleDateFormat("dd/MM/yyyy");
+//        String stringDate = simpleDateFormat.format(date);
+//        System.out.println(stringDate);
+
         //Declare new objects
-        DeliveryContract deliveryContract1 = new DeliveryContract("Unknown", 1, 01 / 01 / 2023, "Unknown", 100);
-        EmployeeContract employeeContract1 = new EmployeeContract();
-        FinancialInvoice financialInvoice1 = new FinancialInvoice();
+        BaseDocuments deliveryContract1 = new DeliveryContract("Delivery contract", 100, LocalDate.of(2010, Month.JANUARY, 1), "Anchor bolts", 1000);
+        BaseDocuments employeeContract1 = new EmployeeContract("Employee contract", 2, LocalDate.of(2022, Month.JUNE, 10), "01/01/2023", "Mark Zuckerberg");
+        BaseDocuments financialInvoice1 = new FinancialInvoice("Financial invoice", 36, LocalDate.of(2010, Month.APRIL, 15), 1000000, "INSEE 57463.");
+
+
+        //Output info about required documents
+        System.out.println("\n\n");
+        System.out.println(deliveryContract1.printInfo());
+        System.out.println("\n\n");
+        System.out.println(employeeContract1.printInfo());
+        System.out.println("\n\n");
+        System.out.println(financialInvoice1.printInfo());
+        System.out.println("\n\n");
+
+
+        //Get document's info by using document's number
+        deliveryContract1.getDocInfo(deliveryContract1.getDocNumber());
+
+        //Save document in the register
+        deliveryContract1.saveDocument(deliveryContract1);
 
 
     }

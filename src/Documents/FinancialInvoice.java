@@ -1,6 +1,8 @@
 package Documents;
 
-import java.util.Date;
+//import java.util.Date;
+
+import java.time.LocalDate;
 
 public class FinancialInvoice extends BaseDocuments {
     private double totalMonthSum;
@@ -15,7 +17,7 @@ public class FinancialInvoice extends BaseDocuments {
 
     }
 
-    public FinancialInvoice(String docType, int docNumber, Date docDate, double totalMonthSum, String departCode) {
+    public FinancialInvoice(String docType, int docNumber, LocalDate docDate, double totalMonthSum, String departCode) {
         super(docType, docNumber, docDate);
         this.totalMonthSum = totalMonthSum;
         this.departCode = departCode;
