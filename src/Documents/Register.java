@@ -40,7 +40,7 @@ public class Register implements IFRegister {
                 return;
             }
         }
-        System.out.println("Register is full. Document can't be added.");
+        System.out.println("\nRegister is full. Document " + document.getDocNumber() + " can't be added.\n");
     }
 
 }

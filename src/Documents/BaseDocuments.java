@@ -4,7 +4,7 @@ package Documents;
 
 import java.time.LocalDate;
 
-public abstract class BaseDocuments implements IFDocuments, IFRegister {
+public abstract class BaseDocuments implements IFDocuments {
     protected String docType;
     protected int docNumber;
     //    protected Date docDate;

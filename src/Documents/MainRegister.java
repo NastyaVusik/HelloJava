@@ -60,28 +60,40 @@ public class MainRegister {
 //        String stringDate = simpleDateFormat.format(date);
 //        System.out.println(stringDate);
 
-        //Declare new objects
-        BaseDocuments deliveryContract1 = new DeliveryContract("Delivery contract", 100, LocalDate.of(2010, Month.JANUARY, 1), "Anchor bolts", 1000);
-        BaseDocuments employeeContract1 = new EmployeeContract("Employee contract", 2, LocalDate.of(2022, Month.JUNE, 10), "01/01/2023", "Mark Zuckerberg");
-        BaseDocuments financialInvoice1 = new FinancialInvoice("Financial invoice", 36, LocalDate.of(2010, Month.APRIL, 15), 1000000, "INSEE 57463.");
+        //Declare new objects of documents and combine them into array
+        BaseDocuments[] doc = new BaseDocuments[11];
+        doc[0] = new DeliveryContract("Delivery contract", 100, LocalDate.of(2010, Month.JANUARY, 1), "Anchor bolts", 1000);
+        doc[1] = new DeliveryContract("Delivery contract", 101, LocalDate.of(2011, Month.FEBRUARY, 2), "Columns", 40);
+        doc[2] = new DeliveryContract("Delivery contract", 102, LocalDate.of(2012, Month.MARCH, 3), "Wind-columns", 10);
+        doc[3] = new DeliveryContract("Delivery contract", 103, LocalDate.of(2013, Month.APRIL, 4), "Beams", 20);
+        doc[4] = new EmployeeContract("Employee contract", 1, LocalDate.of(2022, Month.JUNE, 10), "01/01/2023", "Mark Zuckerberg");
+        doc[5] = new EmployeeContract("Employee contract", 2, LocalDate.of(2021, Month.JULY, 11), "02/02/2022", "Winston Churchill");
+        doc[6] = new EmployeeContract("Employee contract", 3, LocalDate.of(2020, Month.AUGUST, 12), "03/03/2021", "Forrest Gump");
+        doc[7] = new EmployeeContract("Employee contract", 5, LocalDate.of(2021, Month.JULY, 11), "02/02/2022", "Winston Churchill");
+        doc[8] = new DeliveryContract("Delivery contract", 104, LocalDate.of(2014, Month.MAY, 5), "Rafters", 20);
+        doc[9] = new FinancialInvoice("Financial invoice", 36, LocalDate.of(2010, Month.APRIL, 15), 1000000, "INSEE 57463.");
+        doc[10] = new FinancialInvoice("Financial invoice", 37, LocalDate.of(2010, Month.APRIL, 15), 1000000, "INSEE 57463.");
 
 
-        //Output info about required documents
-        System.out.println("\n*********************************************************\n");
-        System.out.println(deliveryContract1.printInfo());
-        System.out.println("\n*********************************************************\n");
-        System.out.println(employeeContract1.printInfo());
-        System.out.println("\n*********************************************************\n");
-        System.out.println(financialInvoice1.printInfo());
-        System.out.println("\n*********************************************************\n");
+        //Declare new object of register
+        Register register = new Register();
 
+
+//Save all object of documents in the register object
+        for (BaseDocuments document : doc) {
+            register.saveDocument(document);
+        }
+
+        System.out.println("\n***************************************************************");
 
         //Get document's info by using document's number
-        System.out.println(deliveryContract1.getDocInfo(deliveryContract1.getDocNumber()));
+        System.out.println("\nOutput info about documents, which the register contains:\n");
 
-        //Save document in the register
-        deliveryContract1.saveDocument(deliveryContract1);
-
+        for (BaseDocuments document : doc) {
+            System.out.println("Required document by it document's number " + document.getDocNumber() + ":\n");
+            System.out.println(register.getDocInfo(document.getDocNumber()));
+            System.out.println("\n***************************************************************\n");
+        }
 
     }
 }
