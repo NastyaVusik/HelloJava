@@ -21,10 +21,9 @@ public class Vector2D extends Vector {
 
 
     //Mandatory method for calculation scalar product of two vectors
+    public double getVectorScalarProduct(Vector2D a, Vector2D b) {
 
-    public double getVectorScalarProduct(double vectorScalarProduct, Vector2D a, Vector2D b) {
-
-        vectorScalarProduct = a.getX() * b.getX() + a.getY() * b.getY();                //???????????????? Why do I not use super.getX() and Y?
+        double vectorScalarProduct = a.getX() * b.getX() + a.getY() * b.getY();                //???????????????? Why do I not use super.getX() and Y?
 
         return vectorScalarProduct;
 
@@ -32,24 +31,25 @@ public class Vector2D extends Vector {
 
 
     //Mandatory method for summation of two vectors
-    public Vector2D getVectorSum(Vector2D a, Vector2D b) {
+
+    public double getVectorSum(Vector2D a, Vector2D b) {
         Vector2D vectorSum = new Vector2D(x, y, vectorName);        //??????????????? Why do I use parameters for this new object from this.constructor?
 
         vectorSum.x = a.getX() + b.getX();
         vectorSum.y = a.getY() + b.getY();
 
-        return vectorSum;
+        return vectorSum.x;
     }
 
 
     //Mandatory method for deduction of two vectors
-    public Vector2D getVectorDeduct(Vector2D a, Vector2D b) {
+    public double getVectorDeduct(Vector2D a, Vector2D b) {
         Vector2D vectorDeduct = new Vector2D(x, y, vectorName);
 
         vectorDeduct.x = b.getX() - a.getX();
         vectorDeduct.y = b.getY() - a.getY();
 
-        return vectorDeduct;
+        return vectorDeduct.x;
 
     }
 
@@ -62,19 +62,21 @@ public class Vector2D extends Vector {
     }
 
 
-    //????????????????????????????????
     //Method for compare of two vectors
-    public boolean compareVectors() {
+    public boolean compareVectors(Vector2D a, Vector2D b) {
+        if ((a.getVectorLength() == b.getVectorLength()) && (a.getX() == b.getX()) && (a.getY() == b.getY())) {
+            return true;
+        }
         return false;
-    }
 
+    }
 
     //Overrided method from abstract class Vector
     @Override
     public String toString() {
         return "Information for vector " + vectorName + "\n" +
                 staticVectorSystem + "\n" +
-                "2) Vector coordinates: x = " + this.x + this.y + "\n" +
+                "2) Vector coordinates: x = " + this.x + ", y = " + this.y + "\n" +
                 "3) Vector length = " + getVectorLength() + "\n";
     }
 

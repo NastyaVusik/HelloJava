@@ -1,14 +1,15 @@
-package Vector_2D_3D;// Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
-// then press Enter. You can now see whitespace characters in your code.
+package Vector_2D_3D;
 
 
 public class MainVector {
     public static void main(String[] args) {
-        System.out.println("Hello, Java!");
-        System.out.print('1');
-        System.out.println(" ");
-        //System.out.print();    // Error
-        System.out.print("Hello, Java!");
+
+        //Create objects of vectors
+        Vector vectorA = new Vector2D(1, 3, "vectorA");
+        Vector vectorB = new Vector2D(4, -9, "vectorB");
+
+        System.out.println(vectorA);
+        System.out.println(vectorB);
     }
 }
 
