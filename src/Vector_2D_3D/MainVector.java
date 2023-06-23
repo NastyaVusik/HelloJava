@@ -36,7 +36,8 @@ public class MainVector {
         Vector2D vectorB2 = new Vector2D(4, -9, "vectorB");
 
         //Create objects of 3D vectors
-//        Vector3D vectorA3 = new Vector3D();
+        Vector3D vectorA3 = new Vector3D(1, 3, -4, "vectorC");
+        Vector3D vectorB3 = new Vector3D(-5, 2, 6, "vectorC");
 
 
         //Output info about vectors
@@ -73,7 +74,9 @@ public class MainVector {
 
         //Output of vector array
         for (Vector vector : vectorArr) {
-            System.out.println(Arrays.toString(vectorArr));
+//            System.out.println(Arrays.toString(vectorArr));
+            System.out.println(vector + "\t");
+
         }
 
 
@@ -82,17 +85,17 @@ public class MainVector {
         System.out.println("\n********************************************************\n");
         System.out.println("Brain exercises with couple of 3D vectors:\n");
         System.out.print("Scalar multiplication of two vectors: ");
-//        System.out.println(vectorA.getVectorScalarMult(vectorA3, vectorB3));
-//
-//        System.out.print("\nSummation of two vectors: ");
-//        System.out.println(vectorA.getVectorSum(vectorA3, vectorB3));
-//
-//
-//        System.out.print("\nDeduction of two vectors: ");
-//        System.out.println(vectorA.getVectorDeduct(vectorA3, vectorB3));
-//
-//        System.out.print("\nCompare of two vectors: ");
-//        System.out.println(vectorA.compareVectors(vectorA3, vectorB3));
+        System.out.println(vectorA3.getVectorScalarMult(vectorA3, vectorB3));
+
+        System.out.print("\nSummation of two vectors: ");
+        System.out.println(vectorA3.getVectorSum(vectorA3, vectorB3));
+
+
+        System.out.print("\nDeduction of two vectors: ");
+        System.out.println(vectorA3.getVectorDeduct(vectorA3, vectorB3));
+
+        System.out.print("\nCompare of two vectors: ");
+        System.out.println(vectorA3.compareVectors(vectorA3, vectorB3));
 
     }
 }

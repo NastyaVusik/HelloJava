@@ -13,7 +13,6 @@ public class Vector2D extends Vector {
 
 
     //Methods from interface IFVector
-
     //Mandatory method for calculation vector length
 
     public double getVectorLength() {
@@ -92,7 +91,7 @@ public class Vector2D extends Vector {
         return "Information for vector " + vectorName + "\n" +
                 staticVectorSystem + "\n" +
                 "2) Vector coordinates: x = " + this.x + ", y = " + this.y + "\n" +
-                "3) Vector length = " + getVectorLength() + "\n";
+                "3) Vector length = " + String.format("%.1f", getVectorLength()) + "\n";
     }
 
 
