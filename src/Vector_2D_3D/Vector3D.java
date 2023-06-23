@@ -1,14 +1,10 @@
 //package Vector_2D_3D;
 //
-//public class Vector3D extends ??? {
+//public class Vector3D extends Vector {
 //
-//    //Declare vector coordinates
-//    private double x;
-//    private double y;
-//    private double z;
-//
-//    //Constructor
-//    public Vector3D(double x, double y, double z) {
-//
+//    //Constructor was inherited from abstract class Vector
+//    public Vector3D(double x, double y, double z, String vectorName) {
+//        super(x, y, z, vectorName);
+//        Vector.staticVectorSystem = "1) This vector belongs to 3D coordinate system.";
 //    }
 //}

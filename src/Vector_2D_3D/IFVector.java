@@ -6,8 +6,8 @@ public interface IFVector {
     public double getVectorLength();
 
 
-    //Mandatory method for calculation scalar product of two vectors
-    public double getVectorScalarProduct(Vector2D a, Vector2D b);
+    //Mandatory method for calculation scalar multiplication of two vectors
+    public double getVectorScalarMult(Vector2D a, Vector2D b);
 
 
     //Mandatory method for summation of two vectors
@@ -19,13 +19,13 @@ public interface IFVector {
 
 
     //Static method for output array with random vectors on base random integer number
-    public static double[] vectorArr(int N) {
-        return new double[N];
+    public static Vector[] getVectorArr(int N) {
+        return null;
     }
 
 
     //Method for compare of two vectors
-    public boolean compareVectors(Vector2D a, Vector2D b);
+    public String compareVectors(Vector2D a, Vector2D b);
 
 
     //Method for output vector information
