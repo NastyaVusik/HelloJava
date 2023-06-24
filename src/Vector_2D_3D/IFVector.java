@@ -7,25 +7,25 @@ public interface IFVector {
 
 
     //Mandatory method for calculation scalar multiplication of two vectors
-    public double getVectorScalarMult(Vector2D a, Vector2D b);
+    public double getVectorScalarMult(IFVector a, IFVector b);
 
 
     //Mandatory method for summation of two vectors
-    public double getVectorSum(Vector2D a, Vector2D b);
+    public double getVectorSum(IFVector a, IFVector b);
 
 
     //Mandatory method for deduction of two vectors
-    public double getVectorDeduct(Vector2D a, Vector2D b);
+    public double getVectorDeduct(IFVector a, IFVector b);
 
 
     //Static method for output array with random vectors on base random integer number
-    public static Vector[] getVectorArr(int N) {
+    public static IFVector[] getVectorArr(int N) {
         return null;
     }
 
 
     //Method for compare of two vectors
-    public String compareVectors(Vector2D a, Vector2D b);
+    public String compareVectors(IFVector a, IFVector b);
 
 
     //Method for output vector information

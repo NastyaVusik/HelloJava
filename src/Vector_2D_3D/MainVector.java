@@ -61,20 +61,21 @@ public class MainVector {
 
         System.out.print("\nCompare of two vectors: ");
         System.out.println(vectorA2.compareVectors(vectorA2, vectorB2));
+        System.out.println("\n********************************************************\n");
 
         System.out.println("\nOutput array with random vectors on base random integer number.");
 
+
         //Declare of scanner to enter any number N
-        System.out.println("Enter any integer positive number N: ");
+        System.out.println("Enter any integer positive number N for array from 2D vectors: ");
         Scanner scan = new Scanner(System.in);
         int N = scan.nextInt();
 
         //Creating object of array vectorArr
-        Vector[] vectorArr = Vector2D.getVectorArray(N);
+        IFVector[] vector2DArr = Vector2D.getVectorArray(N);
 
         //Output of vector array
-        for (Vector vector : vectorArr) {
-//            System.out.println(Arrays.toString(vectorArr));
+        for (IFVector vector : vector2DArr) {
             System.out.println(vector + "\t");
 
         }
@@ -96,6 +97,24 @@ public class MainVector {
 
         System.out.print("\nCompare of two vectors: ");
         System.out.println(vectorA3.compareVectors(vectorA3, vectorB3));
+        System.out.println("\n********************************************************\n");
+
+        System.out.println("\nOutput array with random vectors on base random integer number.");
+
+
+        //Declare of scanner to enter any number N
+        System.out.println("Enter any integer positive number N for array from 3D vectors: ");
+//        Scanner scan = new Scanner(System.in);
+        N = scan.nextInt();
+
+        //Creating object of array vectorArr
+        IFVector[] vector3DArr = Vector3D.getVectorArray(N);
+
+        //Output of vector array
+        for (IFVector vector : vector3DArr) {
+            System.out.println(vector + "\t");
+
+        }
 
     }
 }

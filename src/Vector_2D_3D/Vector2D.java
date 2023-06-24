@@ -14,28 +14,38 @@ public class Vector2D extends Vector {
 
     //Methods from interface IFVector
     //Mandatory method for calculation vector length
-
+    @Override
     public double getVectorLength() {
-        double length = Math.sqrt(super.getX() * super.getX() + super.getY() * super.getY());
+        double length = Math.sqrt(getX() * getX() + getY() * getY());
 
         return length;
     }
 
 
     //Mandatory method for calculation scalar multiplication of two vectors
-    public double getVectorScalarMult(Vector2D a, Vector2D b) {
 
-        double vectorScalarMult = a.getX() * b.getX() + a.getY() * b.getY();                //???????????????? Why do I not use super.getX() and Y?
+    @Override
+    public double getVectorScalarMult(IFVector a1, IFVector b1) {
+        Vector2D a = (Vector2D) a1;
+        Vector2D b = (Vector2D) b1;
+        if ((a == null) || (b == null)) {
+            System.out.println("Object of vector can't be null.");
+            return 0;
+        }
 
+
+        double vectorScalarMult = a.getX() * b.getX() + a.getY() * b.getY();
         return vectorScalarMult;
 
     }
 
 
     //Mandatory method for summation of two vectors
-
-    public double getVectorSum(Vector2D a, Vector2D b) {
-        Vector2D vectorSum = new Vector2D(x, y, vectorName);        //??????????????? Why do I use parameters for this new object from this.constructor?
+    @Override
+    public double getVectorSum(IFVector a1, IFVector b1) {
+        Vector2D a = (Vector2D) a1;
+        Vector2D b = (Vector2D) b1;                                  //??????????????? Why don't I use parameters for this new objects a and b from constructor?
+        Vector2D vectorSum = new Vector2D(x, y, vectorName);        //??????????????? Why do I use parameters for this new object vectorSum from constructor?
 
         vectorSum.x = a.getX() + b.getX();
         vectorSum.y = a.getY() + b.getY();
@@ -45,8 +55,11 @@ public class Vector2D extends Vector {
 
 
     //Mandatory method for deduction of two vectors
-    public double getVectorDeduct(Vector2D a, Vector2D b) {
+    @Override
+    public double getVectorDeduct(IFVector a1, IFVector b1) {
         Vector2D vectorDeduct = new Vector2D(x, y, vectorName);
+        Vector2D a = (Vector2D) a1;
+        Vector2D b = (Vector2D) b1;
 
         vectorDeduct.x = b.getX() - a.getX();
         vectorDeduct.y = b.getY() - a.getY();
@@ -57,7 +70,7 @@ public class Vector2D extends Vector {
 
 
     //Static method for output array with random vectors on base random integer number
-    public static Vector[] getVectorArray(int N) {
+    public static IFVector[] getVectorArray(int N) {
         Vector[] vectorArr = new Vector[N];
 
         //Filling the array
@@ -77,7 +90,11 @@ public class Vector2D extends Vector {
 
 
     //Method for compare of two vectors
-    public String compareVectors(Vector2D a, Vector2D b) {
+    @Override
+    public String compareVectors(IFVector a1, IFVector b1) {
+        Vector2D a = (Vector2D) a1;
+        Vector2D b = (Vector2D) b1;
+
         if ((a.getVectorLength() == b.getVectorLength()) && (a.getX() == b.getX()) && (a.getY() == b.getY())) {
             return "vectors are equal";
         }

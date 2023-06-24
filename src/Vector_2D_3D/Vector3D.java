@@ -11,18 +11,25 @@ public class Vector3D extends Vector {
 
     //Methods from interface IFVector
     //Mandatory method for calculation vector length
-
+    @Override
     public double getVectorLength() {
-        double length = Math.sqrt(super.getX() * super.getX() + super.getY() * super.getY() + super.getZ() * super.getZ());
+        double length = Math.sqrt(getX() * getX() + getY() * getY() + getZ() * getZ());
 
         return length;
     }
 
 
     //Mandatory method for calculation scalar multiplication of two vectors
-    public double getVectorScalarMult(Vector3D a, Vector3D b) {
+    public double getVectorScalarMult(IFVector a1, IFVector b1) {
+        Vector3D a = (Vector3D) a1;
+        Vector3D b = (Vector3D) b1;
 
-        double vectorScalarMult = a.getX() * b.getX() + a.getY() * b.getY() + a.getZ() * b.getZ();                //???????????????? Why do I not use super.getX() and Y?
+        if ((a == null) || (b == null)) {
+            System.out.println("Object of vector can't be null.");
+            return 0;
+        }
+
+        double vectorScalarMult = a.getX() * b.getX() + a.getY() * b.getY() + a.getZ() * b.getZ();
 
         return vectorScalarMult;
 
@@ -30,8 +37,10 @@ public class Vector3D extends Vector {
 
 
     //Mandatory method for summation of two vectors
-
-    public double getVectorSum(Vector3D a, Vector3D b) {
+    @Override
+    public double getVectorSum(IFVector a1, IFVector b1) {
+        Vector3D a = (Vector3D) a1;
+        Vector3D b = (Vector3D) b1;
         Vector3D vectorSum = new Vector3D(x, y, z, vectorName);        //??????????????? Why do I use parameters for this new object from this.constructor?
 
         vectorSum.x = a.getX() + b.getX();
@@ -43,7 +52,10 @@ public class Vector3D extends Vector {
 
 
     //Mandatory method for deduction of two vectors
-    public double getVectorDeduct(Vector3D a, Vector3D b) {
+    @Override
+    public double getVectorDeduct(IFVector a1, IFVector b1) {
+        Vector3D a = (Vector3D) a1;
+        Vector3D b = (Vector3D) b1;
         Vector3D vectorDeduct = new Vector3D(x, y, z, vectorName);
 
         vectorDeduct.x = b.getX() - a.getX();
@@ -56,7 +68,7 @@ public class Vector3D extends Vector {
 
 
     //Static method for output array with random vectors on base random integer number
-    public static Vector[] getVectorArray(int N) {
+    public static IFVector[] getVectorArray(int N) {
         Vector[] vectorArr = new Vector[N];
 
         //Filling the array
@@ -76,7 +88,11 @@ public class Vector3D extends Vector {
 
 
     //Method for compare of two vectors
-    public String compareVectors(Vector3D a, Vector3D b) {
+    @Override
+    public String compareVectors(IFVector a1, IFVector b1) {
+        Vector3D a = (Vector3D) a1;
+        Vector3D b = (Vector3D) b1;
+
         if ((a.getVectorLength() == b.getVectorLength()) && (a.getX() == b.getX()) && (a.getY() == b.getY()) && (a.getZ() == b.getZ())) {
             return "vectors are equal";
         }
@@ -89,7 +105,7 @@ public class Vector3D extends Vector {
     public String toString() {
         return "Information for vector " + vectorName + "\n" +
                 staticVectorSystem + "\n" +
-                "2) Vector coordinates: x = " + this.x + ", y = " + this.y + ", y = " + this.z + "\n" +
+                "2) Vector coordinates: x = " + this.x + ", y = " + this.y + ", z = " + this.z + "\n" +
                 "3) Vector length = " + String.format("%.1f", getVectorLength()) + "\n";
     }
 
