@@ -61,7 +61,7 @@ public abstract class Vector implements IFVector {
     public String toString() {
         return "Information for vector " + vectorName + "\n" +
                 staticVectorSystem + "\n" +
-                "2) Vector coordinates: x = " + this.x + this.y + this.z + "\n" +
+                "2) Vector coordinates: x = " + this.x + "y = " + this.y + "z = " + this.z + "\n" +
                 "3) Vector length = " + getVectorLength() + "\n";
     }
 
