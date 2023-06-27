@@ -28,9 +28,12 @@ public class MainDocNumber {
 
     public static void main(String[] args) {
 
-        String str = "";
-        System.out.println(str.getDocNumber());
-        System.out.println("Document number is " + str);
+        //Output document number
+        System.out.println("Document number is " + getDocNumber());
+
+        //Method for output 2 first blocks with four numbers
+        System.out.println("The first eight digits of the document number are " + getEightNumb());
+
 
     }
 
@@ -55,6 +58,22 @@ public class MainDocNumber {
     }
 
 
+    //Method for output 2 first blocks with four numbers
+    public static String getEightNumb() {
+        String str1 = "";
+        docNumber.toCharArray();
+        for (int i = 0; i < docNumbLength; i++) {
+            if (Character.isDigit(docNumber.charAt(i)) && (str1.length() < 8)) {
+                str1 += docNumber.charAt(i);
+            }
+        }
+        return str1;
+    }
+
+
+    //Method for replace blocks with three letters with *
+
+
     // Method for checking correct input of the document's number
 //    public static String checkCorrectInput(String docNumber) {
 //
@@ -70,7 +89,9 @@ public class MainDocNumber {
 //        docNumberArr = docNumber.toCharArray();
 //        for (int i = 0; i < docNumbLength; i++) {
 //            docNumberArr[i] = docNumber.charAt(i);
-//            if(docNumberArr[0].isNumeric())
+//            if(0<=docNumberArr[i].isNumeric()<=3){
+//                //
+//            }
 //        }
 //        return "docNumberArr";
 //    }
