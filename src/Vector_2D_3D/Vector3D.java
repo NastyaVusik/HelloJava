@@ -20,6 +20,7 @@ public class Vector3D extends Vector {
 
 
     //Mandatory method for calculation scalar multiplication of two vectors
+    @Override
     public double getVectorScalarMult(IFVector a1, IFVector b1) {
         Vector3D a = (Vector3D) a1;
         Vector3D b = (Vector3D) b1;
