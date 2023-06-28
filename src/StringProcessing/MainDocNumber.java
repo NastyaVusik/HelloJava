@@ -61,6 +61,10 @@ public class MainDocNumber {
         //Method for checking, if document's number ends with sequence "1a1b"
         System.out.println("Document's number ends with sequence \"1a1b\": " + checkEnding1a1b());
         System.out.println("\n**********************************************\n");
+
+        //Method for dublication all letters in the line
+        System.out.println("Final line with dublicated symbols is: " + dublicateLetters());
+        System.out.println("\n**********************************************\n");
     }
 
 
@@ -188,7 +192,23 @@ public class MainDocNumber {
         } else return false;
     }
 
-    // Method for checking correct input of the document's number
+
+    //Method for dublication all letters in the line
+    static String dublicateLetters() {
+        String originLine = "This tasks carry out my brains!";
+        String finalLine = "";
+
+        for (int i = 0; i < (originLine.length()); i++) {
+            finalLine += String.valueOf(originLine.charAt(i)).concat(String.valueOf((originLine.charAt(i))));
+        }
+
+        System.out.println("originLine is: " + originLine);
+        return finalLine;
+    }
+}
+
+
+// Method for checking correct input of the document's number
 //    public static String checkCorrectInput(String docNumber) {
 //
 //        //Creation of Scanner scan
@@ -211,4 +231,4 @@ public class MainDocNumber {
 //    }
 
 
-}
+
