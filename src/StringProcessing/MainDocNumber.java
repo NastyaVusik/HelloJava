@@ -84,6 +84,7 @@ public class MainDocNumber {
         if (docNumber.length() != docNumbLength) {
             System.out.println("Length of the document's number isn't equal 22 symbols");
         }
+        scan.close();
         return docNumber;
     }
 
