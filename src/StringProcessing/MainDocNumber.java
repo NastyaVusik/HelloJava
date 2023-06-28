@@ -1,5 +1,6 @@
 package StringProcessing;
 
+import java.util.Arrays;
 import java.util.Scanner;
 
 public class MainDocNumber {
@@ -9,7 +10,7 @@ public class MainDocNumber {
 //    документа имеет формат xxxx-yyy-xxxx-yyy-xyxy, где x — это число, а y —
 //    это буква.
 //            - Вывести на экран в одну строку два первых блока по 4 цифры. -
-//    Вывести на экран номер документа, но блоки из трех букв заменить на
+//            - Вывести на экран номер документа, но блоки из трех букв заменить на
 //*** (каждая буква заменятся на *).
 //            - Вывести на экран только одни буквы из номера документа в формате
 //    yyy/yyy/y/y в нижнем регистре.
@@ -25,14 +26,29 @@ public class MainDocNumber {
 //    Все эти методы реализовать в отдельном классе в статических методах,
 //    которые на вход (входным параметром) будут принимать вводимую на вход
 //    программы строку.
+//    1234-wer-5678-uio-5r6y
 
     public static void main(String[] args) {
 
         //Output document number
         System.out.println("Document number is " + getDocNumber());
+        System.out.println("\n**********************************************\n");
 
         //Method for output 2 first blocks with four numbers
         System.out.println("The first eight digits of the document number are " + getEightNumb());
+        System.out.println("\n**********************************************\n");
+
+        //Method for replace blocks with three letters with symbol '*'
+        System.out.println("Document's number with replaced first six letters with symbol '*': " + getStarsInsteadLetters());
+        System.out.println("\n**********************************************\n");
+
+        //Method for get line with letters in format yyy/yyy/y/y
+        System.out.printf("The letters from document's number in format yyy/yyy/y/y: " + getLetterLine());
+        System.out.println("\n\n**********************************************\n");
+
+        //Method for get line with letters in format Letters:yyy/yyy/y/y with upper case
+        System.out.printf("The letters from document's number in format Letters:yyy/yyy/y/y with upper case: " + getLetterLineUpperCase());
+        System.out.println("\n\n**********************************************\n");
 
 
     }
@@ -44,7 +60,7 @@ public class MainDocNumber {
 
 
     //Method for
-    public static String getDocNumber() {
+    static String getDocNumber() {
 
         //Creation of Scanner scan
         Scanner scan = new Scanner(System.in);
@@ -59,19 +75,71 @@ public class MainDocNumber {
 
 
     //Method for output 2 first blocks with four numbers
-    public static String getEightNumb() {
-        String str1 = "";
+    static String getEightNumb() {
+        String newStr = "";
         docNumber.toCharArray();
         for (int i = 0; i < docNumbLength; i++) {
-            if (Character.isDigit(docNumber.charAt(i)) && (str1.length() < 8)) {
-                str1 += docNumber.charAt(i);
+            if (Character.isDigit(docNumber.charAt(i)) && (newStr.length() < 8)) {
+                newStr += docNumber.charAt(i);
             }
         }
-        return str1;
+        return newStr;
     }
 
 
-    //Method for replace blocks with three letters with *
+    //Method for replace blocks with three letters with symbol '*'
+    static String getStarsInsteadLetters() {
+        String newStr = docNumber;
+
+        for (int i = 0, count = 0; i < newStr.length() & count < 6; i++) {
+            if (Character.isLetter(newStr.charAt(i))) {
+                newStr = newStr.replaceFirst(String.valueOf(newStr.charAt(i)), "*");
+                count++;
+            }
+        }
+        return newStr;
+    }
+
+
+    //Method for get line with letters in format yyy/yyy/y/y
+    static String getLetterLine() {
+        String newStr = docNumber;
+        char[] charArray = newStr.toCharArray();
+        String StrFormat = "yyy/yyy/y/y";
+        char[] StrFormatArray = StrFormat.toCharArray();
+
+        for (int i = 0, j = 0; (i < charArray.length) & (j < StrFormatArray.length); i++) {
+            if (StrFormatArray[j] == 'y' & Character.isLetter(charArray[i])) {
+                StrFormatArray[j] = charArray[i];
+                j++;
+            } else if (StrFormatArray[j] != 'y') {
+                j++;
+            }
+        }
+        return String.valueOf(StrFormatArray);
+    }
+
+
+    //Method for get line with letters in format Letters:yyy/yyy/y/y with upper case
+    static String getLetterLineUpperCase() {
+        String newStr = docNumber;
+        char[] charArray = newStr.toCharArray();
+        String StrFormat = "yyy/yyy/y/y";
+        char[] StrFormatArray = StrFormat.toCharArray();
+
+        for (int i = 0, j = 0; (i < charArray.length) & (j < StrFormatArray.length); i++) {
+            if (StrFormatArray[j] == 'y' & Character.isLetter(charArray[i])) {
+                StrFormatArray[j] = charArray[i];
+                j++;
+            } else if (StrFormatArray[j] != 'y') {
+                j++;
+            }
+        }
+
+        String resStr = (String.valueOf(StrFormatArray)).toUpperCase();
+        resStr = "Letters:" + resStr;
+        return resStr;
+    }
 
 
     // Method for checking correct input of the document's number
