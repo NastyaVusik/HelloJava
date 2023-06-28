@@ -26,7 +26,7 @@ public class MainDocNumber {
 //    Все эти методы реализовать в отдельном классе в статических методах,
 //    которые на вход (входным параметром) будут принимать вводимую на вход
 //    программы строку.
-//    1234-wer-5678-uio-5r6y
+//    1234-wer-5678-Abc-5r6y
 
     public static void main(String[] args) {
 
@@ -43,14 +43,20 @@ public class MainDocNumber {
         System.out.println("\n**********************************************\n");
 
         //Method for get line with letters in format yyy/yyy/y/y
-        System.out.printf("The letters from document's number in format yyy/yyy/y/y: " + getLetterLine());
-        System.out.println("\n\n**********************************************\n");
+        System.out.println("The letters from document's number in format yyy/yyy/y/y: " + getLetterLine());
+        System.out.println("\n**********************************************\n");
 
         //Method for get line with letters in format Letters:yyy/yyy/y/y with upper case
-        System.out.printf("The letters from document's number in format Letters:yyy/yyy/y/y with upper case: " + getLetterLineUpperCase());
-        System.out.println("\n\n**********************************************\n");
+        System.out.println("The letters from document's number in format Letters:yyy/yyy/y/y with upper case: " + getLetterLineUpperCase());
+        System.out.println("\n**********************************************\n");
 
+        //Method for checking, if document's number contains line "abc"
+        System.out.println("Document's number contains line \"abc\" with case ignore: " + checkContainsAbc());
+        System.out.println("\n**********************************************\n");
 
+        //Method for checking, if document's number begins with sequence "555"
+        System.out.println("Document's number begin with sequence \"555\": " + checkBegining555());
+        System.out.println("\n**********************************************\n");
     }
 
 
@@ -121,7 +127,7 @@ public class MainDocNumber {
 
 
     //Method for get line with letters in format Letters:yyy/yyy/y/y with upper case
-    static String getLetterLineUpperCase() {
+    static StringBuilder getLetterLineUpperCase() {
         String newStr = docNumber;
         char[] charArray = newStr.toCharArray();
         String StrFormat = "yyy/yyy/y/y";
@@ -136,9 +142,32 @@ public class MainDocNumber {
             }
         }
 
-        String resStr = (String.valueOf(StrFormatArray)).toUpperCase();
-        resStr = "Letters:" + resStr;
+        StringBuilder resStr = new StringBuilder((String.valueOf(StrFormatArray)).toUpperCase());
+        resStr = resStr.insert(0, "Letters:");
         return resStr;
+    }
+
+
+    //Method for checking, if document's number contains line "abc"
+    static Boolean checkContainsAbc() {
+        String testStr = "abC";
+
+        //Convert line testStr to lower case
+        testStr = testStr.toLowerCase();
+
+        //Create new line newStr equal docNumber. Convert line newStr to lower case
+        String newStr = docNumber;
+        newStr = newStr.toLowerCase();
+
+        if (newStr.contains(testStr)) {
+            return true;
+        } else return false;
+    }
+
+
+    //Method for checking, if document's number begins with sequence "555"
+    static Boolean checkBegining555() {
+
     }
 
 
