@@ -26,7 +26,7 @@ public class MainDocNumber {
 //    Все эти методы реализовать в отдельном классе в статических методах,
 //    которые на вход (входным параметром) будут принимать вводимую на вход
 //    программы строку.
-//    5554-wer-5678-Abc-5r6y
+//    5554-wer-5678-Abc-1a1b
 
     public static void main(String[] args) {
 
@@ -56,6 +56,10 @@ public class MainDocNumber {
 
         //Method for checking, if document's number begins with sequence "555"
         System.out.println("Document's number begin with sequence \"555\": " + checkBeginning555());
+        System.out.println("\n**********************************************\n");
+
+        //Method for checking, if document's number ends with sequence "1a1b"
+        System.out.println("Document's number ends with sequence \"1a1b\": " + checkEnding1a1b());
         System.out.println("\n**********************************************\n");
     }
 
@@ -174,6 +178,15 @@ public class MainDocNumber {
         } else return false;
     }
 
+
+    //Method for checking, if document's number ends with sequence "1a1b"
+    static boolean checkEnding1a1b() {
+        String testStr = "1a1b";
+
+        if (docNumber.endsWith("1a1b")) {
+            return true;
+        } else return false;
+    }
 
     // Method for checking correct input of the document's number
 //    public static String checkCorrectInput(String docNumber) {
