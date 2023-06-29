@@ -1,7 +1,13 @@
 public class DocNumberExceptions extends Exception {
 
-    public DocNumberExceptions(String message) {
-        super(message);
+    public DocNumberExceptions() {
+        super();
+    }
+
+    @Override
+    public String getMessage() {
+//        return super.getMessage();
+        return "Document number isn't correspond with required format";
     }
 
     @Override
