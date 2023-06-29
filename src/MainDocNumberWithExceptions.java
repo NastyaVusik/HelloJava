@@ -49,15 +49,13 @@ public class MainDocNumberWithExceptions {
 
         //Output document number
         try {
-//            getDocNumber(scan);
             System.out.println("Document number is " + getDocNumber(scan));
-        } catch (Exception e) {
+        } catch (DocNumberExceptions e) {
             System.out.println(e);
         }
 
         //Method for checking, if document's number contains line "abc"
         try {
-//            checkContainsAbc();
             System.out.println("Document's number contains line \"abc\" with case ignore: " + checkContainsAbc());
         } catch (ContainsABCException e) {
             System.out.println(e);
@@ -65,7 +63,6 @@ public class MainDocNumberWithExceptions {
 
         //Method for checking, if document's number begins with sequence "555"
         try {
-//            checkBeginning555();
             System.out.println("Document's number begin with sequence \"555\": " + checkBeginning555());
         } catch (BeginWith555Exception e) {
             System.out.println(e);
@@ -73,7 +70,6 @@ public class MainDocNumberWithExceptions {
 
         //Method for checking, if document's number ends with sequence "1a1b"
         try {
-//            checkEnding1a1b();
             System.out.println("Document's number ends with sequence \"1a1b\": " + checkEnding1a1b());
         } catch (EndWith1a1bException e) {
             System.out.println(e);
