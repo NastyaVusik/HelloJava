@@ -4,7 +4,7 @@
 
 import java.util.Scanner;
 
-public class DocNumberWithExceptions {
+public class MainDocNumberWithExceptions {
 
 //    Написать программу со следующим функционалом:
 //    На вход передать строку (будем считать, что это номер документа). Номер
