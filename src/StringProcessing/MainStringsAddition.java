@@ -2,6 +2,7 @@ package StringProcessing;// Press Shift twice to open the Search Everywhere dial
 // then press Enter. You can now see whitespace characters in your code.
 
 
+import java.io.StringWriter;
 import java.util.Arrays;
 import java.util.Scanner;
 
@@ -128,13 +129,10 @@ public class MainStringsAddition {
         //Find minimum of tempSymbsumArr
         int min = tempSymbsumArr[0];
 
-        //count - counter for identifying the number of minimum element of tempSymbsumArr
-//        int count = 0;
-
         for (int i = 1; i < tempSymbsumArr.length; i++) {
+
             if (tempSymbsumArr[i] < min) {
                 min = tempSymbsumArr[i];
-//                count++;
                 minSymbSumIndex = i;
 
             }
@@ -148,11 +146,45 @@ public class MainStringsAddition {
 
 //    3) Method for checking every word in the line, if it is palindrome
 
-    static StringBuilder checkPalindrome() {
-        StringBuilder = "";
+    static String checkPalindrome() {
+
+        //Create line with any words
+//        StringBuilder str = new StringBuilder("frog, month, Aibohphobia, DOG, deified, cup, Towel, EVE, kayak");
+        StringBuilder str = new StringBuilder("frog month Aibohphobia DOG deified cup Towel EVE kayak");
+
+
+//Create array from the line
+        String[] strArrToString = str.toString().split(" ");
+        System.out.println("\nThe array from the line: \n" + Arrays.toString(strArrToString));
+
+        //Create scanner for entering number of required word in the line
+        Scanner scan = new Scanner(System.in);
+
+        System.out.print("\nEnter the number of required word in the line: ");
+        int wordNumb = scan.nextInt();
+
+        System.out.print("\nRequired word with index = " + wordNumb + ". The word is " + strArrToString[wordNumb] + "\n");
+
+
+//Variable for initial and reversed words
+        StringBuilder initialWord = new StringBuilder();
+        StringBuilder reversedWord = new StringBuilder();
+//        StringBuilder reversedWord = initialWord.reverse();
+
+        initialWord.append(strArrToString[wordNumb]);
+
+        System.out.println("Initial word is " + initialWord);
+
+        reversedWord = initialWord.reverse();
+        System.out.println("reversed word is " + reversedWord);
+
+        if (initialWord.equals(reversedWord)) {
+
+            return "The word " + initialWord + " is a palindrome";
+        } else {
+            return "The word " + initialWord + " isn't a palindrome";
+        }
     }
-
-
 }
 
 
