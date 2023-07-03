@@ -7,6 +7,6 @@ public class StartWithDocnumOrContractException extends Exception {
 
     @Override
     public String toString() {
-        return "StartWithDocnumOrContractException { message = " + getMessage() + " }";
+        return "StartWithDocnumOrContractException { message = " + getMessage() + " }\n";
     }
 }

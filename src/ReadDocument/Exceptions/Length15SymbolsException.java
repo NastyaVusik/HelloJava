@@ -7,6 +7,6 @@ public class Length15SymbolsException extends Exception {
 
     @Override
     public String toString() {
-        return "Length15SymbolsException { message = " + getMessage() + " }";
+        return "Length15SymbolsException { message = " + getMessage() + " }\n";
     }
 }
