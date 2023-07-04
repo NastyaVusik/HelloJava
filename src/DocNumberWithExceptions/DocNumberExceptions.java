@@ -1,3 +1,5 @@
+package DocNumberWithExceptions;
+
 public class DocNumberExceptions extends Exception {
 
     public DocNumberExceptions() {

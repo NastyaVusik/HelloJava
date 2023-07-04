@@ -1,3 +1,5 @@
+package DocNumberWithExceptions;
+
 public class ContainsABCException extends Exception {
     public ContainsABCException() {
         super();
@@ -11,7 +13,7 @@ public class ContainsABCException extends Exception {
 
     @Override
     public String toString() {
-        return "ContainsABCException { message= " + getMessage() + " }";
+        return "DocNumberWithExceptions.ContainsABCException { message= " + getMessage() + " }";
     }
 
 }

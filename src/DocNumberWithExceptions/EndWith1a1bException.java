@@ -1,3 +1,5 @@
+package DocNumberWithExceptions;
+
 public class EndWith1a1bException extends Exception {
     public EndWith1a1bException() {
         super();
@@ -11,6 +13,6 @@ public class EndWith1a1bException extends Exception {
 
     @Override
     public String toString() {
-        return "EndWith1a1bException { message = " + getMessage() + " }";
+        return "DocNumberWithExceptions.EndWith1a1bException { message = " + getMessage() + " }";
     }
 }

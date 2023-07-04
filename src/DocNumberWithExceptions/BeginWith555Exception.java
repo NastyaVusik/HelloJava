@@ -1,3 +1,5 @@
+package DocNumberWithExceptions;
+
 public class BeginWith555Exception extends Exception {
     public BeginWith555Exception() {
         super();
@@ -11,6 +13,6 @@ public class BeginWith555Exception extends Exception {
 
     @Override
     public String toString() {
-        return "BeginWith555Exception { message = " + getMessage() + " }";
+        return "DocNumberWithExceptions.BeginWith555Exception { message = " + getMessage() + " }";
     }
 }
