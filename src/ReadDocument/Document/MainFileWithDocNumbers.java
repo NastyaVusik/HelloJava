@@ -29,7 +29,7 @@ public class MainFileWithDocNumbers {
 
     public static void main(String[] args) {
         readDocInfoWithScanner();
-        System.out.println("\n\n*************************************************\n\n");
+//        System.out.println("\n\n*************************************************\n\n");
 //        readDocInfoWithFileReader();
     }
 
@@ -46,45 +46,38 @@ public class MainFileWithDocNumbers {
 
         //Get file name
         System.out.println("\nA name of the document: " + path.getName() + "\n\n");
+        readDocPath.close();
 
         //Read the document
 
         try (Scanner docScan = new Scanner(path)) {
 
-            String docStr = "";
-
             while (docScan.hasNext()) {
-                try {
-                    docStr = docScan.nextLine();
+                String docStr = docScan.nextLine();
+                System.out.println(docStr);
 
-                    if (CorrectDocument.checkLength(docStr)) {
-                        System.out.println(docStr);
-                    }
+                try {
+                    CorrectDocument.checkLength(docStr);
                 } catch (Length15SymbolsException e) {
                     System.out.println(e);
+                } catch (DocNumberException e) {
+                    throw new RuntimeException(e);
                 }
 
                 try {
-
-                    if (CorrectDocument.checkPrefix(docStr)) {
-                        System.out.println(docStr);
-                    }
+                    CorrectDocument.checkPrefix(docStr);
                 } catch (StartWithDocnumOrContractException e) {
                     System.out.println(e);
                 }
 
                 try {
-                    if (CorrectDocument.checkPunctuationMarks(docStr)) {
-                        System.out.println(docStr);
-                    }
+                    CorrectDocument.checkPunctuationMarks(docStr);
                 } catch (DocNumberException e) {
                     System.out.println(e);
                 }
+                System.out.println("**************************************\n");
             }
 
-
-            System.out.println("\n**************************************\n" +
-                    path.length());
         } catch (FileNotFoundException e) {
             e.getStackTrace();
         }
