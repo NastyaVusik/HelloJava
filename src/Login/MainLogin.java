@@ -1,5 +1,7 @@
 package Login;
 
+import java.util.Scanner;
+
 public class MainLogin {
 //    Создать класс, в котором будет статический метод.
 //            (почитать и понять, чем статический метод отличается от нестатического
@@ -26,6 +28,34 @@ public class MainLogin {
 //
 
     public static void main(String[] args) {
-        
+
+        //Origin login and password
+        String loginOrigin = "NastyaVusik";
+        String passwordOrigin = "Halera123!$";
+
+
+//Create scanner for trying to authorize
+//        Scanner scan = new Scanner(System.in);
+
+        try {
+//            System.out.print("Enter a login: ");
+//            String loginInput = scan.nextLine();
+            AuthorizationChecking.checkLogin(loginOrigin);
+
+        } catch (WrongLoginException e) {
+            System.out.println(e);
+        }
+
+        try {
+//            System.out.print("Enter a password: ");
+//            String passwordInput = scan.nextLine();
+            AuthorizationChecking.checkPassword(passwordOrigin);
+        } catch (WrongPasswordException e) {
+            System.out.println(e);
+        }
+
+
     }
+
+
 }
