@@ -33,7 +33,7 @@ public class MainFileWithDocNumbers {
 //        readDocInfoWithFileReader();
     }
 
-    static void readDocInfoWithScanner() {
+    public static void readDocInfoWithScanner() {
 
         //Create scanner for read a path to the document
         Scanner readDocPath = new Scanner(System.in);
