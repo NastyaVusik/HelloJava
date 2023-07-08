@@ -38,15 +38,16 @@ public class MainRewrittenDocument {
 
     public static void main(String[] args) {
 
+        System.out.print("\n*********************************************\n");
+
+        //Create new files for document with correct numbers and document with incorrect numbers
+        createFile();
+
+
         //Create object of class ReadDocument.Document.MainFileWithDocNumbers
         MainFileWithDocNumbers fileWithDocuments = new MainFileWithDocNumbers();
 
         fileWithDocuments.readDocInfoWithScanner();
-        System.out.print("\n*********************************************\n");
-
-
-        //Create new files for document with correct numbers and document with incorrect numbers
-        createFile();
 
     }
 
@@ -60,9 +61,13 @@ public class MainRewrittenDocument {
     //Method for creating a file
     static void createFile() {
 
+//        Scanner scan = new Scanner(System.in);
+
         // Loop to create more than one file
         System.out.print("Enter index -  quantity of files you want to create: ");
         int index = Integer.parseInt(enterFileInfo());
+//        int index = Integer.parseInt(scan.nextLine());
+//        scan.close();
 
         for (int i = 0; i < index; i++) {
 
@@ -86,7 +91,7 @@ public class MainRewrittenDocument {
                 throw new RuntimeException(e);                              //?????????????????????????????????????
             }
 
-//Removing the file
+            //Removing the file
             System.out.print("Do you want to delete this document? If YES, print y: ");
             if (enterFileInfo().equals("y")) {
                 newFile.delete();
