@@ -1,8 +1,9 @@
-package Files;// Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
+package newFiles;// Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
 // then press Enter. You can now see whitespace characters in your code.
 
 
 import java.io.File;
+import java.io.FileWriter;
 import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Scanner;
@@ -51,13 +52,13 @@ public class FilesReader {
 
     public static void main(String[] args) throws IOException {
 
-        readFilesAndDocuments();
+        createFiles();
         System.out.println("\n\n*************************************************\n\n");
 
     }
 
-
-    public static void readFilesAndDocuments() throws IOException {
+    //Method for creating new files and putting them into ArrayList
+    static void createFiles() throws IOException {
 
         //Create scanner for reading path to the file and file name
         Scanner readFilePath = new Scanner(System.in);
@@ -70,7 +71,7 @@ public class FilesReader {
 
         //Read file path and file name from the console before digit zero is entered
         do {
-            System.out.print("Enter path to the file: ");
+            System.out.print("Enter path to the file and file's name: ");
             filePath = readFilePath.nextLine();
             filesList.add(filePath);                //Add file's path and name to the ArrayList
 
@@ -80,11 +81,18 @@ public class FilesReader {
             try {
 
                 newFile.createNewFile();
+
+                FileWriter writer = new FileWriter(newFile, true);              //Create object writer to write document's numbers into the file
+                System.out.print("Write a text to save in the document: ");
+                writer.write(String.valueOf(readFilePath));             //???????????????Why is valueOf required here?
+                writer.flush();
+                writer.close();
+
+
             } catch (IOException e) {
                 e.getStackTrace();
                 throw new RuntimeException(e);
             }
-
 
         } while (filePath != "0");
 
