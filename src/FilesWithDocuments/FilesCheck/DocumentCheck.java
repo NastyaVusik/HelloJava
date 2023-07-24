@@ -1,6 +1,9 @@
-package FilesCheck;
+package FilesWithDocuments.FilesCheck;
 
-import
+import FilesWithDocuments.Exceptions.DocNumberException;
+import FilesWithDocuments.Exceptions.Length15SymbolsException;
+import FilesWithDocuments.Exceptions.StartWithDocNumOrContractException;
+
 
 public class DocumentCheck {
 
@@ -17,11 +20,11 @@ public class DocumentCheck {
 
 
     //Method for checking prefix of document's number
-    public static boolean checkPrefix(String docNumber) throws StartWithDocnumOrContractException {
+    public static boolean checkPrefix(String docNumber) throws StartWithDocNumOrContractException {
         if (docNumber.startsWith("docnum") | docNumber.startsWith("contract")) {
             return true;
         } else {
-            throw new StartWithDocnumOrContractException("Prefix of the document's number is incorrect ");
+            throw new StartWithDocNumOrContractException("Prefix of the document's number is incorrect ");
         }
     }
 
@@ -39,4 +42,4 @@ public class DocumentCheck {
         return true;
     }
 }
-}
+

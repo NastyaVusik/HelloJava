@@ -1,4 +1,4 @@
-package Exceptions;
+package FilesWithDocuments.Exceptions;
 
 public class StartWithDocNumOrContractException extends Exception {
     public StartWithDocNumOrContractException(String message) {

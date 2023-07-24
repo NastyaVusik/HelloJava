@@ -1,4 +1,4 @@
-package Exceptions;
+package FilesWithDocuments.Exceptions;
 
 public class Length15SymbolsException extends Exception {
     public Length15SymbolsException(String message) {

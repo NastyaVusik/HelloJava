@@ -1,4 +1,4 @@
-package Exceptions;
+package FilesWithDocuments.Exceptions;
 
 public class DocNumberException extends Exception {
     public DocNumberException(String message) {
