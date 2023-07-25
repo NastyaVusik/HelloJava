@@ -2,13 +2,18 @@ package FilesWithDocuments.newFiles;// Press Shift twice to open the Search Ever
 // then press Enter. You can now see whitespace characters in your code.
 
 
+import FilesWithDocuments.Exceptions.DocNumberException;
+import FilesWithDocuments.Exceptions.Length15SymbolsException;
+import FilesWithDocuments.Exceptions.StartWithDocNumOrContractException;
+import FilesWithDocuments.FilesCheck.DocumentCheck;
+
 import java.io.*;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
 import java.util.Scanner;
 
-public class FilesReader {
+public class MainFilesReader {
 
 
 //    Вернемся к домашнему заданию занятия номер 12 и модифицируем его.
@@ -57,15 +62,30 @@ public class FilesReader {
     public static void main(String[] args) throws IOException {
 
         createFiles();
-        System.out.println("\n\n*************************************************\n\n");
-        readDocNumbers();
-        System.out.println("\n\n*************************************************\n\n");
+        System.out.print("\n\n*************************************************\n\n");
 
+        System.out.println("Collection HashSet with unique document's numbers: ");
+        System.out.print(readDocNumbers());
+        System.out.print("\n\n*************************************************\n\n");
+
+        System.out.println("Collection HashMap with unique document's numbers and comment for them: ");
+        System.out.print(readDocNumbers());
+        System.out.print("\n\n*************************************************\n\n");
 
     }
 
     //Create variable filePath
     static String filePath;
+
+    //Create collection ArrayList
+    static ArrayList<String> filesList;
+
+    //Create collection HashSet
+    static HashSet<String> docList;
+
+    //Create variable fileDocNumbers
+    static String fileDocNumbers;
+
 
     //Method for Scanner calling
     static String enterFileInfo() {
@@ -76,10 +96,12 @@ public class FilesReader {
     static ArrayList<String> createFiles() throws IOException {
 
         //Create ArrayList for keeping files' path and names
-        ArrayList<String> filesList = new ArrayList<>();
+//        ArrayList<String> filesList = new ArrayList<>();
+        filesList = new ArrayList<>();
 
         //Create variable filePath
 //        String filePath;
+
 
         //Read file path and file name from the console before digit zero is entered
         while (true) {
@@ -118,47 +140,113 @@ public class FilesReader {
     }
 
 
-    //Getters and Setters
+    //Getters and Setters                       ?????????????????????????????????????Are this methods are required?
     public static String getFilePath() {
         return filePath;
     }
 
     public static void setFilePath(String filePath) {
-        FilesReader.filePath = filePath;
+        MainFilesReader.filePath = filePath;
     }
 
+
+    public static ArrayList<String> getFilesList() {
+        return filesList;
+    }
+
+    public static void setFilesList(ArrayList<String> filesList) {
+        MainFilesReader.filesList = filesList;
+    }
+
+    public static HashSet<String> getDocList() {
+        return docList;
+    }
+
+    public static void setDocList(HashSet<String> docList) {
+        MainFilesReader.docList = docList;
+    }
 
     //Method for reading document's numbers from the files and saving them in collection Set
     static HashSet<String> readDocNumbers() throws IOException {
 
         //Create collection HashSet for keeping files' path and names
-        HashSet<String> docList = new HashSet<String>();
+//        HashSet<String> docList = new HashSet<>();
+        docList = new HashSet<>();
 
-        try (FileReader reader = new FileReader()) {
+        try (FileReader reader = new FileReader(String.valueOf(filesList))) {
+            Scanner scan = new Scanner(reader);             //??????????????????????
             for (int i = 0; i < filesList.size(); i++) {
-                String fileDocNumbers = reader.read(filesList.get(i));
+                String fileDocNumbers = scan.nextLine();
+//                String fileDocNumbers = String.valueOf(reader.read(filesList.get(i).toCharArray()));
                 docList.add(fileDocNumbers);
             }
-        } catch (IOException e){
+        } catch (IOException e) {
             e.getStackTrace();
         }
-return docList;
+        return docList;
 
     }
 
 
     //Method for reading document's numbers from the files and validating this numbers
-    static HashMap writeResults() {
+    static HashMap writeResults() throws IOException {
+
+        //Create variable for exceptions in document's numbers
+        String docNumberException = "";
 
         //Create collection HashMap for keeping files' path and names
-        HashMap<> docList = new HashMap();
+        HashMap<String, String> docResultsList = new HashMap<>();
 
         System.out.print("Enter path to the file Report and file's name: ");
         filePath = enterFileInfo();
 
-        //Create file for writing all unique document's numbers
+        //Create File object
         File fileReport = new File(filePath);
 
+
+        //Create new file for writing all unique document's numbers
+        try (FileWriter writer = new FileWriter(fileReport, true); Scanner docScan = new Scanner((Readable) docList)) {
+            fileReport.createNewFile();
+
+            while (docScan.hasNext()) {
+//    String docNumber = docScan.nextLine();
+
+                try {
+                    DocumentCheck.checkLength(fileDocNumbers);
+
+                } catch (Length15SymbolsException e) {
+                    docNumberException = e.toString();
+                } catch (DocNumberException e) {
+                    docNumberException = e.toString();
+                }
+
+                try {
+                    DocumentCheck.checkPrefix(fileDocNumbers);
+                } catch (StartWithDocNumOrContractException e) {
+                    docNumberException = e.toString();
+                }
+
+                try {
+                    DocumentCheck.checkPunctuationMarks(fileDocNumbers);
+                } catch (DocNumberException e) {
+                    docNumberException = e.toString();
+
+                }
+
+            }
+
+
+// Loop for writing report in the file with collection HashMap
+
+            for (int i = 0; i < docList.size(); i++) {
+                docResultsList.put(fileDocNumbers, docNumberException);
+                writer.write(String.valueOf(fileReport));
+            }
+
+        } catch (IOException e) {
+            e.getStackTrace();
+        }
+        return docResultsList;
     }
 
 
