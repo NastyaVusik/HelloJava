@@ -69,7 +69,7 @@ public class MainFilesReader {
         System.out.print("\n\n*************************************************\n\n");
 
         System.out.println("Collection HashMap with unique document's numbers and comment for them: ");
-        System.out.print(readDocNumbers());
+        System.out.print(writeResults());
         System.out.print("\n\n*************************************************\n\n");
 
     }
@@ -205,7 +205,7 @@ public class MainFilesReader {
 
 
         //Create new file for writing all unique document's numbers
-        try (FileWriter writer = new FileWriter(fileReport, true); Scanner docScan = new Scanner((Readable) docList)) {
+        try (FileWriter writer = new FileWriter(fileReport, true); Scanner docScan = new Scanner(docList.toString())) {
             fileReport.createNewFile();
 
             while (docScan.hasNext()) {
