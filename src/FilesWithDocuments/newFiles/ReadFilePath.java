@@ -21,7 +21,7 @@ ArrayList collection is created from this array
 public class ReadFilePath {
 
     //Create collection ArrayList
-     private ArrayList<File> filesList;
+    private ArrayList<File> filesList;
 
 
     //Create collection HashSet
@@ -45,22 +45,21 @@ public class ReadFilePath {
         for (File file : files) {
             filesList.add(file);
         }
-System.out.println();
+        System.out.println();
         return filesList;
     }
 
 
-
     //Method for reading document's numbers from the files and saving them in collection HashSet
- public HashSet<String> readDocNumbers() throws IOException {
+    public HashSet<String> readDocNumbers() throws IOException {
 
         //Create collection HashSet for keeping files' path and names
 //        HashSet<String> docList = new HashSet<>();
         docList = new HashSet<>();
 
-        try (FileReader reader = new FileReader(String.valueOf(filesList)) {
+        try (FileReader reader = new FileReader(String.valueOf(filesList))) {
 
-           for(int i = 0; i<filesList.size(); i++) {
+            for (int i = 0; i < filesList.size(); i++) {
 
                 fileDocNumbers = String.valueOf(reader.read(filesList.get(i)));              //Read documents' numbers from all files
                 docList.add(fileDocNumbers);
@@ -68,10 +67,10 @@ System.out.println();
         } catch (IOException e) {
             e.getStackTrace();
         }
+
         return docList;
 
     }
-
 
 
     //Method for reading document's numbers from the files and validating this numbers
@@ -95,7 +94,7 @@ System.out.println();
             fileReport.createNewFile();
 
             while (docScan.hasNext()) {
-    fileDocNumbers = docScan.nextLine();
+                fileDocNumbers = docScan.nextLine();
 
                 try {
                     DocumentCheck.checkLength(fileDocNumbers);
