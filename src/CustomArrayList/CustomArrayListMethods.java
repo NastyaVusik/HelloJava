@@ -105,4 +105,20 @@ public class CustomArrayListMethods<E> implements IFCustomArrayList<E> {
     }
 
 
+    //Method for print ArrayList to console
+    @Override
+    public String toString() {
+        String str = "";
+        if (size == 0) {
+            return "Oops...[]";
+        } else {
+            for (int i = 0; i < (elementsArr.length - 1); i++) {
+                str = elementsArr[i] + ", ";
+            }
+            str = "[ " + str + elementsArr[size - 1] + " ]";
+        }
+        return str;
+    }
+
+
 }
