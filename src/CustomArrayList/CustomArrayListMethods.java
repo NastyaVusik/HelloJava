@@ -9,7 +9,7 @@ public class CustomArrayListMethods<E> implements IFCustomArrayList<E> {
     private E[] elementsArr;             //Create array for the basement of ArrayList
     private final int INITIAL_CAPACITY = 10;         //Initial size of the array
 
-    private int size = 0;           //Create variable for initial size of element in the array
+    private int size = 0;           //Create variable for initial quantity of element in the array
 
 
     //Constructor without parameters for initialisation of the array by default
@@ -32,11 +32,6 @@ public class CustomArrayListMethods<E> implements IFCustomArrayList<E> {
             elementsArr[size++] = element;
         }
         return true;
-    }
-
-    public void getX() {
-        AbstractList<String> x = new ArrayList<>();
-        x.;
     }
 
 
@@ -87,9 +82,9 @@ public class CustomArrayListMethods<E> implements IFCustomArrayList<E> {
 
     //Method for checking availability of element in ArrayList
     @Override
-    public boolean checkElement(E element){
-        for(E el : elementsArr){
-            if(el == element){
+    public boolean checkElement(E element) {
+        for (E el : elementsArr) {
+            if (el == element) {
                 return true;
             }
         }
@@ -97,8 +92,17 @@ public class CustomArrayListMethods<E> implements IFCustomArrayList<E> {
     }
 
 
-
-
+    //Method for clearing all ArrayList
+    @Override
+    public boolean clearAll() {
+        boolean change = false;
+        for (E element : elementsArr) {
+            element = null;
+            change = true;
+        }
+        size = 0;
+        return change;
+    }
 
 
 }
