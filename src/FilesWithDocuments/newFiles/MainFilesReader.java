@@ -75,29 +75,36 @@ public class MainFilesReader {
     }
 
     //Create variable filePath
-    static String filePath;
+    private static String filePath;
 
     //Create collection ArrayList
-    static ArrayList<String> filesList;
+//    private static ArrayList<String> filesList;                        //Moved to class ReadFilePath
 
     //Create collection HashSet
-    static HashSet<String> docList;
+    private static HashSet<String> docList;
 
     //Create variable fileDocNumbers
-    static String fileDocNumbers;
+    private static String fileDocNumbers;
 
 
-    //Method for Scanner calling
-    static String enterFileInfo() {
-        return new Scanner(System.in).nextLine();
-    }
+    //Method for Scanner calling                        //Moved to class GetScanner
+//    private static String enterFileInfo() {
+//        return new Scanner(System.in).nextLine();
+//    }
+//
+//
+//    //Overloaded method for Scanner calling
+//    private static String enterFileInfo(FileReader reader) {
+//        return new Scanner(reader).nextLine();
+//    }
+
 
     //Method for creating new files and putting them into ArrayList
-    static ArrayList<String> createFiles() throws IOException {
+    static void createFiles() throws IOException {
 
         //Create ArrayList for keeping files' path and names
 //        ArrayList<String> filesList = new ArrayList<>();
-        filesList = new ArrayList<>();
+//        filesList = new ArrayList<>();                         //Moved to class ReadFilePath
 
         //Create variable filePath
 //        String filePath;
@@ -106,13 +113,13 @@ public class MainFilesReader {
         //Read file path and file name from the console before digit zero is entered
         while (true) {
             System.out.print("Enter path to the file and file's name: ");
-            filePath = enterFileInfo();
+            filePath = GetScanner.enterFileInfo();
 
             if (filePath.equals("0")) {
                 break;
             }
 
-            filesList.add(filePath);                //Add file's path and name to the ArrayList
+            //??????????????????????????????????filesList.add(filePath);                //Add file's path and name to the ArrayList
 
             File newFile = new File(filePath);
 
@@ -123,7 +130,7 @@ public class MainFilesReader {
                 FileWriter writer = new FileWriter(newFile, true);              //Create object writer to write document's numbers into the file
                 System.out.print("Write a text to save in the document: ");
 
-                writer.write(enterFileInfo());
+                writer.write(GetScanner.enterFileInfo());
 
                 writer.flush();
                 writer.close();
@@ -135,36 +142,35 @@ public class MainFilesReader {
             }
         }
 
-        return filesList;
-
     }
 
 
-    //Getters and Setters                       ?????????????????????????????????????Are this methods are required?
-    public static String getFilePath() {
-        return filePath;
-    }
+    //Getters and Setters
+//    public static String getFilePath() {
+//        return filePath;
+//    }
+//
+//    public static void setFilePath(String filePath) {
+//        MainFilesReader.filePath = filePath;
+//    }
+//
+//
+//    public static ArrayList<String> getFilesList() {
+//        return filesList;
+//    }
+//
+//    public static void setFilesList(ArrayList<String> filesList) {
+//        MainFilesReader.filesList = filesList;
+//    }
+//
+//    public static HashSet<String> getDocList() {
+//        return docList;
+//    }
+//
+//    public static void setDocList(HashSet<String> docList) {
+//        MainFilesReader.docList = docList;
+//    }
 
-    public static void setFilePath(String filePath) {
-        MainFilesReader.filePath = filePath;
-    }
-
-
-    public static ArrayList<String> getFilesList() {
-        return filesList;
-    }
-
-    public static void setFilesList(ArrayList<String> filesList) {
-        MainFilesReader.filesList = filesList;
-    }
-
-    public static HashSet<String> getDocList() {
-        return docList;
-    }
-
-    public static void setDocList(HashSet<String> docList) {
-        MainFilesReader.docList = docList;
-    }
 
     //Method for reading document's numbers from the files and saving them in collection Set
     static HashSet<String> readDocNumbers() throws IOException {
@@ -174,10 +180,10 @@ public class MainFilesReader {
         docList = new HashSet<>();
 
         try (FileReader reader = new FileReader(String.valueOf(filesList))) {
-            Scanner scan = new Scanner(reader);             //??????????????????????
+
             for (int i = 0; i < filesList.size(); i++) {
-                String fileDocNumbers = scan.nextLine();
-//                String fileDocNumbers = String.valueOf(reader.read(filesList.get(i).toCharArray()));
+//                String fileDocNumbers = enterFileInfo();
+                String fileDocNumbers = String.valueOf(reader.read(filesList.get(i).toCharArray()));
                 docList.add(fileDocNumbers);
             }
         } catch (IOException e) {
@@ -205,7 +211,7 @@ public class MainFilesReader {
 
 
         //Create new file for writing all unique document's numbers
-        try (FileWriter writer = new FileWriter(fileReport, true); Scanner docScan = new Scanner(docList.toString())) {
+        try (FileWriter writer = new FileWriter(fileReport, true); Scanner docScan = new Scanner(docList.toString())) {          //What have I do with this new scanner object?????????
             fileReport.createNewFile();
 
             while (docScan.hasNext()) {
