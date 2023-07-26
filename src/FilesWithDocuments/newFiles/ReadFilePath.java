@@ -62,7 +62,7 @@ System.out.println();
 
            for(int i = 0; i<filesList.size(); i++) {
 
-                String fileDocNumbers = String.valueOf(reader.read(filesList.get(i)));
+                fileDocNumbers = String.valueOf(reader.read(filesList.get(i)));              //Read documents' numbers from all files
                 docList.add(fileDocNumbers);
             }
         } catch (IOException e) {
@@ -95,7 +95,7 @@ System.out.println();
             fileReport.createNewFile();
 
             while (docScan.hasNext()) {
-    String docNumber = docScan.nextLine();
+    fileDocNumbers = docScan.nextLine();
 
                 try {
                     DocumentCheck.checkLength(fileDocNumbers);
