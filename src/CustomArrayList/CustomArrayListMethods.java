@@ -36,7 +36,7 @@ public class CustomArrayListMethods<E> implements IFCustomArrayList<E> {
 
     public void getX() {
         AbstractList<String> x = new ArrayList<>();
-        x.get(1);
+        x.;
     }
 
 
@@ -83,5 +83,22 @@ public class CustomArrayListMethods<E> implements IFCustomArrayList<E> {
         }
         return elementsArr[index];
     }
+
+
+    //Method for checking availability of element in ArrayList
+    @Override
+    public boolean checkElement(E element){
+        for(E el : elementsArr){
+            if(el == element){
+                return true;
+            }
+        }
+        return false;
+    }
+
+
+
+
+
 
 }
