@@ -25,13 +25,13 @@ public class CustomArrayListMethods<E> implements IFCustomArrayList<E> {
 
     //Method for addition of element to ArrayList
     @Override
-    public boolean addElement(E element) {
+    public void addElement(E element) {
 
-        while (size == elementsArr.length) {
+        if (size == elementsArr.length) {
             elementsArr = Arrays.copyOf(this.elementsArr, (this.elementsArr.length * 3 / 2 + 1));
-            elementsArr[size++] = element;
         }
-        return true;
+        elementsArr[size++] = element;
+//        return true;
     }
 
 
@@ -41,11 +41,8 @@ public class CustomArrayListMethods<E> implements IFCustomArrayList<E> {
 
         try {
             elementsArr[index] = element;
-
-        } catch (IndexOutOfBoundsException e) {
-            e.getStackTrace();
-        } catch (UnsupportedOperationException e) {
-            e.getStackTrace();
+        } catch (Exception e) {
+            throw new RuntimeException(e);
         }
 
     }
@@ -106,14 +103,16 @@ public class CustomArrayListMethods<E> implements IFCustomArrayList<E> {
 
 
     //Method for print ArrayList to console
+
     @Override
     public String toString() {
+
         String str = "";
         if (size == 0) {
             return "Oops...[]";
         } else {
             for (int i = 0; i < (elementsArr.length - 1); i++) {
-                str = elementsArr[i] + ", ";
+                str = str + elementsArr[i] + ", ";
             }
             str = "[ " + str + elementsArr[size - 1] + " ]";
         }

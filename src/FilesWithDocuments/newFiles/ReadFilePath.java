@@ -45,7 +45,6 @@ public class ReadFilePath {
         for (File file : files) {
             filesList.add(file);
         }
-        System.out.println();
         return filesList;
     }
 
@@ -57,15 +56,16 @@ public class ReadFilePath {
 //        HashSet<String> docList = new HashSet<>();
         docList = new HashSet<>();
 
-        try (FileReader reader = new FileReader(String.valueOf(filesList))) {
+        try {
 
             for (int i = 0; i < filesList.size(); i++) {
+                FileReader reader = new FileReader((filesList).get(i));
 
-                fileDocNumbers = String.valueOf(reader.read(filesList.get(i)));              //Read documents' numbers from all files
+                fileDocNumbers = String.valueOf(reader.read());              //Read documents' numbers from all files
                 docList.add(fileDocNumbers);
             }
         } catch (IOException e) {
-            e.getStackTrace();
+            System.out.println(e);
         }
 
         return docList;
@@ -129,7 +129,7 @@ public class ReadFilePath {
             }
 
         } catch (IOException e) {
-            e.getStackTrace();
+            System.out.println(e);
         }
         return docResultsList;
     }

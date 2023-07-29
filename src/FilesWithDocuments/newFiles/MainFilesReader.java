@@ -64,7 +64,8 @@ public class MainFilesReader {
         //Create object file for class ReadFilePath
         ReadFilePath file = new ReadFilePath();
 
-        createFiles();
+//        createFiles();
+        file.addFilePathToCollection();
         System.out.print("\n\n*************************************************\n\n");
 
         System.out.println("Collection HashSet with unique document's numbers: ");

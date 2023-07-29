@@ -5,7 +5,7 @@ public interface IFCustomArrayList<E> {
     //Method for addition of element to ArrayList
     void addElement(int index, E element) throws Exception;
 
-    boolean addElement(E element);
+    void addElement(E element);
 
     //Method for deletion of element from ArrayList
     boolean removeElement(int index) throws Exception;
