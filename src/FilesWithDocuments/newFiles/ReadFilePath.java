@@ -9,6 +9,7 @@ import java.io.File;
 import java.io.FileReader;
 import java.io.FileWriter;
 import java.io.IOException;
+import java.nio.file.Files;
 import java.util.ArrayList;
 import java.util.HashMap;
 import java.util.HashSet;
@@ -43,7 +44,9 @@ public class ReadFilePath {
         filesList = new ArrayList<>();
 
         for (File file : files) {
-            filesList.add(file);
+            if (file.getPath().endsWith("txt")) {
+                filesList.add(file);
+            }
         }
         return filesList;
     }
@@ -52,16 +55,14 @@ public class ReadFilePath {
     //Method for reading document's numbers from the files and saving them in collection HashSet
     public HashSet<String> readDocNumbers() throws IOException {
 
-        //Create collection HashSet for keeping files' path and names
-//        HashSet<String> docList = new HashSet<>();
         docList = new HashSet<>();
 
         try {
 
             for (int i = 0; i < filesList.size(); i++) {
-                FileReader reader = new FileReader((filesList).get(i));
 
-                fileDocNumbers = String.valueOf(reader.read());              //Read documents' numbers from all files
+                fileDocNumbers = Files.readString((filesList).get(i).toPath());                 //Read documents' numbers from all files
+
                 docList.add(fileDocNumbers);
             }
         } catch (IOException e) {
@@ -83,50 +84,60 @@ public class ReadFilePath {
         HashMap<String, String> docResultsList = new HashMap<>();
 
         System.out.print("Enter path to the file Report and file's name: ");
-        filePath = GetScanner.enterFileInfo();
+//        filePath = GetScanner.enterFileInfo();
+        filePath = "src/FilesWithDocuments/newFiles/Result.log";
 
         //Create File object
-        File fileReport = new File(filePath);
+        File reportFile = new File(filePath);
 
 
         //Create new file for writing all unique document's numbers
-        try (FileWriter writer = new FileWriter(fileReport, true); Scanner docScan = new Scanner(String.valueOf(docList))) {          //What have I do with this new scanner object?????????
-            fileReport.createNewFile();
+        try (FileWriter writer = new FileWriter(reportFile, false)) {
+            reportFile.createNewFile();
 
-            while (docScan.hasNext()) {
-                fileDocNumbers = docScan.nextLine();
+            for (String number : docList) {
+
+                fileDocNumbers = number;
+                writer.write(fileDocNumbers + "\n");
 
                 try {
                     DocumentCheck.checkLength(fileDocNumbers);
 
                 } catch (Length15SymbolsException e) {
                     docNumberException = e.toString();
+                    writer.write(String.valueOf(docNumberException));
                 } catch (DocNumberException e) {
                     docNumberException = e.toString();
+                    writer.write(String.valueOf(docNumberException));
                 }
 
                 try {
                     DocumentCheck.checkPrefix(fileDocNumbers);
                 } catch (StartWithDocNumOrContractException e) {
                     docNumberException = e.toString();
+                    writer.write(String.valueOf(docNumberException));
                 }
 
                 try {
                     DocumentCheck.checkPunctuationMarks(fileDocNumbers);
                 } catch (DocNumberException e) {
                     docNumberException = e.toString();
+                    writer.write(String.valueOf(docNumberException));
 
                 }
+
+                writer.write("\n\n");
 
             }
 
 
 // Loop for writing report in the file with collection HashMap
 
-            for (int i = 0; i < docList.size(); i++) {
-                docResultsList.put(fileDocNumbers, docNumberException);
-                writer.write(String.valueOf(fileReport));
-            }
+//            for (int i = 0; i < docList.size(); i++) {
+//                docResultsList.put(fileDocNumbers, docNumberException);
+//                writer.write(String.valueOf(fileDocNumbers, docNumberException));
+//                writer.write("\n");
+//            }
 
         } catch (IOException e) {
             System.out.println(e);
