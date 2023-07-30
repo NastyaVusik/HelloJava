@@ -84,7 +84,7 @@ public class ReadFilePath {
         HashMap<String, String> docResultsList = new HashMap<>();
 
         System.out.print("Enter path to the file Report and file's name: ");
-//        filePath = GetScanner.enterFileInfo();
+//        filePath = GetScanner.enterFileInfo();                            //If you want to enter a file's path form keyboard
         filePath = "src/FilesWithDocuments/newFiles/Result.log";
 
         //Create File object

@@ -38,18 +38,47 @@ public class MainCustomArrayList {
         arrayList1.addElement("window");
 
         //Method for addition of element to ArrayList
-        System.out.println("Custom arrayList arrayList1 is: " + arrayList1.toString());
+        System.out.println("Custom arrayList arrayList1 is: " + arrayList1);
+
+
+        //Method for addition element at the end of ArrayList
+        arrayList1.addElement("Door");
+        System.out.println("Custom arrayList  arrayList1 with addition element is: " + arrayList1);
 
 
         //Method for addition element in ArrayList on certain position
-
         try {
             arrayList1.addElement(1, "Door");
         } catch (Exception e) {
             throw new RuntimeException(e);
         }
-        System.out.println("Custom arrayList  arrayList1 with addition element is: " + arrayList1.toString());
+        System.out.println("Custom arrayList  arrayList1 with addition element in certain place is: " + arrayList1);
 
+
+        //Method for removing element from the ArrayList from certain position
+        try {
+            arrayList1.removeElement(2);
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+        System.out.println("Custom arrayList  arrayList1 with deleted element is: " + arrayList1);
+
+
+        //Method for returning element by index
+        try {
+            System.out.println("Returned element by index is: " + arrayList1.getElement(4));
+        } catch (Exception e) {
+            throw new RuntimeException(e);
+        }
+
+
+        //Method for checking availability of element in ArrayList
+        System.out.println("The ArrayList contain this element: " + arrayList1.checkElement("truss"));
+
+
+        //Method for clearing all ArrayList
+        System.out.println("The ArrayList was cleared: " + arrayList1.clearAll());
+        System.out.println(arrayList1);
     }
 
 }

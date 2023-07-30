@@ -23,25 +23,34 @@ public class CustomArrayListMethods<E> implements IFCustomArrayList<E> {
     }
 
 
+    private void extendArrayIfNeed() {
+        if (size == elementsArr.length) {
+            elementsArr = Arrays.copyOf(this.elementsArr, (this.elementsArr.length * 3 / 2 + 1));
+        }
+    }
+
+
     //Method for addition of element to ArrayList
     @Override
     public void addElement(E element) {
 
-        if (size == elementsArr.length) {
-            elementsArr = Arrays.copyOf(this.elementsArr, (this.elementsArr.length * 3 / 2 + 1));
-        }
+        this.extendArrayIfNeed();
         elementsArr[size++] = element;
-//        return true;
     }
 
 
     //Method for addition element in ArrayList on certain position
     @Override
     public void addElement(int index, E element) throws Exception {
+        this.extendArrayIfNeed();
 
+        for (int i = this.size; i >= index; i--) {
+            elementsArr[i + 1] = elementsArr[i];
+        }
         try {
             elementsArr[index] = element;
         } catch (Exception e) {
+            e.printStackTrace();
             throw new RuntimeException(e);
         }
 
@@ -53,12 +62,13 @@ public class CustomArrayListMethods<E> implements IFCustomArrayList<E> {
     public boolean removeElement(int index) throws Exception {
         try {
             elementsArr[index] = null;
-            for (int i = index; i < elementsArr.length; i++) {
+            for (int i = index; i < this.size; i++) {
                 elementsArr[i] = elementsArr[i + 1];
             }
             size--;
         } catch (IndexOutOfBoundsException e) {
-            e.getStackTrace();
+            e.printStackTrace();
+            throw new RuntimeException();
         }
         return true;
     }
@@ -111,11 +121,12 @@ public class CustomArrayListMethods<E> implements IFCustomArrayList<E> {
         if (size == 0) {
             return "Oops...[]";
         } else {
-            for (int i = 0; i < (elementsArr.length - 1); i++) {
+            for (int i = 0; i < (size - 1); i++) {
                 str = str + elementsArr[i] + ", ";
             }
             str = "[ " + str + elementsArr[size - 1] + " ]";
         }
+
         return str;
     }
 
