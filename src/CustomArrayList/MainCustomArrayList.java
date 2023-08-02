@@ -75,10 +75,17 @@ public class MainCustomArrayList {
         //Method for checking availability of element in ArrayList
         System.out.println("The ArrayList contain this element: " + arrayList1.checkElement("truss"));
 
+        //Method for getting size of ArrayList
+        System.out.println("Size of the ArrayList before elimination of all elements" + arrayList1 + " : " + arrayList1.size());
+
 
         //Method for clearing all ArrayList
         System.out.println("The ArrayList was cleared: " + arrayList1.clearAll());
         System.out.println(arrayList1);
+
+
+        //Method for getting size of ArrayList
+        System.out.println("Size of the ArrayList after elimination of all elements " + arrayList1 + " : " + arrayList1.size());
     }
 
 }

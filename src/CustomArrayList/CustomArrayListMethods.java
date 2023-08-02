@@ -131,4 +131,11 @@ public class CustomArrayListMethods<E> implements IFCustomArrayList<E> {
     }
 
 
+    //Method for getting size of ArrayList
+    @Override
+    public int size() {
+        return this.size;
+    }
+
+
 }

@@ -19,4 +19,7 @@ public interface IFCustomArrayList<E> {
     //Method for clearing all ArrayList
     boolean clearAll();
 
+    //Method for getting size of ArrayList
+    int size();
+
 }
