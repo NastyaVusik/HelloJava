@@ -41,48 +41,33 @@ public class CustomArrayListMethods<E> implements IFCustomArrayList<E> {
 
     //Method for addition element in ArrayList on certain position
     @Override
-    public void addElement(int index, E element) throws Exception {
+    public void addElement(int index, E element) {
         this.extendArrayIfNeed();
 
         for (int i = this.size; i >= index; i--) {
             elementsArr[i + 1] = elementsArr[i];
         }
-        try {
-            elementsArr[index] = element;
-        } catch (Exception e) {
-            e.printStackTrace();
-            throw new RuntimeException(e);
-        }
-
+        elementsArr[index] = element;
     }
 
 
     //Method for removing element from the ArrayList from certain position
     @Override
-    public boolean removeElement(int index) throws Exception {
-        try {
-            elementsArr[index] = null;
-            for (int i = index; i < this.size; i++) {
-                elementsArr[i] = elementsArr[i + 1];
-            }
-            size--;
-        } catch (IndexOutOfBoundsException e) {
-            e.printStackTrace();
-            throw new RuntimeException();
+    public boolean removeElement(int index) {
+        elementsArr[index] = null;
+        for (int i = index; i < this.size; i++) {
+            elementsArr[i] = elementsArr[i + 1];
         }
+        size--;
+
         return true;
     }
 
 
     //Method for returning element by index
     @Override
-    public E getElement(int index) throws Exception {
-        try {
-            if (index >= elementsArr.length) ;
+    public E getElement(int index) {
 
-        } catch (IndexOutOfBoundsException e) {
-            e.getStackTrace();
-        }
         return elementsArr[index];
     }
 

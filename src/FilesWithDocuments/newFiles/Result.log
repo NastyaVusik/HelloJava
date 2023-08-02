@@ -1,0 +1,22 @@
+123
+Length15SymbolsException { message = Length of the document's number is incorrect }
+StartWithDocNumOrContractException { message = Prefix of the document's number is incorrect  }
+
+
+docnum12345678912357
+Length15SymbolsException { message = Length od the document's number is incorrect }
+
+
+docnum12345678912356
+Length15SymbolsException { message = Length od the document's number is incorrect }
+
+
+fdgfhfh
+Length15SymbolsException { message = Length of the document's number is incorrect }
+StartWithDocNumOrContractException { message = Prefix of the document's number is incorrect  }
+
+
+contract123456789123456
+Length15SymbolsException { message = Length of the document's number is incorrect }
+
+

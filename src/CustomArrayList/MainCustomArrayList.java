@@ -47,29 +47,17 @@ public class MainCustomArrayList {
 
 
         //Method for addition element in ArrayList on certain position
-        try {
-            arrayList1.addElement(1, "Door");
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        }
+        arrayList1.addElement(1, "Door");
         System.out.println("Custom arrayList  arrayList1 with addition element in certain place is: " + arrayList1);
 
 
         //Method for removing element from the ArrayList from certain position
-        try {
-            arrayList1.removeElement(2);
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        }
+        arrayList1.removeElement(2);
         System.out.println("Custom arrayList  arrayList1 with deleted element is: " + arrayList1);
 
 
         //Method for returning element by index
-        try {
-            System.out.println("Returned element by index is: " + arrayList1.getElement(4));
-        } catch (Exception e) {
-            throw new RuntimeException(e);
-        }
+        System.out.println("Returned element by index is: " + arrayList1.getElement(4));
 
 
         //Method for checking availability of element in ArrayList
