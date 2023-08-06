@@ -1,4 +1,4 @@
-// Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
+package Streams;// Press Shift twice to open the Search Everywhere dialog and type `show whitespaces`,
 // then press Enter. You can now see whitespace characters in your code.
 
 
@@ -19,10 +19,10 @@ public class MainStreams {
 
     public static void main(String[] args) {
 
-//Create object of class Collection
+//Create object of class Streams1.Collection
         Collection collection = new Collection();
 
-        //Create object of class ConsoleWriter
+        //Create object of class Streams1.ConsoleWriter
         ConsoleWriter writer = new ConsoleWriter();
 
         collection.fillArrayList();

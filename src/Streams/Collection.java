@@ -1,3 +1,5 @@
+package Streams;
+
 import java.util.ArrayList;
 import java.util.List;
 import java.util.OptionalDouble;
@@ -7,11 +9,11 @@ import java.util.stream.Stream;
 
 public class Collection {
 
-    //Create object of class ConsoleWriter
+    //Create object of class Streams1.ConsoleWriter
     ConsoleWriter writer = new ConsoleWriter();
 
 
-    //Create object of class ConsoleWriter
+    //Create object of class Streams1.ConsoleWriter
     ConsoleWriter consoleWriter = new ConsoleWriter();
 
     Random random = new Random();
@@ -38,17 +40,19 @@ public class Collection {
 
     //Deduct repeated elements
     public ArrayList<Integer> deleteDuplicates() {
-//        return (ArrayList<Integer>) streamList.distinct().collect(Collectors.toList());
 
         return (ArrayList<Integer>) arrayList.stream().distinct().collect(Collectors.toList());
     }
 
 
-    //Print to console all even numbers in rangee from 7 to 17 element (including)
+    //Print to console all even numbers in range from 7 to 17 element (including)
     public ArrayList<Integer> getEvenNumbersFrom7to17(int start, int end) {
 
-        Stream<Integer> intStreamByRange = arrayList.stream().filter(element -> (element >= start && element <= end));
-        ArrayList<Integer> evenElements = (ArrayList<Integer>) intStreamByRange.filter(element -> (element % 2 == 0)).collect(Collectors.toList());
+        Stream<Integer> intStreamByRange = arrayList.stream()
+                .filter(element -> (element >= start && element <= end));
+
+        ArrayList<Integer> evenElements = (ArrayList<Integer>) intStreamByRange.filter(element -> (element % 2 == 0))
+                .collect(Collectors.toList());
 
         evenElements.forEach(result -> System.out.print(result + " "));
 
