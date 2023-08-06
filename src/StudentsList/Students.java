@@ -54,8 +54,6 @@ public class Students {
                 .filter(name -> (name.startsWith("a") || name.startsWith("A")))
                 .collect(Collectors.toList());                           //Without this method was exception. Why?
 
-//        namesStartA.forEach(result -> System.out.print(result + " "));
-
         return namesStartA;
     }
 
