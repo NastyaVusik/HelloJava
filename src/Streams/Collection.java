@@ -97,8 +97,8 @@ public class Collection {
 //        double arithmeticMean = arrayList.stream().;    }
         OptionalDouble arithmeticMean = arrayList.stream().mapToInt(Integer::intValue).average();
         writer.printConsole(String.valueOf(arithmeticMean));
-//        System.out.println(arithmeticMean);
 
         return arithmeticMean;
     }
+
 }

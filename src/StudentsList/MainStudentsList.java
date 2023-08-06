@@ -21,5 +21,17 @@ public class MainStudentsList {
         System.out.println("\n\nArrayList of students:");
         System.out.print(students.getStudents());
 
+        //Quantity of  all students with my name with ignoring register
+        System.out.println("\n\nQuantity of  all students with my name with ignoring register");
+        System.out.print(students.getStudentsWithMyName("Anastasiya"));
+
+        //ArrayList from all names, which begin with "a" with ignoring register
+        System.out.println("\n\nArrayList from all names, which begin with \"a\" with ignoring register:");
+        System.out.print(students.getNamesStartWithA());
+
+        //Method for sorting and returning the first element of the ArrayList
+        System.out.println("\n\nFirst element of sorted ArrayList:");
+        System.out.print(students.SortAndGetFirstElement());
+
     }
 }
