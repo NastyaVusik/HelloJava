@@ -4,11 +4,15 @@ package IPAddress;// Press Shift twice to open the Search Everywhere dialog and 
 
 public class MainIPAddress {
     public static void main(String[] args) {
-        System.out.println("Hello, Java!");
-        System.out.print('1');
-        System.out.println(" ");
-        //System.out.print();    // Error
-        System.out.print("Hello, Java!");
+
+        //Create object of class ConsoleReader
+        ConsoleReader consoleReader = new ConsoleReader();
+
+        System.out.print("Enter IP address: ");
+        CheckIPAddress checkIPAddress = new CheckIPAddress(consoleReader.setConsoleReader());
+
+        checkIPAddress.checkIP();
+
     }
 }
 
