@@ -7,7 +7,7 @@ public class ConsoleReader {
     //Create object of class Scanner
     Scanner scanner = new Scanner(System.in);
 
-    public String setConsoleReader() {
+    public String getConsoleReader() {
         return scanner.nextLine();
     }
 

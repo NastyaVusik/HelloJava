@@ -9,7 +9,7 @@ public class MainIPAddress {
         ConsoleReader consoleReader = new ConsoleReader();
 
         System.out.print("Enter IP address: ");
-        CheckIPAddress checkIPAddress = new CheckIPAddress(consoleReader.setConsoleReader());
+        CheckIPAddress checkIPAddress = new CheckIPAddress(consoleReader.getConsoleReader());
 
         checkIPAddress.checkIP();
 
