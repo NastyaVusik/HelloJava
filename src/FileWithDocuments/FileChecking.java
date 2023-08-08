@@ -4,16 +4,19 @@ import java.io.File;
 
 public class FileChecking {
 
-    //path variable for tests
-//    String path = "src/FileWithDocuments/SecretFolder";
+    //Create object of class FileCreateAndRead
+    FileCreateAndRead fileCreateAndRead = new FileCreateAndRead();
 
-    //Create object of class Console reader
-    ConsoleReader consoleReader = new ConsoleReader();
-    String path = consoleReader.getStringScanner();
+    //Create object of class Reader
+    Reader reader = new Reader();
 
-    //Create new File
-    public void createFileTxt() {
+    //Specify quantity of checking files
+    public int getFileQuantity() {
+        System.out.print("\nEnter quantity of checking files: ");
+        int fileQuantity = reader.getIntScanner();
 
-        File file = new File(path);
+        return fileQuantity;
     }
+
+
 }
