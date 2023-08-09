@@ -11,6 +11,7 @@ public class Reader implements Readable {
     //Create object of class Scanner
     Scanner scanner = new Scanner(System.in);
 
+
     @Override
     public String getStringScanner() {
         return scanner.nextLine();
@@ -21,8 +22,9 @@ public class Reader implements Readable {
         return scanner.nextInt();
     }
 
+
     @Override
-    //Read file
+    //Method for reading file with BufferedReader reader
     public String readWithBufferedReader() throws IOException {
         StringBuilder resultStringBuilder = new StringBuilder();
         try {

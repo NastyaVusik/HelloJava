@@ -39,20 +39,20 @@ public class FileCreateAndRead {
     }
 
 
-    //Read file
-    public String readWithBufferedReader() throws IOException {
-        StringBuilder resultStringBuilder = new StringBuilder();
-        try {
-            BufferedReader br = new BufferedReader(new InputStreamReader(InputStream.nullInputStream()));
-            String line;
-            while ((line = br.readLine()) != null) {
-                resultStringBuilder.append(line).append("\n");
-            }
-        } catch (IOException e) {
-            e.printStackTrace();
-        } finally {
-            InputStream.nullInputStream().close();
-        }
-        return resultStringBuilder.toString();
-    }
+//    //Method for reading file
+//    public String readWithBufferedReader() throws IOException {
+//        StringBuilder resultStringBuilder = new StringBuilder();
+//        try {
+//            BufferedReader br = new BufferedReader(new InputStreamReader(InputStream.nullInputStream()));
+//            String line;
+//            while ((line = br.readLine()) != null) {
+//                resultStringBuilder.append(line).append("\n");
+//            }
+//        } catch (IOException e) {
+//            e.printStackTrace();
+//        } finally {
+//            InputStream.nullInputStream().close();
+//        }
+//        return resultStringBuilder.toString();
+//    }
 }

@@ -37,12 +37,15 @@ public class MainFolderWithDocuments {
 
         //Create object of class FileCreateAndRead
         FileCreateAndRead newFile = new FileCreateAndRead();
-        newFile.createFileTxt();
 
 //Create object of class FileChecking
         FileChecking fileChecking = new FileChecking();
-        fileChecking.getFileQuantity();
 
+        //Create object of class MapCollection
+        MapCollection mapCollection = new MapCollection();
+
+        mapCollection.getFileQuantity();
+        newFile.createFileTxt();
 
     }
 }
