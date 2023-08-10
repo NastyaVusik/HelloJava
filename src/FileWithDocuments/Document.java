@@ -1,8 +1,11 @@
 package FileWithDocuments;
 
+import java.util.ArrayList;
 import java.util.Map;
+import java.util.function.IntFunction;
+import java.util.regex.Matcher;
 
-public class Document {
+public class Document extends ArrayList<Matcher> {
     private String docNumber;
     private String email;
     private String phoneNumber;
@@ -52,5 +55,10 @@ public class Document {
         return "Document number: " + getDocNumber() + "\n" +
                 "Email: " + getEmail() + "\n" +
                 "Phone number: " + getPhoneNumber() + ";\n";
+    }
+
+    @Override
+    public <T> T[] toArray(IntFunction<T[]> generator) {
+        return super.toArray(generator);
     }
 }

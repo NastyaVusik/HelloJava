@@ -1,5 +1,8 @@
 package FileWithDocuments;
 
+import java.io.File;
+import java.util.List;
+
 public class MainFolderWithDocuments {
 
 
@@ -44,8 +47,10 @@ public class MainFolderWithDocuments {
         //Create object of class MapCollection
         MapCollection mapCollection = new MapCollection();
 
-        mapCollection.getFileQuantity();
+
         newFile.createFileTxt();
+        newFile.getFileQuantity();
+        newFile.createFileTxtList();
 
     }
 }
