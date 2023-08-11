@@ -57,8 +57,8 @@ public class Document extends ArrayList<Matcher> {
                 "Phone number: " + getPhoneNumber() + ";\n";
     }
 
-    @Override
-    public <T> T[] toArray(IntFunction<T[]> generator) {
-        return super.toArray(generator);
-    }
+//    @Override
+//    public <T> T[] toArray(IntFunction<T[]> generator) {
+//        return super.toArray(generator);
+//    }
 }

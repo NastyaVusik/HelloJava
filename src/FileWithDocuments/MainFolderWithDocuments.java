@@ -1,8 +1,5 @@
 package FileWithDocuments;
 
-import java.io.File;
-import java.util.List;
-
 public class MainFolderWithDocuments {
 
 
@@ -38,8 +35,8 @@ public class MainFolderWithDocuments {
 
     public static void main(String[] args) {
 
-        //Create object of class FileCreateAndRead
-        FileCreateAndRead newFile = new FileCreateAndRead();
+        //Create object of class FileCreate
+        FileCreate newFile = new FileCreate();
 
 //Create object of class FileChecking
         FileChecking fileChecking = new FileChecking();
@@ -49,8 +46,8 @@ public class MainFolderWithDocuments {
 
 
         newFile.createFileTxt();
-        newFile.getFileQuantity();
-        newFile.createFileTxtList();
-
+        System.out.println(newFile.createFileTxtList());
+//        System.out.println(newFile.getFileQuantity());
+        System.out.println(mapCollection.fillDocMap());
     }
 }

@@ -1,6 +1,8 @@
 package FileWithDocuments;
 
+import java.io.File;
 import java.io.IOException;
+import java.util.List;
 
 public interface Readable {
 
@@ -11,6 +13,6 @@ public interface Readable {
     int getIntScanner();
 
     //Read from file
-    String readWithBufferedReader() throws IOException;
+    List<String> readWithBufferedReader(File file) throws IOException;
 
 }

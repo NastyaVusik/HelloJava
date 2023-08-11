@@ -1,9 +1,8 @@
 package FileWithDocuments;
 
-import java.io.BufferedReader;
-import java.io.IOException;
-import java.io.InputStream;
-import java.io.InputStreamReader;
+import java.io.*;
+import java.util.ArrayList;
+import java.util.List;
 import java.util.Scanner;
 
 public class Reader implements Readable {
@@ -25,19 +24,17 @@ public class Reader implements Readable {
 
     @Override
     //Method for reading file with BufferedReader reader
-    public String readWithBufferedReader() throws IOException {
-        StringBuilder resultStringBuilder = new StringBuilder();
-        try {
-            BufferedReader br = new BufferedReader(new InputStreamReader(InputStream.nullInputStream()));
+    public List<String> readWithBufferedReader(File file) throws IOException {
+        List<String> resultList = new ArrayList<>();
+        try (BufferedReader bufReader = new BufferedReader(new FileReader(file))) {
+
             String line;
-            while ((line = br.readLine()) != null) {
-                resultStringBuilder.append(line).append("\n");
+            while ((line = bufReader.readLine()) != null) {
+                resultList.add(line + "\n");
             }
         } catch (IOException e) {
             e.printStackTrace();
-        } finally {
-            InputStream.nullInputStream().close();
         }
-        return resultStringBuilder.toString();
+        return resultList;
     }
 }

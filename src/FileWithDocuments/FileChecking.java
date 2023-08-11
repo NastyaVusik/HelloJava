@@ -6,8 +6,8 @@ import java.util.regex.Pattern;
 
 public class FileChecking {
 
-    //Create object of class FileCreateAndRead
-    FileCreateAndRead fileCreateAndRead = new FileCreateAndRead();
+    //Create object of class FileCreate
+    FileCreate fileCreate = new FileCreate();
 
     //Create object of class Reader
     Reader reader = new Reader();
@@ -64,7 +64,7 @@ public class FileChecking {
 
 
     //Method for finding new lines, which are satisfied to requirements of refEx
-    public ArrayList<Matcher> findRegexInText(Matcher matcher) {
+    public ArrayList<Matcher> findRegexInText() {
 
         //Create collection ArrayList docList to keep info about the document (DocNumber, Email, PhoneNumber)
         ArrayList<Matcher> docList = new ArrayList<>();

@@ -1,35 +1,38 @@
 package FileWithDocuments;
 
 import java.io.*;
-import java.nio.file.DirectoryStream;
-import java.nio.file.Files;
-import java.nio.file.Path;
-import java.nio.file.Paths;
 import java.util.ArrayList;
-import java.util.Arrays;
 import java.util.List;
-import java.util.stream.Stream;
 
-public class FileCreateAndRead {
+public class FileCreate {
     //path variable for tests
 //    String path = "src/FileWithDocuments/SecretFolder";
 
     //Create object of class Reader
     Readable reader = new Reader();
+
+    //Variable for keeping a path to the folder with files
     String path;
-    int fileCount;
+
+    //Declare list for keeping all txt files in the folder
+    List<File> fileTxtList = new ArrayList<>();
+
+    //Variable of quantity of verified files
+    int fileQuantity;
 
 
     //Create new File
     public void createFileTxt() {
         String answer = "y";
 
+
         while (answer.equals("y")) {
             System.out.print("\nEnter path to the file or \"q\" - if you don't want to create a new file in the folder: ");
             path = reader.getStringScanner();
             if (path.equals("q")) {
                 break;
-            } else {
+            }
+            if (path.startsWith("src/")) {
                 try {
                     File file = new File(path);
                     if (file.createNewFile()) {
@@ -55,44 +58,44 @@ public class FileCreateAndRead {
 
 
     //Method for creating file's List from txt files
-    public List<String> createFileTxtList() {
+    public List<File> createFileTxtList() {
         System.out.print("\nEnter path to required folder with files: ");                     //?????????????How to take path from previous method????????
-        String pathFolder = reader.getStringScanner();
+        path = reader.getStringScanner();
 
         //Creating a File object for directory
-        File file = new File(pathFolder);
+        File files = new File(path);
 
-        //List of all files and directories
-        List<String> fileTxtList = new ArrayList<>();
-        for (String file1 : fileTxtList.stream().toList()) {
-            if (file1.endsWith(".txt")) {
-                fileTxtList.add(file1.toString());
+
+        //Fill List of all files and directories
+//        fileTxtList = new ArrayList<>();
+
+        for (File file : files.listFiles()) {
+            if (file.toString().endsWith(".txt")) {
+
+                fileTxtList.add(file);
             }
         }
 
-        fileTxtList.forEach(System.out::println);
+//        fileTxtList.forEach(System.out::println);
+        System.out.print("\nSize of file.txt List: " + fileTxtList.size() + "\n");
+        System.out.println("\nList of files.txt in required directory:");
         return fileTxtList;
     }
 
-//        try (DirectoryStream<Path> stream = Files.newDirectoryStream(Paths.get(path))) {
-//            for (Path path1 : stream) {
-//                if (!Files.isDirectory(path1)) {
-//                    fileTxtList.add(path1.toFile());
-//                }
-//            }
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        }
-//        fileTxtList.forEach(System.out::println);
-//        return fileTxtList;
-//    }
-
 
     //Specify quantity of checking files
-    public int getFileQuantity() {
+    public int enterFileQuantity() {
         System.out.print("\nEnter quantity of checking files: ");
         int fileQuantity = reader.getIntScanner();
+        reader.getStringScanner();
 
+        if (fileQuantity > fileTxtList.size()) {
+            fileQuantity = fileTxtList.size();
+
+            System.out.print("Real quantity of checking files: " + fileQuantity);
+//            return fileQuantity;
+        }
+        System.out.print("Real quantity of checking files: " + fileQuantity);
         return fileQuantity;
     }
 
