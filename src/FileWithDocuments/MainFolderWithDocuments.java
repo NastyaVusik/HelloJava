@@ -10,12 +10,14 @@ public class MainFolderWithDocuments {
 //    номер документа в формате: xxxx-yyy-xxxx-yyy-xyxy, где x - это
 //    любая цифра, а y - это любая буква русского или латинского алфавита
 //    номер телефона в формате: +(ХХ)ХХХХХХХ
+
 //    Документ может содержать не всю информацию, т.е. например, может не
 //    содержать номер телефона, или другое поле.
 //    Необходимо извлечь информацию из N текстовых документов. Число
 //    документов для обработки N задается с консоли.
 //    Если в папке содержится меньше документов, чем заданное число -
 //    следует обрабатывать все документы.
+
 //    Извлеченную информацию необходимо сохранить в следующую
 //    структуру данных:
 //    Map<String, Document>, где
@@ -35,19 +37,33 @@ public class MainFolderWithDocuments {
 
     public static void main(String[] args) {
 
+        //Create object of class Reader
+        Readable reader = new Reader();
+
+        //path variable for tests
+        String path = "src/FileWithDocuments/SecretFolder";
+
+//        System.out.print("\n\nEnter path to the Secret folder: ");
+//        String path = reader.getStringScanner();
+
+        //Variable of quantity of files for reading
+        System.out.print("\nEnter quantity of checking files: ");
+        int fileQuantity = reader.getIntScanner();
+        reader.getStringScanner();
+
         //Create object of class FileCreate
-        FileCreate newFile = new FileCreate();
+        FileCreate fileCreate = new FileCreate(path, fileQuantity);
 
 //Create object of class FileChecking
-        FileChecking fileChecking = new FileChecking();
+//        FileChecking fileChecking = new FileChecking();
 
         //Create object of class MapCollection
-        MapCollection mapCollection = new MapCollection();
+        MapCollection mapCollection = new MapCollection(fileCreate);
 
 
-        newFile.createFileTxt();
-        System.out.println(newFile.createFileTxtList());
-//        System.out.println(newFile.getFileQuantity());
-        System.out.println(mapCollection.fillDocMap());
+        fileCreate.createFileTxtList();
+
+
+        System.out.println("\nMap collection is:\n" + mapCollection.fillDocMap());
     }
 }

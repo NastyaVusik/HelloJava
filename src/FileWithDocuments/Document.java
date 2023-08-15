@@ -1,11 +1,6 @@
 package FileWithDocuments;
 
-import java.util.ArrayList;
-import java.util.Map;
-import java.util.function.IntFunction;
-import java.util.regex.Matcher;
-
-public class Document extends ArrayList<Matcher> {
+public class Document {
     private String docNumber;
     private String email;
     private String phoneNumber;

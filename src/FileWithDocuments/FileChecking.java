@@ -1,13 +1,14 @@
 package FileWithDocuments;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.regex.Matcher;
 import java.util.regex.Pattern;
 
 public class FileChecking {
 
     //Create object of class FileCreate
-    FileCreate fileCreate = new FileCreate();
+    FileCreate fileCreate;
 
     //Create object of class Reader
     Reader reader = new Reader();
@@ -18,13 +19,17 @@ public class FileChecking {
     private String regexPhoneNumber = "\\+\\([0-9]{2}\\)[0-9]{7}";
 
 
+    public FileChecking(FileCreate fileCreate) {
+        this.fileCreate = fileCreate;
+    }
+
     //Method for checking the document number
-    public boolean checkDocNumber() {
+    public boolean checkDocNumber(String line) {
         //Compile regEx
         Pattern pattern = Pattern.compile(regexDocNumber);
 
         //Find match between pattern ipRegex and the document number
-        matcher = pattern.matcher(regexDocNumber);
+        matcher = pattern.matcher(line);
         if (matcher.matches()) {
             return true;
         } else {
@@ -34,12 +39,12 @@ public class FileChecking {
 
 
     //Method for checking Email
-    public boolean checkEmail() {
+    public boolean checkEmail(String line) {
         //Compile regEx
         Pattern pattern = Pattern.compile(regexEmail);
 
         //Find match between pattern ipRegex and email
-        matcher = pattern.matcher(regexEmail);
+        matcher = pattern.matcher(line);
         if (matcher.matches()) {
             return true;
         } else {
@@ -49,12 +54,12 @@ public class FileChecking {
 
 
     //Method for checking phone number
-    public boolean checkPhoneNumber() {
+    public boolean checkPhoneNumber(String line) {
         //Compile regEx
         Pattern pattern = Pattern.compile(regexPhoneNumber);
 
         //Find match between pattern ipRegex and phone number
-        matcher = pattern.matcher(regexPhoneNumber);
+        matcher = pattern.matcher(line);
         if (matcher.matches()) {
             return true;
         } else {
@@ -64,31 +69,50 @@ public class FileChecking {
 
 
     //Method for finding new lines, which are satisfied to requirements of refEx
-    public ArrayList<Matcher> findRegexInText() {
+    public ArrayList<Document> findRegexInText(List<String> lines) {
 
         //Create collection ArrayList docList to keep info about the document (DocNumber, Email, PhoneNumber)
-        ArrayList<Matcher> docList = new ArrayList<>();
+        ArrayList<Document> docList = new ArrayList<>();
 
         //Create object of document, which contain info: DocNumber, Email(not always), PhoneNumber(not always)
         Document document = new Document();
 
-        if (checkDocNumber() == matcher.find()) {
-            docList.add(matcher);
-            document.setDocNumber(String.valueOf(matcher));             //matcher.group() better????????????????????????????
-        }
+//        boolean hasOldDocNumber = false;
+//        boolean hasOldEmail = false;
+//        boolean hasOldPhoneNumber = false;
 
-        if (checkEmail() == matcher.find()) {
-            docList.add(matcher);
-            document.setEmail(String.valueOf(matcher));
-        }
+        for (String line : lines) {
 
-        if (checkPhoneNumber() == true) {
-            docList.add(matcher);
-            document.setPhoneNumber(String.valueOf(matcher));
+            if (checkDocNumber(line) == true) {
 
+
+                docList.add(document.setDocNumber(line));
+
+
+                document.setDocNumber(String.valueOf(matcher));             //matcher.group() better????????????????????????????
+
+            }
+
+            if (checkEmail(line) == true) {
+                if (hasOldEmail == true) {
+                    document.setEmail(String.valueOf(matcher));
+//                    docList.add(matcher);
+                }
+            }
+
+            if (checkPhoneNumber(line) == true) {
+                if (hasOldPhoneNumber == true) {
+//                    docList.add(document.setPhoneNumber(line));
+                    document.setPhoneNumber(String.valueOf(matcher));
+                } else {
+                    System.out.print("\n\n");
+                }
+
+            }
+            System.out.print("\nArray List< Document >:\n " + docList);
         }
-        return document;
-//        return docList;
+//        return document;
+        return docList;
 
     }
 

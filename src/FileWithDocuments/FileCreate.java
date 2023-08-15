@@ -5,20 +5,23 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class FileCreate {
-    //path variable for tests
-//    String path = "src/FileWithDocuments/SecretFolder";
+    //Variable for keeping a path to the folder with files
+    String path;
+
+    //Variable of quantity of verified files
+    int fileQuantity;
+
 
     //Create object of class Reader
     Readable reader = new Reader();
 
-    //Variable for keeping a path to the folder with files
-    String path;
-
     //Declare list for keeping all txt files in the folder
-    List<File> fileTxtList = new ArrayList<>();
+    List<File> fileTxtList;
 
-    //Variable of quantity of verified files
-    int fileQuantity;
+    public FileCreate(String path, int fileQuantity) {
+        this.path = path;
+        this.fileQuantity = fileQuantity;
+    }
 
 
     //Create new File
@@ -59,61 +62,41 @@ public class FileCreate {
 
     //Method for creating file's List from txt files
     public List<File> createFileTxtList() {
-        System.out.print("\nEnter path to required folder with files: ");                     //?????????????How to take path from previous method????????
-        path = reader.getStringScanner();
 
         //Creating a File object for directory
-        File files = new File(path);
-
+        File filesDir = new File(path);
+        File[] files = filesDir.listFiles();
 
         //Fill List of all files and directories
-//        fileTxtList = new ArrayList<>();
+        fileTxtList = new ArrayList<>();
 
-        for (File file : files.listFiles()) {
-            if (file.toString().endsWith(".txt")) {
+        for (File file : files) {
+            if (file.getPath().endsWith(".txt")) {
 
                 fileTxtList.add(file);
             }
         }
 
-//        fileTxtList.forEach(System.out::println);
         System.out.print("\nSize of file.txt List: " + fileTxtList.size() + "\n");
-        System.out.println("\nList of files.txt in required directory:");
+        System.out.println("\nList of files.txt in required directory:\n" + fileTxtList.toString());
         return fileTxtList;
     }
 
 
     //Specify quantity of checking files
-    public int enterFileQuantity() {
-        System.out.print("\nEnter quantity of checking files: ");
-        int fileQuantity = reader.getIntScanner();
-        reader.getStringScanner();
+    public int getFileQuantity(List<File> fileTxtList) {
 
+        System.out.println("\nfileTxtList.size() = " + fileTxtList.size() + "\n");
         if (fileQuantity > fileTxtList.size()) {
             fileQuantity = fileTxtList.size();
 
-            System.out.print("Real quantity of checking files: " + fileQuantity);
-//            return fileQuantity;
+            System.out.print("Real quantity of checking files: ");
+            return fileQuantity;
         }
-        System.out.print("Real quantity of checking files: " + fileQuantity);
+        System.out.print("Real quantity of checking files: ");
         return fileQuantity;
     }
-
-
-    //    //Method for reading file
-//    public String readWithBufferedReader() throws IOException {
-//        StringBuilder resultStringBuilder = new StringBuilder();
-//        try {
-//            BufferedReader br = new BufferedReader(new InputStreamReader(InputStream.nullInputStream()));
-//            String line;
-//            while ((line = br.readLine()) != null) {
-//                resultStringBuilder.append(line).append("\n");
-//            }
-//        } catch (IOException e) {
-//            e.printStackTrace();
-//        } finally {
-//            InputStream.nullInputStream().close();
-//        }
-//        return resultStringBuilder.toString();
-//    }
 }
+
+
+
