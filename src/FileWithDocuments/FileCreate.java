@@ -18,6 +18,12 @@ public class FileCreate {
     //Declare list for keeping all txt files in the folder
     List<File> fileTxtList;
 
+
+    public FileCreate() {
+        this.path = path;
+        this.fileQuantity = fileQuantity;
+    }
+
     public FileCreate(String path, int fileQuantity) {
         this.path = path;
         this.fileQuantity = fileQuantity;
@@ -30,7 +36,7 @@ public class FileCreate {
 
 
         while (answer.equals("y")) {
-            System.out.print("\nEnter path to the file or \"q\" - if you don't want to create a new file in the folder: ");
+            System.out.print("\nEnter path to the new file or \"q\" - if you don't want to create a new file in the folder: ");
             path = reader.getStringScanner();
             if (path.equals("q")) {
                 break;
@@ -66,6 +72,10 @@ public class FileCreate {
         //Creating a File object for directory
         File filesDir = new File(path);
         File[] files = filesDir.listFiles();
+
+        if (files == null) {
+            System.out.println("\nSecret folder is empty\n");
+        }
 
         //Fill List of all files and directories
         fileTxtList = new ArrayList<>();

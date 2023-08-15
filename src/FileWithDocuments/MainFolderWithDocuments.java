@@ -40,27 +40,32 @@ public class MainFolderWithDocuments {
         //Create object of class Reader
         Readable reader = new Reader();
 
-        //path variable for tests
-        String path = "src/FileWithDocuments/SecretFolder";
+        //Create object of class FileCreate
+        FileCreate fileCreate1 = new FileCreate();
 
-//        System.out.print("\n\nEnter path to the Secret folder: ");
-//        String path = reader.getStringScanner();
+        //If you want to create a new file in Secret folder
+        fileCreate1.createFileTxt();
+
+
+        //path variable for tests
+//        String path = "src/FileWithDocuments/SecretFolder";         //Path for tests
+
+        System.out.print("\n\nEnter path to the Secret folder: ");
+        String path = reader.getStringScanner();
 
         //Variable of quantity of files for reading
         System.out.print("\nEnter quantity of checking files: ");
         int fileQuantity = reader.getIntScanner();
         reader.getStringScanner();
 
-        //Create object of class FileCreate
+//        Create object of class FileCreate
         FileCreate fileCreate = new FileCreate(path, fileQuantity);
 
-//Create object of class FileChecking
-//        FileChecking fileChecking = new FileChecking();
 
         //Create object of class MapCollection
         MapCollection mapCollection = new MapCollection(fileCreate);
 
-
+        System.out.println("\n\n***************************************\n In main:");
         fileCreate.createFileTxtList();
 
 

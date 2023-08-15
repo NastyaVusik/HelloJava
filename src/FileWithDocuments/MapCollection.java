@@ -10,19 +10,11 @@ import java.util.regex.Matcher;
 
 public class MapCollection {
 
-    //Create object of class Document
-//    Document document = new Document();
-
     //Create Map collection
     private Map<String, Document> docMap = new TreeMap<>();
 
     //Create object of class Reader
     Reader reader = new Reader();
-
-
-    //Create object of class FileChecking
-//    FileChecking fileChecking = new FileChecking();
-
 
     //Create object of class FileCreate
     FileCreate fileCreate;
@@ -32,19 +24,8 @@ public class MapCollection {
     }
 
 
-//    //Getter and Setters
-//
-//    public Map<String, Document> getDocMap() {
-//        return docMap;
-//    }
-//
-//    public void setDocMap(Map<String, Document> docMap) {
-//        this.docMap = docMap;
-//    }
-
-
     //Method for finding document's numbers from the files and filling collection
-    public Map fillDocMap() {
+    public Map<String, Document> fillDocMap() {
 
 //        //Read files in the folder
 //        System.out.print("\nEnter path to the folder with files: ");
@@ -53,19 +34,21 @@ public class MapCollection {
         FileChecking fileChecking = new FileChecking(fileCreate);
 
         for (int i = 0; i <= quantity; i++) {
-            ArrayList<Document> documents = null;
-            File fileInfo = fileCreate.fileTxtList.get(i);
+            ArrayList<String> docList;
+            File filePath = fileCreate.fileTxtList.get(i);
             Document document = new Document();
             try {
-                List<String> lines = reader.readWithBufferedReader(fileInfo);
+                List<String> lines = reader.readWithBufferedReader(filePath);
 
-                documents = fileChecking.findRegexInText(lines);
+                docList = fileChecking.findRegexInText(lines);
+                document = fileChecking.getDocument(lines);
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
 
-            for (Document document1 : documents) {
-                docMap.put(document.getDocNumber(), document);
+            for (String fileName : docList) {
+                fileName = filePath.getName().substring(0, filePath.getName().lastIndexOf("."));
+                docMap.put(fileName, fileChecking.document);
 
             }
         }

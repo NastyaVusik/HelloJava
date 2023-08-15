@@ -1,6 +1,9 @@
 package FileWithDocuments;
 
-public class Document {
+import java.util.ArrayList;
+import java.util.function.IntFunction;
+
+public class Document extends ArrayList<Document> {
     private String docNumber;
     private String email;
     private String phoneNumber;
@@ -47,9 +50,9 @@ public class Document {
 
     @Override
     public String toString() {
-        return "Document number: " + getDocNumber() + "\n" +
+        return " Document number: " + getDocNumber() + "\n" +
                 "Email: " + getEmail() + "\n" +
-                "Phone number: " + getPhoneNumber() + ";\n";
+                "Phone number: " + getPhoneNumber() + ";\n\n";
     }
 
 //    @Override
