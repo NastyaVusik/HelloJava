@@ -27,30 +27,26 @@ public class MapCollection {
     //Method for finding document's numbers from the files and filling collection
     public Map<String, Document> fillDocMap() {
 
-//        //Read files in the folder
-//        System.out.print("\nEnter path to the folder with files: ");
-
         int quantity = fileCreate.fileQuantity;
         FileChecking fileChecking = new FileChecking(fileCreate);
 
-        for (int i = 0; i <= quantity; i++) {
-            ArrayList<String> docList;
+        for (int i = 0; i < quantity; i++) {
+
             File filePath = fileCreate.fileTxtList.get(i);
-            Document document = new Document();
             try {
                 List<String> lines = reader.readWithBufferedReader(filePath);
+                String fileName = filePath.getName().substring(0, filePath.getName().lastIndexOf("."));
 
-                docList = fileChecking.findRegexInText(lines);
-                document = fileChecking.getDocument(lines);
+
+                List<Document> documents = fileChecking.getDocumentList(lines);
+
+                for (Document document : documents) {
+                    docMap.put(fileName, document);
+                }
             } catch (IOException e) {
                 throw new RuntimeException(e);
             }
 
-            for (String fileName : docList) {
-                fileName = filePath.getName().substring(0, filePath.getName().lastIndexOf("."));
-                docMap.put(fileName, fileChecking.document);
-
-            }
         }
         return docMap;
     }

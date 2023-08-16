@@ -67,7 +67,7 @@ public class FileCreate {
 
 
     //Method for creating file's List from txt files
-    public List<File> createFileTxtList() {
+    public void createFileTxtList() {
 
         //Creating a File object for directory
         File filesDir = new File(path);
@@ -89,7 +89,7 @@ public class FileCreate {
 
         System.out.print("\nSize of file.txt List: " + fileTxtList.size() + "\n");
         System.out.println("\nList of files.txt in required directory:\n" + fileTxtList.toString());
-        return fileTxtList;
+
     }
 
 

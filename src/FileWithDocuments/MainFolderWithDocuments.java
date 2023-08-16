@@ -67,6 +67,7 @@ public class MainFolderWithDocuments {
 
         System.out.println("\n\n***************************************\n In main:");
         fileCreate.createFileTxtList();
+        fileCreate.getFileQuantity(fileCreate.fileTxtList);
 
 
         System.out.println("\nMap collection is:\n" + mapCollection.fillDocMap());

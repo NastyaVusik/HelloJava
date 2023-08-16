@@ -16,8 +16,6 @@ public class FileChecking {
     Matcher emailMatcher;
     Matcher phoneNumberMatcher;
 
-    //Create object of document, which contain info: DocNumber, Email(not always), PhoneNumber(not always)
-    Document document = new Document();
 
     private String regexDocNumber = "[0-9]{4}-[a-zA-Zа-яА-Я]{3}-[0-9]{4}-[a-zA-Zа-яА-Я]{3}-[0-9][a-zA-Zа-яА-Я][0-9][a-zA-Zа-яА-Я]";         //\d{4}-[a-zA-Zа-яА-Я]{3}-\d{4}-[a-zA-Zа-яА-Я]{3}-\d[a-zA-Zа-яА-Я][0-9][a-zA-Zа-яА-Я]
     private String regexEmail = "^(.+)@(.+)$";
@@ -68,55 +66,51 @@ public class FileChecking {
         if (phoneNumberMatcher.find()) {
             return true;
         } else {
-            return false;                               //"There are no any phone numbers or they aren't satisfy required regEx"
+            return false;                               //"There are no any phone numbers, or they aren't satisfy required regEx"
         }
     }
 
 
     //Method for finding new lines, which are satisfied to requirements of refEx
-    public ArrayList<String> findRegexInText(List<String> lines) {
-
-        //Create collection ArrayList docList to keep info about the document (DocNumber, Email, PhoneNumber)
-        ArrayList<String> docList = new ArrayList<>();
-
-        for (String line : lines) {
-
-            if (checkDocNumber(line) == true) {
-                String docNumber = docNumberMatcher.group();
-                docList.add(docNumber);
-            }
+//    public ArrayList<String> findRegexInText(List<String> lines) {
 //
-//            if (checkEmail(line) == true) {
-//                String email = emailMatcher.group();
-//                docList.add(email);
+//        //Create collection ArrayList docList to keep info about the document (DocNumber, Email, PhoneNumber)
+//        ArrayList<String> docList = new ArrayList<>();
+//
+//        for (String line : lines) {
+//
+//            if (checkDocNumber(line) == true) {
+//                String docNumber = docNumberMatcher.group();
+//                docList.add(docNumber);
 //            }
 //
-//            if (checkPhoneNumber(line) == true) {
-//                String phoneNumber = phoneNumberMatcher.group();
-//                docList.add(phoneNumber);
-//
-//            }
-        }
-        System.out.print("\nArray docList <String> for document's numbers\n " +
-                docList + "\n");
-//        return document;
-        return docList;
+//        }
+//        System.out.print("\nArray docList <String> for document's numbers\n " +
+//                docList + "\n");
+//        return docList;
 
-    }
+//    }
 
 
     //Method for creating documents from refEx in required quantity of files
-    public Document getDocument(List<String> lines) {
+    public List<Document> getDocumentList(List<String> lines) {
+        boolean firstDocument = true;
 
-//        boolean hasOldDocNumber = false;
-//        boolean hasOldEmail = false;
-//        boolean hasOldPhoneNumber = false;
+        List<Document> documents = new ArrayList<>();
+
+        //Create object of document, which contain info: DocNumber, Email(not always), PhoneNumber(not always)
+        Document document = new Document();
 
         for (String line : lines) {
 
             if (checkDocNumber(line) == true) {
+                if (firstDocument == false) {
+                    documents.add(document);
+                    document = new Document();
+                }
                 String docNumber = docNumberMatcher.group();
                 document.setDocNumber(docNumber);
+                firstDocument = false;
             }
 
 
@@ -131,8 +125,12 @@ public class FileChecking {
 
             }
         }
-        System.out.println("\nDocument: " + document);
-        return document;
+
+        if (firstDocument == false) {
+            documents.add(document);
+        }
+        System.out.println("\nDocument: " + documents);
+        return documents;
 
     }
 
