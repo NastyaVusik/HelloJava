@@ -3,7 +3,7 @@ package FileWithDocuments;
 import java.util.ArrayList;
 import java.util.function.IntFunction;
 
-public class Document extends ArrayList<Document> {
+public class Document {
     private String docNumber;
     private String email;
     private String phoneNumber;
@@ -55,8 +55,4 @@ public class Document extends ArrayList<Document> {
                 "Phone number: " + getPhoneNumber() + ";\n\n";
     }
 
-//    @Override
-//    public <T> T[] toArray(IntFunction<T[]> generator) {
-//        return super.toArray(generator);
-//    }
 }
