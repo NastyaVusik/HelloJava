@@ -7,14 +7,14 @@ import java.util.Set;
 
 public class Hello_Java {
     public static void main(String[] args) {
-        Set<String> qqq = addToLovelyCurrencies("m", "x");
+//        Set<String> qqq = addToLovelyCurrencies("m", "x");
 
-        System.out.println(qqq);
+        System.out.println(addToLovelyCurrencies("m", "a"));
     }
 
     public static Set<String> addToLovelyCurrencies(String fromCurrency, String toCurrency) {
         Set<String> lovelyCurrencies = new HashSet<>();
-        int limit = 6;
+        int limit = 8;
 
         lovelyCurrencies.add("a");
         lovelyCurrencies.add("b");
@@ -25,13 +25,27 @@ public class Hello_Java {
         lovelyCurrencies.add("h");
         lovelyCurrencies.add("k");
 
-
-        while ((!lovelyCurrencies.isEmpty()) & (lovelyCurrencies.size() < limit)) {
+        if (lovelyCurrencies.size() == limit) {
             lovelyCurrencies.remove(lovelyCurrencies.stream().iterator().next());
-            lovelyCurrencies.remove(lovelyCurrencies.stream().iterator().next());
-            lovelyCurrencies.add(fromCurrency);
-            lovelyCurrencies.add(toCurrency);
+//            lovelyCurrencies.add(fromCurrency);
+//            lovelyCurrencies.add(toCurrency);
         }
+
+
+//        while ((lovelyCurrencies.size() < limit) & (!lovelyCurrencies.isEmpty())) {
+//            lovelyCurrencies.remove(lovelyCurrencies.stream().iterator().next());
+//            lovelyCurrencies.remove(lovelyCurrencies.stream().iterator().next());
+//            lovelyCurrencies.add(fromCurrency);
+//            lovelyCurrencies.add(toCurrency);
+//        }
+
+
+//        while ((!lovelyCurrencies.isEmpty()) & (lovelyCurrencies.size() < limit)) {
+//            lovelyCurrencies.remove(lovelyCurrencies.stream().iterator().next());
+//            lovelyCurrencies.remove(lovelyCurrencies.stream().iterator().next());
+//            lovelyCurrencies.add(fromCurrency);
+//            lovelyCurrencies.add(toCurrency);
+//        }
 
         return lovelyCurrencies;
     }
