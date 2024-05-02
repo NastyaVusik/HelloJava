@@ -19,4 +19,5 @@ public class Key implements Comparable<Key> {
     public String toString() {
         return "Key {proirity = " + priority + "}";
     }
+
 }
